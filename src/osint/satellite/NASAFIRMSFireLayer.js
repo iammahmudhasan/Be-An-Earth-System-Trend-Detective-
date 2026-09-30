@@ -25,20 +25,44 @@ export class NASAFIRMSFireLayer {
   render() {
     this.clear();
     const thermalHotspots = [
-      { name: 'Chittagong Hill Tracts Clearing Hotspot', lat: 22.33, lon: 92.21, frp: '42.5 MW', conf: '94%' },
-      { name: 'Gazipur Industrial Thermal Plume', lat: 24.00, lon: 90.42, frp: '68.1 MW', conf: '99%' },
-      { name: 'Sreepur Agricultural Biomass Burn', lat: 24.20, lon: 90.48, frp: '21.0 MW', conf: '88%' },
-      { name: 'Rupsha River Brick Kiln Cluster', lat: 22.80, lon: 89.58, frp: '54.2 MW', conf: '96%' }
+      {
+        name: 'Chittagong Hill Tracts Clearing Hotspot',
+        lat: 22.33,
+        lon: 92.21,
+        frp: '42.5 MW',
+        conf: '94%',
+      },
+      {
+        name: 'Gazipur Industrial Thermal Plume',
+        lat: 24.0,
+        lon: 90.42,
+        frp: '68.1 MW',
+        conf: '99%',
+      },
+      {
+        name: 'Sreepur Agricultural Biomass Burn',
+        lat: 24.2,
+        lon: 90.48,
+        frp: '21.0 MW',
+        conf: '88%',
+      },
+      {
+        name: 'Rupsha River Brick Kiln Cluster',
+        lat: 22.8,
+        lon: 89.58,
+        frp: '54.2 MW',
+        conf: '96%',
+      },
     ];
 
-    thermalHotspots.forEach(spot => {
+    thermalHotspots.forEach((spot) => {
       const entity = this.viewer.entities.add({
         position: Cesium.Cartesian3.fromDegrees(spot.lon, spot.lat, 200),
         point: {
           pixelSize: 14,
           color: Cesium.Color.ORANGERED,
           outlineColor: Cesium.Color.YELLOW,
-          outlineWidth: 3
+          outlineWidth: 3,
         },
         label: {
           text: `🔥 ${spot.name}\nFRP: ${spot.frp} | Conf: ${spot.conf}`,
@@ -47,15 +71,15 @@ export class NASAFIRMSFireLayer {
           showBackground: true,
           backgroundColor: Cesium.Color.BLACK.withAlpha(0.8),
           verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
-          pixelOffset: new Cesium.Cartesian2(0, -12)
-        }
+          pixelOffset: new Cesium.Cartesian2(0, -12),
+        },
       });
       this.entities.push(entity);
     });
   }
 
   clear() {
-    this.entities.forEach(e => this.viewer.entities.remove(e));
+    this.entities.forEach((e) => this.viewer.entities.remove(e));
     this.entities = [];
   }
 }

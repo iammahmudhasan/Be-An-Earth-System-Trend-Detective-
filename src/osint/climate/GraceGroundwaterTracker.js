@@ -1,7 +1,7 @@
 /**
  * @file GraceGroundwaterTracker.js
  * @module Climate/GraceGroundwaterTracker
- * @description NASA GRACE & GRACE-FO Satellite Gravimetry Terrestrial Water Storage (TWS) 
+ * @description NASA GRACE & GRACE-FO Satellite Gravimetry Terrestrial Water Storage (TWS)
  * Anomaly & Groundwater Depletion Analytics Engine across the North Bengal Barind Tract
  * (Rajshahi, Naogaon, Chapai Nawabganj, Bogra, Joypurhat, Dinajpur, Rangpur, Gaibandha).
  *
@@ -16,10 +16,10 @@ import * as Cesium from 'cesium';
 // ============================================================================
 
 export const BARIND_BOUNDING_BOX = {
-  west: 88.00,
-  south: 24.10,
-  east: 89.60,
-  north: 26.20,
+  west: 88.0,
+  south: 24.1,
+  east: 89.6,
+  north: 26.2,
 };
 
 /**
@@ -31,29 +31,29 @@ export const HYDROGEOLOGICAL_STRATIGRAPHY = {
     depthRangeMeters: [0, 15],
     hydraulicConductivityMPerDay: 0.005,
     porosity: 0.38,
-    rechargeRestriction: 'Very High (impervious red-brown clay)'
+    rechargeRestriction: 'Very High (impervious red-brown clay)',
   },
   upperAquifer: {
     name: 'Upper Dupi Tila Unconfined Aquifer',
     depthRangeMeters: [15, 45],
     hydraulicConductivityMPerDay: 12.5,
     porosity: 0.28,
-    depletionStatus: 'Critically Depleted / Seasonally Dry'
+    depletionStatus: 'Critically Depleted / Seasonally Dry',
   },
   aquitard: {
     name: 'Upper Dupi Tila Silt/Clay Interbed Aquitard',
     depthRangeMeters: [45, 62],
     hydraulicConductivityMPerDay: 0.02,
     porosity: 0.32,
-    leakageIndex: 'Low Semi-confining'
+    leakageIndex: 'Low Semi-confining',
   },
   lowerAquifer: {
     name: 'Lower Dupi Tila Deep Semi-Confined Aquifer',
     depthRangeMeters: [62, 145],
     hydraulicConductivityMPerDay: 35.0,
     porosity: 0.31,
-    depletionStatus: 'Over-abstracted by BMDA Deep Tube Wells (DTWs)'
-  }
+    depletionStatus: 'Over-abstracted by BMDA Deep Tube Wells (DTWs)',
+  },
 };
 
 /**
@@ -75,13 +75,13 @@ export const BARIND_MONITORING_NODES = [
     boroIrrigationDemandMcm: 145.2, // Million Cubic Meters
     salinityPpt: 0.2,
     trendTimeSeries: {
-      '2005': -4.2,
-      '2010': -18.5,
-      '2015': -32.8,
-      '2020': -48.1,
-      '2024': -59.7,
-      '2026': -65.4
-    }
+      2005: -4.2,
+      2010: -18.5,
+      2015: -32.8,
+      2020: -48.1,
+      2024: -59.7,
+      2026: -65.4,
+    },
   },
   {
     id: 'rajshahi_tanore',
@@ -98,13 +98,13 @@ export const BARIND_MONITORING_NODES = [
     boroIrrigationDemandMcm: 162.0,
     salinityPpt: 0.2,
     trendTimeSeries: {
-      '2005': -5.1,
-      '2010': -21.3,
-      '2015': -38.4,
-      '2020': -56.2,
-      '2024': -69.8,
-      '2026': -76.2
-    }
+      2005: -5.1,
+      2010: -21.3,
+      2015: -38.4,
+      2020: -56.2,
+      2024: -69.8,
+      2026: -76.2,
+    },
   },
   {
     id: 'naogaon_shapahar',
@@ -121,13 +121,13 @@ export const BARIND_MONITORING_NODES = [
     boroIrrigationDemandMcm: 138.4,
     salinityPpt: 0.15,
     trendTimeSeries: {
-      '2005': -3.8,
-      '2010': -17.9,
-      '2015': -33.1,
-      '2020': -49.6,
-      '2024': -61.2,
-      '2026': -67.1
-    }
+      2005: -3.8,
+      2010: -17.9,
+      2015: -33.1,
+      2020: -49.6,
+      2024: -61.2,
+      2026: -67.1,
+    },
   },
   {
     id: 'naogaon_patnitala',
@@ -144,13 +144,13 @@ export const BARIND_MONITORING_NODES = [
     boroIrrigationDemandMcm: 129.6,
     salinityPpt: 0.18,
     trendTimeSeries: {
-      '2005': -3.2,
-      '2010': -15.4,
-      '2015': -28.9,
-      '2020': -43.0,
-      '2024': -53.5,
-      '2026': -58.7
-    }
+      2005: -3.2,
+      2010: -15.4,
+      2015: -28.9,
+      2020: -43.0,
+      2024: -53.5,
+      2026: -58.7,
+    },
   },
   {
     id: 'chapai_nachole',
@@ -167,13 +167,13 @@ export const BARIND_MONITORING_NODES = [
     boroIrrigationDemandMcm: 151.8,
     salinityPpt: 0.22,
     trendTimeSeries: {
-      '2005': -4.5,
-      '2010': -19.8,
-      '2015': -35.7,
-      '2020': -52.4,
-      '2024': -65.1,
-      '2026': -71.2
-    }
+      2005: -4.5,
+      2010: -19.8,
+      2015: -35.7,
+      2020: -52.4,
+      2024: -65.1,
+      2026: -71.2,
+    },
   },
   {
     id: 'chapai_gomastapur',
@@ -190,13 +190,13 @@ export const BARIND_MONITORING_NODES = [
     boroIrrigationDemandMcm: 112.5,
     salinityPpt: 0.19,
     trendTimeSeries: {
-      '2005': -2.8,
-      '2010': -13.2,
-      '2015': -24.9,
-      '2020': -37.1,
-      '2024': -46.5,
-      '2026': -51.2
-    }
+      2005: -2.8,
+      2010: -13.2,
+      2015: -24.9,
+      2020: -37.1,
+      2024: -46.5,
+      2026: -51.2,
+    },
   },
   {
     id: 'bogra_sherpur',
@@ -213,13 +213,13 @@ export const BARIND_MONITORING_NODES = [
     boroIrrigationDemandMcm: 104.0,
     salinityPpt: 0.12,
     trendTimeSeries: {
-      '2005': -1.9,
-      '2010': -9.8,
-      '2015': -18.4,
-      '2020': -27.8,
-      '2024': -35.2,
-      '2026': -38.7
-    }
+      2005: -1.9,
+      2010: -9.8,
+      2015: -18.4,
+      2020: -27.8,
+      2024: -35.2,
+      2026: -38.7,
+    },
   },
   {
     id: 'joypurhat_panchbibi',
@@ -236,13 +236,13 @@ export const BARIND_MONITORING_NODES = [
     boroIrrigationDemandMcm: 92.4,
     salinityPpt: 0.14,
     trendTimeSeries: {
-      '2005': -2.4,
-      '2010': -11.9,
-      '2015': -22.3,
-      '2020': -33.9,
-      '2024': -42.8,
-      '2026': -47.1
-    }
+      2005: -2.4,
+      2010: -11.9,
+      2015: -22.3,
+      2020: -33.9,
+      2024: -42.8,
+      2026: -47.1,
+    },
   },
   {
     id: 'dinajpur_birganj',
@@ -257,15 +257,15 @@ export const BARIND_MONITORING_NODES = [
     rechargeDeficitMmPerYear: 140,
     cropExposureRisk: 'LOW',
     boroIrrigationDemandMcm: 98.2,
-    salinityPpt: 0.10,
+    salinityPpt: 0.1,
     trendTimeSeries: {
-      '2005': -1.5,
-      '2010': -8.1,
-      '2015': -15.4,
-      '2020': -23.6,
-      '2024': -30.1,
-      '2026': -33.2
-    }
+      2005: -1.5,
+      2010: -8.1,
+      2015: -15.4,
+      2020: -23.6,
+      2024: -30.1,
+      2026: -33.2,
+    },
   },
   {
     id: 'rangpur_mithapukur',
@@ -282,14 +282,14 @@ export const BARIND_MONITORING_NODES = [
     boroIrrigationDemandMcm: 91.0,
     salinityPpt: 0.09,
     trendTimeSeries: {
-      '2005': -1.2,
-      '2010': -6.9,
-      '2015': -13.7,
-      '2020': -21.2,
-      '2024': -27.3,
-      '2026': -30.1
-    }
-  }
+      2005: -1.2,
+      2010: -6.9,
+      2015: -13.7,
+      2020: -21.2,
+      2024: -27.3,
+      2026: -30.1,
+    },
+  },
 ];
 
 // ============================================================================
@@ -305,30 +305,37 @@ export const BARIND_MONITORING_NODES = [
 export function forecastGroundwaterAnomaly(station, targetYear = 2035) {
   const baseYear = 2002;
   const elapsedYears = targetYear - baseYear;
-  
+
   // Acceleration factor due to climate warming & increased dry-season ET0 (+0.8% compound increase in extraction)
-  const extractionGrowthRate = 0.008; 
+  const extractionGrowthRate = 0.008;
   const annualDepletion = station.twsRateCmPerYear;
-  
+
   let accumulatedTwsAnomalyCm = 0;
   for (let y = 1; y <= elapsedYears; y++) {
     const yearRate = annualDepletion * Math.pow(1 + extractionGrowthRate, y);
     accumulatedTwsAnomalyCm += yearRate / elapsedYears;
   }
-  
+
   // Cumulative drop from baseline (2002)
   const totalCumulativeAnomalyCm = annualDepletion * elapsedYears * 1.08;
-  
+
   // Estimated water table depth (meters below ground level)
   // Specific Yield (Sy) of Upper/Lower Dupi Tila ~ 0.14
   const specificYield = 0.14;
-  const waterTableDropMeters = Math.abs(totalCumulativeAnomalyCm / 100.0) / specificYield;
-  const projectedWaterTableDepthM = station.currentWaterTableDepthM + (targetYear - 2026) * (Math.abs(annualDepletion) / 100.0 / specificYield);
+  const waterTableDropMeters =
+    Math.abs(totalCumulativeAnomalyCm / 100.0) / specificYield;
+  const projectedWaterTableDepthM =
+    station.currentWaterTableDepthM +
+    (targetYear - 2026) * (Math.abs(annualDepletion) / 100.0 / specificYield);
 
   // Critical Aquifer Lifetime (years until lower Dupi Tila base reached at 145m)
-  const remainingAquiferThicknessM = Math.max(0, 145.0 - projectedWaterTableDepthM);
-  const annualDrawdownRateM = (Math.abs(annualDepletion) / 100.0) / specificYield;
-  const estimatedYearsToDepletion = remainingAquiferThicknessM / annualDrawdownRateM;
+  const remainingAquiferThicknessM = Math.max(
+    0,
+    145.0 - projectedWaterTableDepthM,
+  );
+  const annualDrawdownRateM = Math.abs(annualDepletion) / 100.0 / specificYield;
+  const estimatedYearsToDepletion =
+    remainingAquiferThicknessM / annualDrawdownRateM;
 
   return {
     stationId: station.id,
@@ -338,7 +345,12 @@ export function forecastGroundwaterAnomaly(station, targetYear = 2035) {
     projectedWaterTableDepthM: Number(projectedWaterTableDepthM.toFixed(2)),
     remainingAquiferThicknessM: Number(remainingAquiferThicknessM.toFixed(2)),
     estimatedDepletionYear: Math.round(targetYear + estimatedYearsToDepletion),
-    stressCategory: projectedWaterTableDepthM > 55.0 ? 'EXTREME CRISIS' : projectedWaterTableDepthM > 40.0 ? 'CRITICAL' : 'SEVERE'
+    stressCategory:
+      projectedWaterTableDepthM > 55.0
+        ? 'EXTREME CRISIS'
+        : projectedWaterTableDepthM > 40.0
+          ? 'CRITICAL'
+          : 'SEVERE',
   };
 }
 
@@ -366,7 +378,7 @@ export class GraceGroundwaterTracker {
       totalPumpingVolumeMcm: 1278.1,
       averageDrawdownRateCmYr: -2.38,
       criticallyDepletedNodesCount: 5,
-      highRiskDistricts: ['Rajshahi', 'Naogaon', 'Chapai Nawabganj']
+      highRiskDistricts: ['Rajshahi', 'Naogaon', 'Chapai Nawabganj'],
     };
 
     this._dataSource = null;
@@ -382,7 +394,9 @@ export class GraceGroundwaterTracker {
    */
   init(viewer) {
     if (!viewer) {
-      throw new Error('[GraceGroundwaterTracker] Cesium Viewer instance is required');
+      throw new Error(
+        '[GraceGroundwaterTracker] Cesium Viewer instance is required',
+      );
     }
     this.viewer = viewer;
     this._dataSource = new Cesium.CustomDataSource('osint_climate_grace');
@@ -432,7 +446,9 @@ export class GraceGroundwaterTracker {
    */
   setAquiferColumnsVisible(visible) {
     this.state.showAquiferColumns = !!visible;
-    this._columnEntities.forEach(ent => ent.show = this.state.showAquiferColumns);
+    this._columnEntities.forEach(
+      (ent) => (ent.show = this.state.showAquiferColumns),
+    );
   }
 
   /**
@@ -441,13 +457,13 @@ export class GraceGroundwaterTracker {
   flyToBarindTract() {
     if (!this.viewer) return;
     this.viewer.camera.flyTo({
-      destination: Cesium.Cartesian3.fromDegrees(88.65, 24.80, 240000.0),
+      destination: Cesium.Cartesian3.fromDegrees(88.65, 24.8, 240000.0),
       orientation: {
         heading: Cesium.Math.toRadians(15.0),
         pitch: Cesium.Math.toRadians(-50.0),
-        roll: 0.0
+        roll: 0.0,
       },
-      duration: 2.5
+      duration: 2.5,
     });
   }
 
@@ -461,9 +477,9 @@ export class GraceGroundwaterTracker {
       orientation: {
         heading: Cesium.Math.toRadians(0.0),
         pitch: Cesium.Math.toRadians(-42.0),
-        roll: 0.0
+        roll: 0.0,
       },
-      duration: 2.0
+      duration: 2.0,
     });
   }
 
@@ -474,14 +490,21 @@ export class GraceGroundwaterTracker {
   _build3DAquiferColumns() {
     if (!this._dataSource) return;
 
-    BARIND_MONITORING_NODES.forEach(station => {
+    BARIND_MONITORING_NODES.forEach((station) => {
       // Calculate column height proportional to water table depth
       const entity = this._dataSource.entities.add({
-        position: Cesium.Cartesian3.fromDegrees(station.coords[0], station.coords[1], 0),
+        position: Cesium.Cartesian3.fromDegrees(
+          station.coords[0],
+          station.coords[1],
+          0,
+        ),
         name: `GRACE TWS: ${station.name}`,
         cylinder: {
           length: new Cesium.CallbackProperty(() => {
-            const forecast = forecastGroundwaterAnomaly(station, this.state.selectedYear);
+            const forecast = forecastGroundwaterAnomaly(
+              station,
+              this.state.selectedYear,
+            );
             // Column length in meters (scaled for 3D visibility x 250)
             return forecast.projectedWaterTableDepthM * 250.0;
           }, false),
@@ -494,11 +517,14 @@ export class GraceGroundwaterTracker {
             return Cesium.Color.YELLOW.withAlpha(0.75);
           }, false),
           outline: true,
-          outlineColor: Cesium.Color.WHITE
+          outlineColor: Cesium.Color.WHITE,
         },
         label: {
           text: new Cesium.CallbackProperty(() => {
-            const fc = forecastGroundwaterAnomaly(station, this.state.selectedYear);
+            const fc = forecastGroundwaterAnomaly(
+              station,
+              this.state.selectedYear,
+            );
             return `${station.district}\n${station.name}\nTWS Rate: ${station.twsRateCmPerYear} cm/yr\nDepth: ${fc.projectedWaterTableDepthM}m\nLife: ${fc.estimatedDepletionYear}`;
           }, false),
           font: 'bold 11px monospace',
@@ -508,8 +534,11 @@ export class GraceGroundwaterTracker {
           style: Cesium.LabelStyle.FILL_AND_OUTLINE,
           verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
           pixelOffset: new Cesium.Cartesian2(0, -25),
-          distanceDisplayCondition: new Cesium.DistanceDisplayCondition(0, 300000)
-        }
+          distanceDisplayCondition: new Cesium.DistanceDisplayCondition(
+            0,
+            300000,
+          ),
+        },
       });
 
       this._columnEntities.push(entity);
@@ -523,27 +552,34 @@ export class GraceGroundwaterTracker {
   _buildTrendVectorFields() {
     if (!this._dataSource) return;
 
-    BARIND_MONITORING_NODES.forEach(station => {
+    BARIND_MONITORING_NODES.forEach((station) => {
       // Vectors converge toward Tanore/Godagari depression cone
       const targetLon = 88.45;
       const targetLat = 24.53;
       const dx = targetLon - station.coords[0];
       const dy = targetLat - station.coords[1];
       const len = Math.sqrt(dx * dx + dy * dy) || 1.0;
-      
+
       const vecLon = station.coords[0] + (dx / len) * 0.12;
       const vecLat = station.coords[1] + (dy / len) * 0.12;
 
       const vectorEntity = this._dataSource.entities.add({
         polyline: {
           positions: Cesium.Cartesian3.fromDegreesArrayHeights([
-            station.coords[0], station.coords[1], 1500.0,
-            vecLon, vecLat, 1500.0
+            station.coords[0],
+            station.coords[1],
+            1500.0,
+            vecLon,
+            vecLat,
+            1500.0,
           ]),
           width: 3.0,
           material: new Cesium.PolylineArrowMaterialProperty(Cesium.Color.CYAN),
-          show: new Cesium.CallbackProperty(() => this.state.showTrendVectors, false)
-        }
+          show: new Cesium.CallbackProperty(
+            () => this.state.showTrendVectors,
+            false,
+          ),
+        },
       });
 
       this._vectorEntities.push(vectorEntity);
@@ -559,11 +595,7 @@ export class GraceGroundwaterTracker {
 
     // Outer Barind Polygon bounding envelope
     const barindPerimeter = Cesium.Cartesian3.fromDegreesArray([
-      88.10, 24.20,
-      89.50, 24.20,
-      89.50, 25.80,
-      88.80, 26.20,
-      88.10, 25.80
+      88.1, 24.2, 89.5, 24.2, 89.5, 25.8, 88.8, 26.2, 88.1, 25.8,
     ]);
 
     const heatmapEntity = this._dataSource.entities.add({
@@ -574,8 +606,11 @@ export class GraceGroundwaterTracker {
         material: Cesium.Color.ORANGERED.withAlpha(0.22),
         outline: true,
         outlineColor: Cesium.Color.RED,
-        show: new Cesium.CallbackProperty(() => this.state.showDepletionHeatmap, false)
-      }
+        show: new Cesium.CallbackProperty(
+          () => this.state.showDepletionHeatmap,
+          false,
+        ),
+      },
     });
 
     this._heatmapPolygons.push(heatmapEntity);
@@ -592,7 +627,7 @@ export class GraceGroundwaterTracker {
     let closestStation = BARIND_MONITORING_NODES[0];
     let minDistanceSq = Number.MAX_VALUE;
 
-    BARIND_MONITORING_NODES.forEach(st => {
+    BARIND_MONITORING_NODES.forEach((st) => {
       const dLon = st.coords[0] - longitude;
       const dLat = st.coords[1] - latitude;
       const distSq = dLon * dLon + dLat * dLat;
@@ -603,14 +638,17 @@ export class GraceGroundwaterTracker {
     });
 
     const distKm = Math.sqrt(minDistanceSq) * 111.0;
-    const forecast = forecastGroundwaterAnomaly(closestStation, this.state.selectedYear);
+    const forecast = forecastGroundwaterAnomaly(
+      closestStation,
+      this.state.selectedYear,
+    );
 
     return {
       queryCoords: [longitude, latitude],
       nearestStation: closestStation.name,
       distanceKm: Number(distKm.toFixed(2)),
       hydrogeology: HYDROGEOLOGICAL_STRATIGRAPHY,
-      forecast
+      forecast,
     };
   }
 
@@ -646,16 +684,16 @@ export class GraceGroundwaterTracker {
         totalBoroSeasonExtractionMcm: this.state.totalPumpingVolumeMcm,
         averageDepletionRateCmYr: this.state.averageDrawdownRateCmYr,
         criticallyDepletedNodesCount: this.state.criticallyDepletedNodesCount,
-        highRiskDistricts: this.state.highRiskDistricts
+        highRiskDistricts: this.state.highRiskDistricts,
       },
       stratigraphy: HYDROGEOLOGICAL_STRATIGRAPHY,
-      stationAnalytics: BARIND_MONITORING_NODES.map(st => ({
+      stationAnalytics: BARIND_MONITORING_NODES.map((st) => ({
         id: st.id,
         name: st.name,
         district: st.district,
         twsRateCmPerYear: st.twsRateCmPerYear,
-        forecast: forecastGroundwaterAnomaly(st, this.state.selectedYear)
-      }))
+        forecast: forecastGroundwaterAnomaly(st, this.state.selectedYear),
+      })),
     };
   }
 

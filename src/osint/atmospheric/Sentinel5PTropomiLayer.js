@@ -27,8 +27,16 @@ export const SPECIES = {
       { stop: 0.0, color: [20, 30, 70, 0.2], label: '1850 ppb (Background)' },
       { stop: 0.2, color: [0, 180, 160, 0.45], label: '1950 ppb (Elevated)' },
       { stop: 0.45, color: [255, 235, 59, 0.65], label: '2050 ppb (Plume)' },
-      { stop: 0.7, color: [255, 112, 67, 0.85], label: '2200 ppb (Major Leak)' },
-      { stop: 1.0, color: [213, 0, 0, 0.95], label: '>2400 ppb (Super-Emitter)' },
+      {
+        stop: 0.7,
+        color: [255, 112, 67, 0.85],
+        label: '2200 ppb (Major Leak)',
+      },
+      {
+        stop: 1.0,
+        color: [213, 0, 0, 0.95],
+        label: '>2400 ppb (Super-Emitter)',
+      },
     ],
   },
   NO2: {
@@ -42,10 +50,22 @@ export const SPECIES = {
     icon: '🏭',
     colorRamp: [
       { stop: 0.0, color: [40, 20, 80, 0.2], label: '< 2.0 (Clean Air)' },
-      { stop: 0.25, color: [30, 136, 229, 0.45], label: '8.0 (Urban Baseline)' },
+      {
+        stop: 0.25,
+        color: [30, 136, 229, 0.45],
+        label: '8.0 (Urban Baseline)',
+      },
       { stop: 0.5, color: [255, 179, 0, 0.7], label: '20.0 (Heavy Industry)' },
-      { stop: 0.75, color: [244, 81, 30, 0.85], label: '35.0 (Thermal Power/Refinery)' },
-      { stop: 1.0, color: [156, 39, 176, 0.95], label: '> 45.0 (Severe Toxicity)' },
+      {
+        stop: 0.75,
+        color: [244, 81, 30, 0.85],
+        label: '35.0 (Thermal Power/Refinery)',
+      },
+      {
+        stop: 1.0,
+        color: [156, 39, 176, 0.95],
+        label: '> 45.0 (Severe Toxicity)',
+      },
     ],
   },
   CO: {
@@ -76,8 +96,16 @@ export const SPECIES = {
     colorRamp: [
       { stop: 0.0, color: [30, 30, 30, 0.15], label: '0.0 DU' },
       { stop: 0.3, color: [0, 229, 255, 0.5], label: '1.0 DU' },
-      { stop: 0.65, color: [255, 235, 59, 0.8], label: '3.0 DU (Smelter/Volcano)' },
-      { stop: 1.0, color: [255, 23, 68, 0.95], label: '> 5.0 DU (Extreme Plume)' },
+      {
+        stop: 0.65,
+        color: [255, 235, 59, 0.8],
+        label: '3.0 DU (Smelter/Volcano)',
+      },
+      {
+        stop: 1.0,
+        color: [255, 23, 68, 0.95],
+        label: '> 5.0 DU (Extreme Plume)',
+      },
     ],
   },
 };
@@ -98,10 +126,46 @@ export const INDUSTRIAL_CORRIDORS = [
     backgroundNO2: 7.2,
     sourceType: 'Oil & Gas Production / Flaring / Compressor Stations',
     plumes: [
-      { name: 'Waha Hub Compressor Station', offsetLon: -0.22, offsetLat: 0.15, qKgHr: 4200, windDirDeg: 195, windSpeedMs: 5.4, species: 'CH4', facilityType: 'Gas Transmission' },
-      { name: 'Midland Basin Flaring Cluster #4', offsetLon: 0.35, offsetLat: -0.18, qKgHr: 3100, windDirDeg: 190, windSpeedMs: 4.8, species: 'CH4', facilityType: 'Associated Gas Flaring' },
-      { name: 'Delaware Basin Gathering Facility', offsetLon: -0.55, offsetLat: -0.32, qKgHr: 5800, windDirDeg: 205, windSpeedMs: 6.1, species: 'CH4', facilityType: 'Processing Plant' },
-      { name: 'Odessa Refining & Petrochem', offsetLon: 0.08, offsetLat: 0.02, qKgHr: 1950, windDirDeg: 200, windSpeedMs: 5.0, species: 'NO2', facilityType: 'Petroleum Refinery' },
+      {
+        name: 'Waha Hub Compressor Station',
+        offsetLon: -0.22,
+        offsetLat: 0.15,
+        qKgHr: 4200,
+        windDirDeg: 195,
+        windSpeedMs: 5.4,
+        species: 'CH4',
+        facilityType: 'Gas Transmission',
+      },
+      {
+        name: 'Midland Basin Flaring Cluster #4',
+        offsetLon: 0.35,
+        offsetLat: -0.18,
+        qKgHr: 3100,
+        windDirDeg: 190,
+        windSpeedMs: 4.8,
+        species: 'CH4',
+        facilityType: 'Associated Gas Flaring',
+      },
+      {
+        name: 'Delaware Basin Gathering Facility',
+        offsetLon: -0.55,
+        offsetLat: -0.32,
+        qKgHr: 5800,
+        windDirDeg: 205,
+        windSpeedMs: 6.1,
+        species: 'CH4',
+        facilityType: 'Processing Plant',
+      },
+      {
+        name: 'Odessa Refining & Petrochem',
+        offsetLon: 0.08,
+        offsetLat: 0.02,
+        qKgHr: 1950,
+        windDirDeg: 200,
+        windSpeedMs: 5.0,
+        species: 'NO2',
+        facilityType: 'Petroleum Refinery',
+      },
     ],
   },
   {
@@ -116,9 +180,36 @@ export const INDUSTRIAL_CORRIDORS = [
     backgroundNO2: 18.5,
     sourceType: 'Supergiant Oilfield & Hydrocarbon Gas Processing',
     plumes: [
-      { name: 'Abqaiq Central Processing Plant', offsetLon: 0.12, offsetLat: 0.41, qKgHr: 6800, windDirDeg: 330, windSpeedMs: 7.2, species: 'CH4', facilityType: 'Stabilization Plant' },
-      { name: 'Uthmaniyah Gas Processing Plant', offsetLon: -0.15, offsetLat: -0.38, qKgHr: 4900, windDirDeg: 325, windSpeedMs: 6.8, species: 'CH4', facilityType: 'Gas Sweetening' },
-      { name: 'Ras Tanura Refining Complex', offsetLon: 0.52, offsetLat: 0.84, qKgHr: 3400, windDirDeg: 340, windSpeedMs: 8.0, species: 'NO2', facilityType: 'Marine Terminal & Refinery' },
+      {
+        name: 'Abqaiq Central Processing Plant',
+        offsetLon: 0.12,
+        offsetLat: 0.41,
+        qKgHr: 6800,
+        windDirDeg: 330,
+        windSpeedMs: 7.2,
+        species: 'CH4',
+        facilityType: 'Stabilization Plant',
+      },
+      {
+        name: 'Uthmaniyah Gas Processing Plant',
+        offsetLon: -0.15,
+        offsetLat: -0.38,
+        qKgHr: 4900,
+        windDirDeg: 325,
+        windSpeedMs: 6.8,
+        species: 'CH4',
+        facilityType: 'Gas Sweetening',
+      },
+      {
+        name: 'Ras Tanura Refining Complex',
+        offsetLon: 0.52,
+        offsetLat: 0.84,
+        qKgHr: 3400,
+        windDirDeg: 340,
+        windSpeedMs: 8.0,
+        species: 'NO2',
+        facilityType: 'Marine Terminal & Refinery',
+      },
     ],
   },
   {
@@ -133,9 +224,36 @@ export const INDUSTRIAL_CORRIDORS = [
     backgroundNO2: 38.0,
     sourceType: 'Deep Underground Coal Mines & Coking Corridors',
     plumes: [
-      { name: 'Taiyuan Metallurgical & Coking Complex', offsetLon: 0.05, offsetLat: -0.12, qKgHr: 7200, windDirDeg: 45, windSpeedMs: 3.5, species: 'NO2', facilityType: 'Steel & Coking' },
-      { name: 'Jincheng Anthracite Mine Ventilation #12', offsetLon: 0.35, offsetLat: -1.85, qKgHr: 8900, windDirDeg: 55, windSpeedMs: 4.1, species: 'CH4', facilityType: 'Underground Coal Mine Vent' },
-      { name: 'Linfen Coking Coal Flaring Corridor', offsetLon: -0.85, offsetLat: -1.25, qKgHr: 6100, windDirDeg: 35, windSpeedMs: 3.8, species: 'CH4', facilityType: 'Coalbed Methane Extraction' },
+      {
+        name: 'Taiyuan Metallurgical & Coking Complex',
+        offsetLon: 0.05,
+        offsetLat: -0.12,
+        qKgHr: 7200,
+        windDirDeg: 45,
+        windSpeedMs: 3.5,
+        species: 'NO2',
+        facilityType: 'Steel & Coking',
+      },
+      {
+        name: 'Jincheng Anthracite Mine Ventilation #12',
+        offsetLon: 0.35,
+        offsetLat: -1.85,
+        qKgHr: 8900,
+        windDirDeg: 55,
+        windSpeedMs: 4.1,
+        species: 'CH4',
+        facilityType: 'Underground Coal Mine Vent',
+      },
+      {
+        name: 'Linfen Coking Coal Flaring Corridor',
+        offsetLon: -0.85,
+        offsetLat: -1.25,
+        qKgHr: 6100,
+        windDirDeg: 35,
+        windSpeedMs: 3.8,
+        species: 'CH4',
+        facilityType: 'Coalbed Methane Extraction',
+      },
     ],
   },
   {
@@ -150,8 +268,26 @@ export const INDUSTRIAL_CORRIDORS = [
     backgroundNO2: 34.0,
     sourceType: 'Offshore Gas Gathering & Onshore Mega-Refineries',
     plumes: [
-      { name: 'Pars Special Energy Economic Zone Phase 1-5', offsetLon: 0.08, offsetLat: 0.05, qKgHr: 5400, windDirDeg: 120, windSpeedMs: 5.5, species: 'NO2', facilityType: 'Gas Dehydration / Cryogenic' },
-      { name: 'South Pars Flare Stack Cluster Alpha', offsetLon: -0.18, offsetLat: -0.12, qKgHr: 7800, windDirDeg: 135, windSpeedMs: 6.2, species: 'CH4', facilityType: 'Continuous Flare Super-Emitter' },
+      {
+        name: 'Pars Special Energy Economic Zone Phase 1-5',
+        offsetLon: 0.08,
+        offsetLat: 0.05,
+        qKgHr: 5400,
+        windDirDeg: 120,
+        windSpeedMs: 5.5,
+        species: 'NO2',
+        facilityType: 'Gas Dehydration / Cryogenic',
+      },
+      {
+        name: 'South Pars Flare Stack Cluster Alpha',
+        offsetLon: -0.18,
+        offsetLat: -0.12,
+        qKgHr: 7800,
+        windDirDeg: 135,
+        windSpeedMs: 6.2,
+        species: 'CH4',
+        facilityType: 'Continuous Flare Super-Emitter',
+      },
     ],
   },
   {
@@ -166,8 +302,26 @@ export const INDUSTRIAL_CORRIDORS = [
     backgroundNO2: 4.2,
     sourceType: 'Permafrost Gas Extraction, Compressor Stations & Flaring',
     plumes: [
-      { name: 'Urengoy Central Compressor #3', offsetLon: 0.22, offsetLat: 0.18, qKgHr: 9500, windDirDeg: 280, windSpeedMs: 7.8, species: 'CH4', facilityType: 'Gas Pipeline Trunk Compressor' },
-      { name: 'Yamburg Field Flaring Battery', offsetLon: -0.42, offsetLat: 1.25, qKgHr: 6700, windDirDeg: 270, windSpeedMs: 8.5, species: 'CH4', facilityType: 'Field Gathering Header' },
+      {
+        name: 'Urengoy Central Compressor #3',
+        offsetLon: 0.22,
+        offsetLat: 0.18,
+        qKgHr: 9500,
+        windDirDeg: 280,
+        windSpeedMs: 7.8,
+        species: 'CH4',
+        facilityType: 'Gas Pipeline Trunk Compressor',
+      },
+      {
+        name: 'Yamburg Field Flaring Battery',
+        offsetLon: -0.42,
+        offsetLat: 1.25,
+        qKgHr: 6700,
+        windDirDeg: 270,
+        windSpeedMs: 8.5,
+        species: 'CH4',
+        facilityType: 'Field Gathering Header',
+      },
     ],
   },
   {
@@ -182,9 +336,36 @@ export const INDUSTRIAL_CORRIDORS = [
     backgroundNO2: 24.5,
     sourceType: 'Petrochemical Ports, Blast Furnaces & Heavy Manufacturing',
     plumes: [
-      { name: 'Port of Rotterdam Europort Refineries', offsetLon: -2.75, offsetLat: 0.42, qKgHr: 4100, windDirDeg: 240, windSpeedMs: 6.5, species: 'NO2', facilityType: 'Maritime Hub & Refining' },
-      { name: 'Duisburg-Hamborn Steel Blast Furnaces', offsetLon: -0.18, offsetLat: 0.05, qKgHr: 3900, windDirDeg: 225, windSpeedMs: 4.2, species: 'NO2', facilityType: 'Integrated Steel Mill' },
-      { name: 'Gelsenkirchen Scholven Thermal Plant', offsetLon: 0.12, offsetLat: 0.08, qKgHr: 2800, windDirDeg: 230, windSpeedMs: 4.0, species: 'NO2', facilityType: 'Coal/Gas Power' },
+      {
+        name: 'Port of Rotterdam Europort Refineries',
+        offsetLon: -2.75,
+        offsetLat: 0.42,
+        qKgHr: 4100,
+        windDirDeg: 240,
+        windSpeedMs: 6.5,
+        species: 'NO2',
+        facilityType: 'Maritime Hub & Refining',
+      },
+      {
+        name: 'Duisburg-Hamborn Steel Blast Furnaces',
+        offsetLon: -0.18,
+        offsetLat: 0.05,
+        qKgHr: 3900,
+        windDirDeg: 225,
+        windSpeedMs: 4.2,
+        species: 'NO2',
+        facilityType: 'Integrated Steel Mill',
+      },
+      {
+        name: 'Gelsenkirchen Scholven Thermal Plant',
+        offsetLon: 0.12,
+        offsetLat: 0.08,
+        qKgHr: 2800,
+        windDirDeg: 230,
+        windSpeedMs: 4.0,
+        species: 'NO2',
+        facilityType: 'Coal/Gas Power',
+      },
     ],
   },
   {
@@ -197,11 +378,39 @@ export const INDUSTRIAL_CORRIDORS = [
     dominantSpecies: 'NO2',
     backgroundCH4: 1880,
     backgroundNO2: 42.0,
-    sourceType: 'World Top NOx/SO2 Hotspot: 12 Mega Coal Power Stations + Sasol Secunda',
+    sourceType:
+      'World Top NOx/SO2 Hotspot: 12 Mega Coal Power Stations + Sasol Secunda',
     plumes: [
-      { name: 'Secunda Synfuels Synthetic Crude Hub', offsetLon: -0.05, offsetLat: 0.22, qKgHr: 11200, windDirDeg: 15, windSpeedMs: 4.9, species: 'NO2', facilityType: 'Coal-to-Liquids Synfuel' },
-      { name: 'Kendal 4,116MW Coal Power Station', offsetLon: -0.25, offsetLat: 0.48, qKgHr: 8300, windDirDeg: 25, windSpeedMs: 5.2, species: 'NO2', facilityType: 'Thermal Power' },
-      { name: 'Matla Coal Generation Complex', offsetLon: -0.15, offsetLat: 0.55, qKgHr: 7600, windDirDeg: 20, windSpeedMs: 5.0, species: 'NO2', facilityType: 'Thermal Power' },
+      {
+        name: 'Secunda Synfuels Synthetic Crude Hub',
+        offsetLon: -0.05,
+        offsetLat: 0.22,
+        qKgHr: 11200,
+        windDirDeg: 15,
+        windSpeedMs: 4.9,
+        species: 'NO2',
+        facilityType: 'Coal-to-Liquids Synfuel',
+      },
+      {
+        name: 'Kendal 4,116MW Coal Power Station',
+        offsetLon: -0.25,
+        offsetLat: 0.48,
+        qKgHr: 8300,
+        windDirDeg: 25,
+        windSpeedMs: 5.2,
+        species: 'NO2',
+        facilityType: 'Thermal Power',
+      },
+      {
+        name: 'Matla Coal Generation Complex',
+        offsetLon: -0.15,
+        offsetLat: 0.55,
+        qKgHr: 7600,
+        windDirDeg: 20,
+        windSpeedMs: 5.0,
+        species: 'NO2',
+        facilityType: 'Thermal Power',
+      },
     ],
   },
   {
@@ -216,8 +425,26 @@ export const INDUSTRIAL_CORRIDORS = [
     backgroundNO2: 12.0,
     sourceType: 'Desert Oil/Gas Gathering & Unlit Venting Plumes',
     plumes: [
-      { name: 'Hassi Messaoud North Gas Lift Vent', offsetLon: 0.05, offsetLat: 0.18, qKgHr: 12500, windDirDeg: 60, windSpeedMs: 7.0, species: 'CH4', facilityType: 'Unlit Super-Emitter Vent' },
-      { name: 'Touggourt Gathering Header', offsetLon: -0.35, offsetLat: 0.52, qKgHr: 4800, windDirDeg: 55, windSpeedMs: 6.5, species: 'CH4', facilityType: 'Field Manifold' },
+      {
+        name: 'Hassi Messaoud North Gas Lift Vent',
+        offsetLon: 0.05,
+        offsetLat: 0.18,
+        qKgHr: 12500,
+        windDirDeg: 60,
+        windSpeedMs: 7.0,
+        species: 'CH4',
+        facilityType: 'Unlit Super-Emitter Vent',
+      },
+      {
+        name: 'Touggourt Gathering Header',
+        offsetLon: -0.35,
+        offsetLat: 0.52,
+        qKgHr: 4800,
+        windDirDeg: 55,
+        windSpeedMs: 6.5,
+        species: 'CH4',
+        facilityType: 'Field Manifold',
+      },
     ],
   },
 ];
@@ -238,7 +465,7 @@ export function getDispersionCoefficients(xDownwindMeters, stability = 'C') {
   switch (stability.toUpperCase()) {
     case 'A':
       sigmaY = 0.22 * x * Math.pow(1 + 0.0001 * x, -0.5);
-      sigmaZ = 0.20 * x;
+      sigmaZ = 0.2 * x;
       break;
     case 'B':
       sigmaY = 0.16 * x * Math.pow(1 + 0.0001 * x, -0.5);
@@ -265,14 +492,20 @@ export function getDispersionCoefficients(xDownwindMeters, stability = 'C') {
  * @param {number} windSpeedMs - Effective transport wind speed in m/s.
  * @returns {number} Relative enhancement concentration factor.
  */
-export function evaluateGaussianPlume(xDownwindM, yCrosswindM, emissionRateKgHr, windSpeedMs = 5.0) {
+export function evaluateGaussianPlume(
+  xDownwindM,
+  yCrosswindM,
+  emissionRateKgHr,
+  windSpeedMs = 5.0,
+) {
   if (xDownwindM < 0) return 0;
   const { sigmaY, sigmaZ } = getDispersionCoefficients(xDownwindM, 'C');
   const u = Math.max(1.0, windSpeedMs);
   const qGramSec = (emissionRateKgHr * 1000) / 3600;
   // Gaussian 2D integrated column approximation
   const crossTerm = Math.exp(-0.5 * Math.pow(yCrosswindM / sigmaY, 2));
-  const concentration = (qGramSec / (Math.PI * u * sigmaY * sigmaZ)) * crossTerm * 1e6;
+  const concentration =
+    (qGramSec / (Math.PI * u * sigmaY * sigmaZ)) * crossTerm * 1e6;
   return concentration;
 }
 
@@ -297,7 +530,12 @@ export function interpolateRampColor(normalizedValue, ramp) {
     }
   }
   const last = ramp[ramp.length - 1];
-  return new Cesium.Color(last.color[0] / 255, last.color[1] / 255, last.color[2] / 255, last.color[3]);
+  return new Cesium.Color(
+    last.color[0] / 255,
+    last.color[1] / 255,
+    last.color[2] / 255,
+    last.color[3],
+  );
 }
 
 /**
@@ -306,7 +544,12 @@ export function interpolateRampColor(normalizedValue, ramp) {
  * @returns {HTMLCanvasElement}
  */
 export function generatePlumeCanvas(plumeConfig) {
-  const { species = 'CH4', qKgHr = 5000, windDirDeg = 180, windSpeedMs = 5.0 } = plumeConfig;
+  const {
+    species = 'CH4',
+    qKgHr = 5000,
+    windDirDeg = 180,
+    windSpeedMs = 5.0,
+  } = plumeConfig;
   const spec = SPECIES[species] || SPECIES.CH4;
   const canvas = document.createElement('canvas');
   const size = 256;
@@ -337,7 +580,12 @@ export function generatePlumeCanvas(plumeConfig) {
       const crosswind = dx * cosA - dy * sinA;
 
       if (downwind > 500) {
-        const conc = evaluateGaussianPlume(downwind, crosswind, qKgHr, windSpeedMs);
+        const conc = evaluateGaussianPlume(
+          downwind,
+          crosswind,
+          qKgHr,
+          windSpeedMs,
+        );
         const norm = Math.min(1.0, conc / (species === 'CH4' ? 450 : 25));
         if (norm > 0.04) {
           const color = interpolateRampColor(norm, spec.colorRamp);
@@ -469,7 +717,11 @@ export function createSentinel5PTropomiLayer({
       _activeCorridorId = corridor.id;
       const height = corridor.radiusKm * 2800;
       _viewer.camera.flyTo({
-        destination: Cesium.Cartesian3.fromDegrees(corridor.lon, corridor.lat, height),
+        destination: Cesium.Cartesian3.fromDegrees(
+          corridor.lon,
+          corridor.lat,
+          height,
+        ),
         orientation: {
           heading: Cesium.Math.toRadians(0),
           pitch: Cesium.Math.toRadians(-60),
@@ -494,13 +746,19 @@ export function createSentinel5PTropomiLayer({
       const now = new Date().toISOString();
 
       for (const corridor of INDUSTRIAL_CORRIDORS) {
-        const isCorridorActive = corridor.dominantSpecies === _currentSpecies || _currentSpecies === 'CH4';
-        const backgroundVal = _currentSpecies === 'CH4' ? corridor.backgroundCH4 : corridor.backgroundNO2;
+        const isCorridorActive =
+          corridor.dominantSpecies === _currentSpecies ||
+          _currentSpecies === 'CH4';
+        const backgroundVal =
+          _currentSpecies === 'CH4'
+            ? corridor.backgroundCH4
+            : corridor.backgroundNO2;
 
         // Bounding Ambient Basin Area Ring
         const basinColor = interpolateRampColor(
-          (backgroundVal - spec.minDisplay) / (spec.maxDisplay - spec.minDisplay),
-          spec.colorRamp
+          (backgroundVal - spec.minDisplay) /
+            (spec.maxDisplay - spec.minDisplay),
+          spec.colorRamp,
         ).withAlpha(_plumeOpacity * 0.25);
 
         _dataSource.entities.add(
@@ -523,12 +781,13 @@ export function createSentinel5PTropomiLayer({
               backgroundConcentration: `${backgroundVal} ${spec.unit}`,
               corridorId: corridor.id,
             },
-          })
+          }),
         );
 
         // Process Plumes inside corridor
         for (const plume of corridor.plumes) {
-          if (plume.species !== _currentSpecies && _currentSpecies !== 'CH4') continue;
+          if (plume.species !== _currentSpecies && _currentSpecies !== 'CH4')
+            continue;
           _totalPlumesTracked++;
           const plumeLon = corridor.lon + plume.offsetLon;
           const plumeLat = corridor.lat + plume.offsetLat;
@@ -554,7 +813,7 @@ export function createSentinel5PTropomiLayer({
                   plumeLon - plumeSizeDeg / 2,
                   plumeLat - plumeSizeDeg / 2,
                   plumeLon + plumeSizeDeg / 2,
-                  plumeLat + plumeSizeDeg / 2
+                  plumeLat + plumeSizeDeg / 2,
                 ),
                 material: new Cesium.ImageMaterialProperty({
                   image: plumeCanvas,
@@ -570,11 +829,13 @@ export function createSentinel5PTropomiLayer({
                 species: _currentSpecies,
                 isSuperEmitter,
               },
-            })
+            }),
           );
 
           // Center Emission Point Marker
-          const ptColor = isSuperEmitter ? Cesium.Color.RED : Cesium.Color.fromCssColorString('#FFD700');
+          const ptColor = isSuperEmitter
+            ? Cesium.Color.RED
+            : Cesium.Color.fromCssColorString('#FFD700');
           _pointCollection.add({
             position: Cesium.Cartesian3.fromDegrees(plumeLon, plumeLat, 150),
             pixelSize: isSuperEmitter ? 12 : 8,
@@ -595,8 +856,12 @@ export function createSentinel5PTropomiLayer({
                 id: `wind:${corridor.id}:${plume.name}`,
                 polyline: {
                   positions: Cesium.Cartesian3.fromDegreesArrayHeights([
-                    plumeLon, plumeLat, 150,
-                    endLon, endLat, 150,
+                    plumeLon,
+                    plumeLat,
+                    150,
+                    endLon,
+                    endLat,
+                    150,
                   ]),
                   width: 3,
                   material: new Cesium.PolylineDashMaterialProperty({
@@ -604,7 +869,7 @@ export function createSentinel5PTropomiLayer({
                     dashLength: 16.0,
                   }),
                 },
-              })
+              }),
             );
           }
 

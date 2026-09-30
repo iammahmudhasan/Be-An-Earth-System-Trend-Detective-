@@ -17,9 +17,24 @@
 import * as Cesium from 'cesium';
 
 export const EMERGENCY_SQUAWK_TYPES = {
-  7700: { code: '7700', label: 'MAYDAY / GENERAL DISTRESS', severity: 'CRITICAL', color: '#FF0033' },
-  7600: { code: '7600', label: 'NORDO / RADIO FAILURE', severity: 'HIGH', color: '#FF9900' },
-  7500: { code: '7500', label: 'HIJACK / UNLAWFUL INTERFERENCE', severity: 'EMERGENCY_CODE_1', color: '#9900FF' },
+  7700: {
+    code: '7700',
+    label: 'MAYDAY / GENERAL DISTRESS',
+    severity: 'CRITICAL',
+    color: '#FF0033',
+  },
+  7600: {
+    code: '7600',
+    label: 'NORDO / RADIO FAILURE',
+    severity: 'HIGH',
+    color: '#FF9900',
+  },
+  7500: {
+    code: '7500',
+    label: 'HIJACK / UNLAWFUL INTERFERENCE',
+    severity: 'EMERGENCY_CODE_1',
+    color: '#9900FF',
+  },
 };
 
 export const INITIAL_EMERGENCY_TRACKS = [
@@ -35,8 +50,9 @@ export const INITIAL_EMERGENCY_TRACKS = [
     speedKn: 295,
     headingDeg: 165,
     origin: 'DAC (Hazrat Shahjalal Intl)',
-    destination: 'CXB (Cox\'s Bazar)',
-    nature: 'Rapid Depressurization / Emergency Descent into Dhaka Radar Sector 2',
+    destination: "CXB (Cox's Bazar)",
+    nature:
+      'Rapid Depressurization / Emergency Descent into Dhaka Radar Sector 2',
     timestamp: new Date().toISOString(),
   },
   {
@@ -45,14 +61,15 @@ export const INITIAL_EMERGENCY_TRACKS = [
     squawk: '7600',
     aircraft: 'Airbus A321-200',
     operator: 'Regional Cargo Express',
-    lat: 21.80,
+    lat: 21.8,
     lon: 89.95,
     altitudeFt: 28000,
     speedKn: 440,
     headingDeg: 85,
     origin: 'CCU (Netaji Subhash Chandra)',
     destination: 'CGP (Shah Amanat Intl)',
-    nature: 'Loss of VHF Comms on 125.7 MHz; Transponder set to 7600 over Bay of Bengal Coast',
+    nature:
+      'Loss of VHF Comms on 125.7 MHz; Transponder set to 7600 over Bay of Bengal Coast',
     timestamp: new Date().toISOString(),
   },
 ];
@@ -85,9 +102,14 @@ export class SquawkEmergencyAlert {
     if (!this.viewer) return;
 
     this.alerts.forEach((alert) => {
-      const typeDef = EMERGENCY_SQUAWK_TYPES[alert.squawk] || EMERGENCY_SQUAWK_TYPES[7700];
+      const typeDef =
+        EMERGENCY_SQUAWK_TYPES[alert.squawk] || EMERGENCY_SQUAWK_TYPES[7700];
       const cesiumColor = Cesium.Color.fromCssColorString(typeDef.color);
-      const pos = Cesium.Cartesian3.fromDegrees(alert.lon, alert.lat, alert.altitudeFt * 0.3048);
+      const pos = Cesium.Cartesian3.fromDegrees(
+        alert.lon,
+        alert.lat,
+        alert.altitudeFt * 0.3048,
+      );
 
       // Flashing Core Pin
       const pin = this.viewer.entities.add({
@@ -106,7 +128,10 @@ export class SquawkEmergencyAlert {
           backgroundColor: Cesium.Color.BLACK.withAlpha(0.9),
           verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
           pixelOffset: new Cesium.Cartesian2(0, -20),
-          distanceDisplayCondition: new Cesium.DistanceDisplayCondition(0.0, 8000000.0),
+          distanceDisplayCondition: new Cesium.DistanceDisplayCondition(
+            0.0,
+            8000000.0,
+          ),
         },
       });
       this.entities.push(pin);
@@ -115,8 +140,14 @@ export class SquawkEmergencyAlert {
       const halo = this.viewer.entities.add({
         position: Cesium.Cartesian3.fromDegrees(alert.lon, alert.lat, 100),
         ellipse: {
-          semiMinorAxis: new Cesium.CallbackProperty(() => this._pulseRadius, false),
-          semiMajorAxis: new Cesium.CallbackProperty(() => this._pulseRadius, false),
+          semiMinorAxis: new Cesium.CallbackProperty(
+            () => this._pulseRadius,
+            false,
+          ),
+          semiMajorAxis: new Cesium.CallbackProperty(
+            () => this._pulseRadius,
+            false,
+          ),
           material: cesiumColor.withAlpha(0.25),
           outline: true,
           outlineColor: cesiumColor,
@@ -161,10 +192,16 @@ export class SquawkEmergencyAlert {
       const gain = this._audioContext.createGain();
       osc.type = 'sawtooth';
       osc.frequency.setValueAtTime(880, this._audioContext.currentTime);
-      osc.frequency.exponentialRampToValueAtTime(440, this._audioContext.currentTime + 0.35);
+      osc.frequency.exponentialRampToValueAtTime(
+        440,
+        this._audioContext.currentTime + 0.35,
+      );
 
       gain.gain.setValueAtTime(0.15, this._audioContext.currentTime);
-      gain.gain.exponentialRampToValueAtTime(0.01, this._audioContext.currentTime + 0.35);
+      gain.gain.exponentialRampToValueAtTime(
+        0.01,
+        this._audioContext.currentTime + 0.35,
+      );
 
       osc.connect(gain);
       gain.connect(this._audioContext.destination);

@@ -21,7 +21,7 @@ export const MILITARY_HEX_REGISTRY = [
     operator: 'Indian Navy (INAS 312 Albatross)',
     mission: 'Maritime Anti-Submarine & EEZ Reconnaissance',
     lat: 19.45,
-    lon: 89.20,
+    lon: 89.2,
     altitudeM: 8200,
     speedKn: 380,
     headingDeg: 145,
@@ -48,7 +48,7 @@ export const MILITARY_HEX_REGISTRY = [
     type: 'General Atomics MQ-9B SeaGuardian HALE UAV',
     operator: 'Allied Maritime Recon Taskforce',
     mission: 'High-Altitude Persistent Optical/SAR Surveillance',
-    lat: 18.20,
+    lat: 18.2,
     lon: 90.85,
     altitudeM: 14200,
     speedKn: 210,
@@ -63,7 +63,7 @@ export const MILITARY_HEX_REGISTRY = [
     operator: 'Indian Coast Guard',
     mission: 'Fisheries Protection & Dark Vessel Search',
     lat: 20.15,
-    lon: 88.90,
+    lon: 88.9,
     altitudeM: 2800,
     speedKn: 215,
     headingDeg: 65,
@@ -116,7 +116,11 @@ export class MilitaryHexTracker {
       const backDistDeg = (ac.speedKn * 1.852 * 0.15) / 111.0; // 9 min back-track
       const backLon = ac.lon + backDistDeg * Math.sin(rad);
       const backLat = ac.lat + backDistDeg * Math.cos(rad);
-      const backPos = Cesium.Cartesian3.fromDegrees(backLon, backLat, ac.altitudeM * 0.95);
+      const backPos = Cesium.Cartesian3.fromDegrees(
+        backLon,
+        backLat,
+        ac.altitudeM * 0.95,
+      );
 
       const trail = this.viewer.entities.add({
         polyline: {
@@ -131,12 +135,14 @@ export class MilitaryHexTracker {
       this._trailEntities.push(trail);
 
       const isCombat = ac.threatCategory === 'COMBAT_AIR_PATROL';
-      const isRecon = ac.threatCategory.includes('ISR') || ac.threatCategory.includes('RECON');
+      const isRecon =
+        ac.threatCategory.includes('ISR') ||
+        ac.threatCategory.includes('RECON');
       const pointColor = isCombat
         ? Cesium.Color.RED
         : isRecon
-        ? Cesium.Color.GOLD
-        : Cesium.Color.CYAN;
+          ? Cesium.Color.GOLD
+          : Cesium.Color.CYAN;
 
       const entity = this.viewer.entities.add({
         position: pos,
@@ -154,7 +160,10 @@ export class MilitaryHexTracker {
           backgroundColor: Cesium.Color.BLACK.withAlpha(0.85),
           verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
           pixelOffset: new Cesium.Cartesian2(0, -14),
-          distanceDisplayCondition: new Cesium.DistanceDisplayCondition(0.0, 5000000.0),
+          distanceDisplayCondition: new Cesium.DistanceDisplayCondition(
+            0.0,
+            5000000.0,
+          ),
         },
       });
 
@@ -178,9 +187,15 @@ export class MilitaryHexTracker {
   getStats() {
     return {
       activeTargets: MILITARY_HEX_REGISTRY.length,
-      highAltitudeSurveillance: MILITARY_HEX_REGISTRY.filter((f) => f.altitudeM > 10000).length,
-      maritimePatrolCount: MILITARY_HEX_REGISTRY.filter((f) => f.mission.includes('Maritime')).length,
-      combatAirPatrols: MILITARY_HEX_REGISTRY.filter((f) => f.threatCategory === 'COMBAT_AIR_PATROL').length,
+      highAltitudeSurveillance: MILITARY_HEX_REGISTRY.filter(
+        (f) => f.altitudeM > 10000,
+      ).length,
+      maritimePatrolCount: MILITARY_HEX_REGISTRY.filter((f) =>
+        f.mission.includes('Maritime'),
+      ).length,
+      combatAirPatrols: MILITARY_HEX_REGISTRY.filter(
+        (f) => f.threatCategory === 'COMBAT_AIR_PATROL',
+      ).length,
       trackingStatus: this.active ? 'LIVE_STREAMING' : 'STANDBY',
     };
   }

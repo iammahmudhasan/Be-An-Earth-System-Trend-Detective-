@@ -23,7 +23,7 @@ export const HIGH_VALUE_SPACE_ASSETS = [
     noradId: 43470,
     name: 'Bangabandhu Satellite-1 (BD-1)',
     orbitType: 'GEO',
-    lon: 119.10,
+    lon: 119.1,
     lat: 0.0,
     altitudeKm: 35786.0,
     operator: 'Bangladesh Satellite Company Limited (BSCL)',
@@ -63,8 +63,8 @@ export const HIGH_VALUE_SPACE_ASSETS = [
     noradId: 25544,
     name: 'International Space Station (ISS)',
     orbitType: 'LEO',
-    lon: 88.50,
-    lat: 22.30,
+    lon: 88.5,
+    lat: 22.3,
     altitudeKm: 418.0,
     operator: 'NASA / ESA / JAXA / Roscosmos / CSA',
     massKg: 450000,
@@ -110,11 +110,17 @@ export class SatelliteConjunctionEngine {
     if (!this.viewer) return;
 
     this.assets.forEach((asset) => {
-      const assetPos = Cesium.Cartesian3.fromDegrees(asset.lon, asset.lat, asset.altitudeKm * 1000);
+      const assetPos = Cesium.Cartesian3.fromDegrees(
+        asset.lon,
+        asset.lat,
+        asset.altitudeKm * 1000,
+      );
 
       // Asset Billboard / Label
       const isGEO = asset.orbitType === 'GEO';
-      const color = isGEO ? Cesium.Color.fromCssColorString('#00E5FF') : Cesium.Color.fromCssColorString('#FFD700');
+      const color = isGEO
+        ? Cesium.Color.fromCssColorString('#00E5FF')
+        : Cesium.Color.fromCssColorString('#FFD700');
 
       const entity = this.viewer.entities.add({
         position: assetPos,
@@ -145,7 +151,11 @@ export class SatelliteConjunctionEngine {
         const offsetLon = asset.lon + (conj.missDistanceKm / 111.0) * 0.5;
         const offsetLat = asset.lat + (conj.missDistanceKm / 111.0) * 0.5;
         const offsetAlt = (asset.altitudeKm + conj.radialMissM / 1000) * 1000;
-        const debrisPos = Cesium.Cartesian3.fromDegrees(offsetLon, offsetLat, offsetAlt);
+        const debrisPos = Cesium.Cartesian3.fromDegrees(
+          offsetLon,
+          offsetLat,
+          offsetAlt,
+        );
 
         // Debris marker
         const debEntity = this.viewer.entities.add({
@@ -211,7 +221,9 @@ export class SatelliteConjunctionEngine {
     return {
       trackedPrimaryAssets: this.assets.length,
       totalActiveConjunctions: events.length,
-      criticalManeuverRequired: events.filter((e) => e.collisionProbability > 1e-4).length,
+      criticalManeuverRequired: events.filter(
+        (e) => e.collisionProbability > 1e-4,
+      ).length,
       nearestMissDistanceKm: Math.min(...events.map((e) => e.missDistanceKm)),
       analysisEngine: 'Foster-1992 Maximum Covariance Collision Probability',
       monitoringStatus: this.active ? 'ACTIVE_COLLISION_WARNING' : 'STANDBY',

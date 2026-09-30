@@ -49,21 +49,32 @@ application
           // ── Autonomous Orion Map Harness Agent (Voice & NLP) ────────────────────
           import('./agent/OrionMapHarness.js')
             .then(({ OrionMapHarness }) => {
-              const harness = new OrionMapHarness(viewer, { cloudStream: realCloudStream });
+              const harness = new OrionMapHarness(viewer, {
+                cloudStream: realCloudStream,
+              });
               harness.mount(document.body);
 
-              const harnessDockBtn = document.getElementById('orion-harness-dock-btn');
+              const harnessDockBtn = document.getElementById(
+                'orion-harness-dock-btn',
+              );
               harnessDockBtn?.addEventListener('click', () => {
                 harness.toggle();
               });
 
               window.addEventListener('keydown', (e) => {
-                if (e.code === 'Space' && !['INPUT', 'TEXTAREA'].includes(document.activeElement?.tagName)) {
+                if (
+                  e.code === 'Space' &&
+                  !['INPUT', 'TEXTAREA'].includes(
+                    document.activeElement?.tagName,
+                  )
+                ) {
                   e.preventDefault();
                   harness.toggle();
                 }
               });
-              console.info('[AgentHarness] Autonomous Orion Map Harness Agent initialized.');
+              console.info(
+                '[AgentHarness] Autonomous Orion Map Harness Agent initialized.',
+              );
             })
             .catch((err) => console.error('[AgentHarness] Init error:', err));
         })
@@ -188,7 +199,7 @@ application
     setInterval(updateWeatherTelemetry, 3500);
   })
   .catch((error) => {
-    console.error("Orion Space initialization failed:", error);
+    console.error('Orion Space initialization failed:', error);
     const loaderStatus = document.querySelector(
       '#loading-screen .loader-status',
     );

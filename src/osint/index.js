@@ -73,42 +73,48 @@ export const OSINT_DOMAINS = {
     id: 'maritime',
     name: 'Maritime & Dark Vessel Intelligence',
     icon: '🚢',
-    description: 'Bay of Bengal AIS streaming, satellite radar correlation, and dark vessel tracking.',
+    description:
+      'Bay of Bengal AIS streaming, satellite radar correlation, and dark vessel tracking.',
     layers: ['darkVessels', 'fishingWatch', 'aisStream'],
   },
   satellite: {
     id: 'satellite',
     name: 'Satellite, SAR & Optical Intelligence',
     icon: '🛰️',
-    description: 'Sentinel-1 SAR flood mapping, Sentinel-2 10m NDVI multispectral, and NASA FIRMS fires.',
+    description:
+      'Sentinel-1 SAR flood mapping, Sentinel-2 10m NDVI multispectral, and NASA FIRMS fires.',
     layers: ['sentinel1Sar', 'sentinel2Multi', 'firmsFires'],
   },
   airspace: {
     id: 'airspace',
     name: 'Airspace, Military & Orbital Conjunction',
     icon: '✈️',
-    description: 'Military ICAO transponders, Squawk 7700 alerts, and Bangabandhu-1 space debris conjunctions.',
+    description:
+      'Military ICAO transponders, Squawk 7700 alerts, and Bangabandhu-1 space debris conjunctions.',
     layers: ['militaryAirspace', 'squawkAlert', 'satelliteConjunction'],
   },
   atmospheric: {
     id: 'atmospheric',
     name: 'Atmospheric & Greenhouse Gas Monitoring',
     icon: '🌩️',
-    description: 'Copernicus Sentinel-5P TROPOMI CH4/NO2 plumes and Blitzortung live lightning strikes.',
+    description:
+      'Copernicus Sentinel-5P TROPOMI CH4/NO2 plumes and Blitzortung live lightning strikes.',
     layers: ['sentinel5p', 'blitzortung'],
   },
   climate: {
     id: 'climate',
     name: 'Climate Tactical Simulator & Hydrology',
     icon: '🌊',
-    description: '1m–5m sea level rise & storm surge DEM flooding, and NASA GRACE-FO groundwater analytics.',
+    description:
+      '1m–5m sea level rise & storm surge DEM flooding, and NASA GRACE-FO groundwater analytics.',
     layers: ['seaLevelRise', 'graceWater'],
   },
   ai_analyst: {
     id: 'ai_analyst',
     name: 'Orion Autonomous AI Tactical Analyst',
     icon: '🤖',
-    description: 'Conversational command analyst, Cesium camera animations, and FLIR thermal post-processing.',
+    description:
+      'Conversational command analyst, Cesium camera animations, and FLIR thermal post-processing.',
     layers: ['aiAnalyst'],
   },
 };
@@ -163,7 +169,10 @@ export class OSINTMasterRegistry {
     const routeTracker = new MaritimeRouteTracker(viewer);
 
     // 2. Satellite & Optical Subsystems
-    const sentinel1Sar = new Sentinel1FloodSAR(viewer, options.sentinel1Options || {});
+    const sentinel1Sar = new Sentinel1FloodSAR(
+      viewer,
+      options.sentinel1Options || {},
+    );
     const sentinel2Multi = new Sentinel2Multispectral(viewer);
     const firmsFires = new NASAFIRMSFireLayer(viewer);
 
@@ -173,12 +182,22 @@ export class OSINTMasterRegistry {
     const satelliteConjunction = new SatelliteConjunctionEngine(viewer);
 
     // 4. Atmospheric Subsystems (Factory function pattern)
-    const sentinel5p = createSentinel5PTropomiLayer(options.sentinel5pOptions || {});
-    const blitzortung = createBlitzortungLightningLayer(options.blitzortungOptions || {});
+    const sentinel5p = createSentinel5PTropomiLayer(
+      options.sentinel5pOptions || {},
+    );
+    const blitzortung = createBlitzortungLightningLayer(
+      options.blitzortungOptions || {},
+    );
 
     // 5. Climate Subsystems
-    const seaLevelRise = new SeaLevelRiseSimulator(viewer, options.climateOptions || {});
-    const graceWater = new GraceGroundwaterTracker(viewer, options.graceOptions || {});
+    const seaLevelRise = new SeaLevelRiseSimulator(
+      viewer,
+      options.climateOptions || {},
+    );
+    const graceWater = new GraceGroundwaterTracker(
+      viewer,
+      options.graceOptions || {},
+    );
 
     // Register all layers
     this._registerLayer('darkVessels', darkVessels, 'maritime', false);
@@ -190,9 +209,19 @@ export class OSINTMasterRegistry {
     this._registerLayer('sentinel2Multi', sentinel2Multi, 'satellite', false);
     this._registerLayer('firmsFires', firmsFires, 'satellite', false);
 
-    this._registerLayer('militaryAirspace', militaryAirspace, 'airspace', false);
+    this._registerLayer(
+      'militaryAirspace',
+      militaryAirspace,
+      'airspace',
+      false,
+    );
     this._registerLayer('squawkAlert', squawkAlert, 'airspace', false);
-    this._registerLayer('satelliteConjunction', satelliteConjunction, 'airspace', false);
+    this._registerLayer(
+      'satelliteConjunction',
+      satelliteConjunction,
+      'airspace',
+      false,
+    );
 
     this._registerLayer('sentinel5p', sentinel5p, 'atmospheric', false);
     this._registerLayer('blitzortung', blitzortung, 'atmospheric', false);
@@ -210,7 +239,9 @@ export class OSINTMasterRegistry {
     this._registerLayer('aiAnalyst', this.console, 'ai_analyst', true);
 
     this.initialized = true;
-    console.log('[OSINT/Registry] Project Orion Space OSINT Suite Initialized across all 6 domains.');
+    console.log(
+      '[OSINT/Registry] Project Orion Space OSINT Suite Initialized across all 6 domains.',
+    );
     return this;
   }
 
@@ -255,11 +286,13 @@ export class OSINTMasterRegistry {
     try {
       if (entry.active) {
         if (typeof instance.show === 'function') instance.show();
-        else if (typeof instance.enable === 'function') instance.enable(this.viewer);
+        else if (typeof instance.enable === 'function')
+          instance.enable(this.viewer);
         else if (typeof instance.render === 'function') instance.render();
       } else {
         if (typeof instance.hide === 'function') instance.hide();
-        else if (typeof instance.disable === 'function') instance.disable(this.viewer);
+        else if (typeof instance.disable === 'function')
+          instance.disable(this.viewer);
         else if (typeof instance.clear === 'function') instance.clear();
       }
       this.viewer?.scene?.requestRender();
@@ -377,9 +410,12 @@ export class OSINTMasterRegistry {
    */
   async generateCompositeThreatBriefing(sectorKey = 'bay_of_bengal') {
     if (!this.console) {
-      throw new Error('[OSINT/Registry] Orion AI Analyst Console is not initialized.');
+      throw new Error(
+        '[OSINT/Registry] Orion AI Analyst Console is not initialized.',
+      );
     }
-    const sector = TACTICAL_SECTORS[sectorKey] || TACTICAL_SECTORS.bay_of_bengal;
+    const sector =
+      TACTICAL_SECTORS[sectorKey] || TACTICAL_SECTORS.bay_of_bengal;
     return await this.console.processCommand(`briefing ${sector.name}`);
   }
 

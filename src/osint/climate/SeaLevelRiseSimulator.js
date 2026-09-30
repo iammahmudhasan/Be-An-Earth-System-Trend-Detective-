@@ -2,7 +2,7 @@
  * @file SeaLevelRiseSimulator.js
  * @module Climate/SeaLevelRiseSimulator
  * @description Interactive 1m to 5m Sea-Level Rise & Storm Surge DEM Flood Inundation Simulator.
- * Features GLSL custom water animation shaders, bathymetric/DEM hypsometric tinting, 
+ * Features GLSL custom water animation shaders, bathymetric/DEM hypsometric tinting,
  * astronomical + wind setup + barometric pressure surge physics, polder breach simulation,
  * and high-fidelity geospatial vulnerability analytics across the Bangladesh Coastal Belt
  * (Barisal, Bhola, Patuakhali, Khulna, Bagerhat, Satkhira, Barguna, Pirojpur, Jhalokati).
@@ -18,10 +18,10 @@ import * as Cesium from 'cesium';
 // ============================================================================
 
 export const COASTAL_BOUNDING_BOX = {
-  west: 88.80,
-  south: 21.60,
-  east: 91.00,
-  north: 23.30,
+  west: 88.8,
+  south: 21.6,
+  east: 91.0,
+  north: 23.3,
 };
 
 export const COASTAL_DISTRICTS = [
@@ -35,12 +35,32 @@ export const COASTAL_DISTRICTS = [
     polders: ['Polder 56/1', 'Polder 56/2', 'Polder 57/1', 'Polder 58/1'],
     cycloneShelters: 684,
     criticalAssets: [
-      { name: 'Bhola Gas Field & Power Station', coords: [90.65, 22.68], elevation: 1.8, critical: true },
-      { name: 'Ilisha Ghat Inland Ferry Terminal', coords: [90.68, 22.78], elevation: 0.9, critical: true },
-      { name: 'Char Fasson Storm Surge Barrier', coords: [90.71, 22.18], elevation: 2.1, critical: false },
-      { name: 'Monpura Coastal Embankment Sec-4', coords: [90.96, 22.30], elevation: 0.8, critical: true }
+      {
+        name: 'Bhola Gas Field & Power Station',
+        coords: [90.65, 22.68],
+        elevation: 1.8,
+        critical: true,
+      },
+      {
+        name: 'Ilisha Ghat Inland Ferry Terminal',
+        coords: [90.68, 22.78],
+        elevation: 0.9,
+        critical: true,
+      },
+      {
+        name: 'Char Fasson Storm Surge Barrier',
+        coords: [90.71, 22.18],
+        elevation: 2.1,
+        critical: false,
+      },
+      {
+        name: 'Monpura Coastal Embankment Sec-4',
+        coords: [90.96, 22.3],
+        elevation: 0.8,
+        critical: true,
+      },
     ],
-    vulnerabilityWeight: 0.94
+    vulnerabilityWeight: 0.94,
   },
   {
     id: 'patuakhali',
@@ -52,29 +72,69 @@ export const COASTAL_DISTRICTS = [
     polders: ['Polder 43/1', 'Polder 43/2', 'Polder 44', 'Polder 48'],
     cycloneShelters: 825,
     criticalAssets: [
-      { name: 'Payra Deep Sea Port & Coal Terminal', coords: [90.28, 22.02], elevation: 2.5, critical: true },
-      { name: 'Payra 1320MW Thermal Power Plant', coords: [90.30, 22.04], elevation: 3.2, critical: true },
-      { name: 'Kuakata Coastal Highway & Seawall', coords: [90.12, 21.82], elevation: 1.4, critical: true },
-      { name: 'Galachipa Estuarine Floodgate', coords: [90.41, 22.16], elevation: 1.0, critical: false }
+      {
+        name: 'Payra Deep Sea Port & Coal Terminal',
+        coords: [90.28, 22.02],
+        elevation: 2.5,
+        critical: true,
+      },
+      {
+        name: 'Payra 1320MW Thermal Power Plant',
+        coords: [90.3, 22.04],
+        elevation: 3.2,
+        critical: true,
+      },
+      {
+        name: 'Kuakata Coastal Highway & Seawall',
+        coords: [90.12, 21.82],
+        elevation: 1.4,
+        critical: true,
+      },
+      {
+        name: 'Galachipa Estuarine Floodgate',
+        coords: [90.41, 22.16],
+        elevation: 1.0,
+        critical: false,
+      },
     ],
-    vulnerabilityWeight: 0.91
+    vulnerabilityWeight: 0.91,
   },
   {
     id: 'barisal',
     name: 'Barisal Central & Kirtankhola Basin',
-    center: [90.37, 22.70],
+    center: [90.37, 22.7],
     baselineElevationM: 1.8,
     population: 2324310,
     areaSqKm: 2784.52,
     polders: ['Polder 41/1', 'Polder 41/2', 'Polder 42/1'],
     cycloneShelters: 512,
     criticalAssets: [
-      { name: 'Barisal River Port & OSINT Radar Node', coords: [90.37, 22.71], elevation: 2.1, critical: true },
-      { name: 'Sher-e-Bangla Medical Complex', coords: [90.36, 22.69], elevation: 3.5, critical: true },
-      { name: 'Barisal Regional Airport (VGBR)', coords: [90.30, 22.80], elevation: 4.1, critical: false },
-      { name: 'Dapdapia Bridge Coastal Pylon', coords: [90.35, 22.65], elevation: 2.8, critical: false }
+      {
+        name: 'Barisal River Port & OSINT Radar Node',
+        coords: [90.37, 22.71],
+        elevation: 2.1,
+        critical: true,
+      },
+      {
+        name: 'Sher-e-Bangla Medical Complex',
+        coords: [90.36, 22.69],
+        elevation: 3.5,
+        critical: true,
+      },
+      {
+        name: 'Barisal Regional Airport (VGBR)',
+        coords: [90.3, 22.8],
+        elevation: 4.1,
+        critical: false,
+      },
+      {
+        name: 'Dapdapia Bridge Coastal Pylon',
+        coords: [90.35, 22.65],
+        elevation: 2.8,
+        critical: false,
+      },
     ],
-    vulnerabilityWeight: 0.79
+    vulnerabilityWeight: 0.79,
   },
   {
     id: 'khulna',
@@ -86,11 +146,26 @@ export const COASTAL_DISTRICTS = [
     polders: ['Polder 22', 'Polder 23', 'Polder 29', 'Polder 30'],
     cycloneShelters: 610,
     criticalAssets: [
-      { name: 'Khulna Industrial Shipyard & Port', coords: [89.56, 22.80], elevation: 2.4, critical: true },
-      { name: 'Rupsha Rail-Bridge Infrastructure', coords: [89.58, 22.77], elevation: 3.1, critical: true },
-      { name: 'Khulna Power Hub 330MW', coords: [89.53, 22.85], elevation: 2.7, critical: true }
+      {
+        name: 'Khulna Industrial Shipyard & Port',
+        coords: [89.56, 22.8],
+        elevation: 2.4,
+        critical: true,
+      },
+      {
+        name: 'Rupsha Rail-Bridge Infrastructure',
+        coords: [89.58, 22.77],
+        elevation: 3.1,
+        critical: true,
+      },
+      {
+        name: 'Khulna Power Hub 330MW',
+        coords: [89.53, 22.85],
+        elevation: 2.7,
+        critical: true,
+      },
     ],
-    vulnerabilityWeight: 0.75
+    vulnerabilityWeight: 0.75,
   },
   {
     id: 'bagerhat',
@@ -102,12 +177,32 @@ export const COASTAL_DISTRICTS = [
     polders: ['Polder 34/1', 'Polder 35/1', 'Polder 35/2', 'Polder 36'],
     cycloneShelters: 580,
     criticalAssets: [
-      { name: 'Mongla International Seaport Basins', coords: [89.60, 22.49], elevation: 1.9, critical: true },
-      { name: 'Rampal Ultra Supercritical Power Plant', coords: [89.56, 22.58], elevation: 3.4, critical: true },
-      { name: 'Sundarbans Biosphere Frontier Post', coords: [89.70, 22.35], elevation: 0.9, critical: true },
-      { name: 'Bagerhat Historic UNESCO Precinct Embankment', coords: [89.76, 22.67], elevation: 2.3, critical: false }
+      {
+        name: 'Mongla International Seaport Basins',
+        coords: [89.6, 22.49],
+        elevation: 1.9,
+        critical: true,
+      },
+      {
+        name: 'Rampal Ultra Supercritical Power Plant',
+        coords: [89.56, 22.58],
+        elevation: 3.4,
+        critical: true,
+      },
+      {
+        name: 'Sundarbans Biosphere Frontier Post',
+        coords: [89.7, 22.35],
+        elevation: 0.9,
+        critical: true,
+      },
+      {
+        name: 'Bagerhat Historic UNESCO Precinct Embankment',
+        coords: [89.76, 22.67],
+        elevation: 2.3,
+        critical: false,
+      },
     ],
-    vulnerabilityWeight: 0.92
+    vulnerabilityWeight: 0.92,
   },
   {
     id: 'satkhira',
@@ -119,11 +214,26 @@ export const COASTAL_DISTRICTS = [
     polders: ['Polder 1', 'Polder 2', 'Polder 3', 'Polder 4', 'Polder 5'],
     cycloneShelters: 642,
     criticalAssets: [
-      { name: 'Bhomra Land Port & Custom Complex', coords: [88.92, 22.68], elevation: 3.8, critical: false },
-      { name: 'Munshiganj Sundarbans Gateway Embankment', coords: [89.17, 22.21], elevation: 1.1, critical: true },
-      { name: 'Shyamnagar Sluice Gate Control Hub', coords: [89.10, 22.33], elevation: 1.3, critical: true }
+      {
+        name: 'Bhomra Land Port & Custom Complex',
+        coords: [88.92, 22.68],
+        elevation: 3.8,
+        critical: false,
+      },
+      {
+        name: 'Munshiganj Sundarbans Gateway Embankment',
+        coords: [89.17, 22.21],
+        elevation: 1.1,
+        critical: true,
+      },
+      {
+        name: 'Shyamnagar Sluice Gate Control Hub',
+        coords: [89.1, 22.33],
+        elevation: 1.3,
+        critical: true,
+      },
     ],
-    vulnerabilityWeight: 0.89
+    vulnerabilityWeight: 0.89,
   },
   {
     id: 'barguna',
@@ -135,12 +245,27 @@ export const COASTAL_DISTRICTS = [
     polders: ['Polder 40/1', 'Polder 40/2', 'Polder 41/1'],
     cycloneShelters: 495,
     criticalAssets: [
-      { name: 'Patharghata Deep Sea Trawler Basin', coords: [89.97, 22.05], elevation: 0.7, critical: true },
-      { name: 'Barguna Sadar Flood Defense Ring', coords: [90.12, 22.15], elevation: 1.6, critical: true },
-      { name: 'Amtali Payra Channel Siphon', coords: [90.23, 22.13], elevation: 1.2, critical: false }
+      {
+        name: 'Patharghata Deep Sea Trawler Basin',
+        coords: [89.97, 22.05],
+        elevation: 0.7,
+        critical: true,
+      },
+      {
+        name: 'Barguna Sadar Flood Defense Ring',
+        coords: [90.12, 22.15],
+        elevation: 1.6,
+        critical: true,
+      },
+      {
+        name: 'Amtali Payra Channel Siphon',
+        coords: [90.23, 22.13],
+        elevation: 1.2,
+        critical: false,
+      },
     ],
-    vulnerabilityWeight: 0.96
-  }
+    vulnerabilityWeight: 0.96,
+  },
 ];
 
 // Discrete DEM Grid sampled over Southern Bangladesh Coastal delta (Latitude: 21.6 - 23.3, Longitude: 88.8 - 91.0)
@@ -154,20 +279,20 @@ export const DEM_ELEVATION_SAMPLES = [
   [22.15, 90.33, 1.1, 12.4, 'HIGH'],
   [22.18, 90.71, 0.8, 15.1, 'CRITICAL'],
   [22.21, 89.17, 0.6, 17.8, 'CRITICAL'],
-  [22.30, 90.96, 0.5, 16.9, 'CRITICAL'],
+  [22.3, 90.96, 0.5, 16.9, 'CRITICAL'],
   [22.35, 89.07, 1.3, 13.5, 'HIGH'],
-  [22.35, 89.70, 0.9, 15.8, 'CRITICAL'],
+  [22.35, 89.7, 0.9, 15.8, 'CRITICAL'],
   [22.42, 90.71, 1.2, 11.2, 'HIGH'],
-  [22.49, 89.60, 1.9, 9.4, 'HIGH'],
+  [22.49, 89.6, 1.9, 9.4, 'HIGH'],
   [22.58, 89.56, 2.2, 7.8, 'MODERATE'],
   [22.65, 89.79, 1.8, 6.5, 'MODERATE'],
   [22.68, 90.65, 1.8, 8.2, 'HIGH'],
-  [22.70, 90.37, 2.1, 4.3, 'MODERATE'],
+  [22.7, 90.37, 2.1, 4.3, 'MODERATE'],
   [22.77, 89.58, 2.5, 3.8, 'LOW'],
   [22.84, 89.54, 2.7, 2.9, 'LOW'],
-  [22.95, 90.20, 3.4, 1.5, 'MINIMAL'],
-  [23.10, 90.15, 4.6, 0.8, 'MINIMAL'],
-  [23.25, 90.40, 5.2, 0.4, 'MINIMAL']
+  [22.95, 90.2, 3.4, 1.5, 'MINIMAL'],
+  [23.1, 90.15, 4.6, 0.8, 'MINIMAL'],
+  [23.25, 90.4, 5.2, 0.4, 'MINIMAL'],
 ];
 
 // ============================================================================
@@ -246,7 +371,7 @@ czm_material czm_getMaterial(czm_materialInput materialInput) {
 /**
  * Computes coastal storm surge elevation above MSL based on meteorological parameters.
  * Uses simplified Jelesnianski SLOSH / Holland pressure profile model.
- * 
+ *
  * @param {Object} params
  * @param {number} params.astronomicalTideM - Astronomical tide height in meters (0.5m to 3.0m in Bay of Bengal)
  * @param {number} params.centralPressureHPa - Cyclone central minimum pressure in hPa (e.g. 940 hPa for Cat 4)
@@ -260,7 +385,7 @@ export function calculateStormSurgeLevel({
   centralPressureHPa = 955,
   maxSustainedWindKmh = 175,
   approachAngleDeg = 25,
-  seaLevelRiseBaseM = 1.0
+  seaLevelRiseBaseM = 1.0,
 } = {}) {
   // 1. Inverse Barometric Effect: ~1 cm rise per 1 hPa pressure drop below ambient 1013.25 hPa
   const ambientPressure = 1013.25;
@@ -271,22 +396,31 @@ export function calculateStormSurgeLevel({
   // Formula: Delta_h_wind = (C_d * rho_air * V^2 * L) / (rho_water * g * H_shelf)
   // Approximated coefficient for shallow Sundarbans/Meghna shelf (depth ~15m, fetch ~120km)
   const windMps = maxSustainedWindKmh / 3.6;
-  const windStressSurgeM = (0.0018 * Math.pow(windMps, 2)) / 9.81 * Math.cos((approachAngleDeg * Math.PI) / 180);
+  const windStressSurgeM =
+    ((0.0018 * Math.pow(windMps, 2)) / 9.81) *
+    Math.cos((approachAngleDeg * Math.PI) / 180);
 
   // 3. Estuarine & Bay Convergence Funneling Factor (Meghna Estuary funnel amplification)
   const funnelingMultiplier = 1.35;
 
   // Total dynamic storm surge above Mean Sea Level (MSL)
-  const dynamicSurgeM = (inverseBarometricRiseM + Math.max(0, windStressSurgeM)) * funnelingMultiplier;
-  const totalWaterLevelM = seaLevelRiseBaseM + astronomicalTideM + dynamicSurgeM;
+  const dynamicSurgeM =
+    (inverseBarometricRiseM + Math.max(0, windStressSurgeM)) *
+    funnelingMultiplier;
+  const totalWaterLevelM =
+    seaLevelRiseBaseM + astronomicalTideM + dynamicSurgeM;
 
   // Saffir-Simpson Equivalent Category
   let cycloneCategory = 'Tropical Depression';
-  if (maxSustainedWindKmh >= 252) cycloneCategory = 'Super Cyclone / Category 5';
-  else if (maxSustainedWindKmh >= 209) cycloneCategory = 'Very Severe Cyclone / Category 4';
-  else if (maxSustainedWindKmh >= 178) cycloneCategory = 'Severe Cyclone / Category 3';
+  if (maxSustainedWindKmh >= 252)
+    cycloneCategory = 'Super Cyclone / Category 5';
+  else if (maxSustainedWindKmh >= 209)
+    cycloneCategory = 'Very Severe Cyclone / Category 4';
+  else if (maxSustainedWindKmh >= 178)
+    cycloneCategory = 'Severe Cyclone / Category 3';
   else if (maxSustainedWindKmh >= 154) cycloneCategory = 'Cyclone / Category 2';
-  else if (maxSustainedWindKmh >= 119) cycloneCategory = 'Cyclonic Storm / Category 1';
+  else if (maxSustainedWindKmh >= 119)
+    cycloneCategory = 'Cyclonic Storm / Category 1';
 
   return {
     seaLevelRiseBaseM: Number(seaLevelRiseBaseM.toFixed(2)),
@@ -296,7 +430,7 @@ export function calculateStormSurgeLevel({
     dynamicSurgeM: Number(dynamicSurgeM.toFixed(2)),
     totalWaterLevelM: Number(totalWaterLevelM.toFixed(2)),
     cycloneCategory,
-    waterLevelFeet: Number((totalWaterLevelM * 3.28084).toFixed(1))
+    waterLevelFeet: Number((totalWaterLevelM * 3.28084).toFixed(1)),
   };
 }
 
@@ -330,7 +464,7 @@ export class SeaLevelRiseSimulator {
       inundatedAreaSqKm: 0,
       displacedPopulation: 0,
       criticalFacilitiesBreached: 0,
-      vulnerabilityIndex: 0
+      vulnerabilityIndex: 0,
     };
 
     // Cesium primitives and dataSource holders
@@ -351,12 +485,14 @@ export class SeaLevelRiseSimulator {
    */
   init(viewer) {
     if (!viewer) {
-      throw new Error('[SeaLevelRiseSimulator] Valid Cesium Viewer instance is required');
+      throw new Error(
+        '[SeaLevelRiseSimulator] Valid Cesium Viewer instance is required',
+      );
     }
     this.viewer = viewer;
     this._dataSource = new Cesium.CustomDataSource('osint_climate_slr');
     this._primitiveCollection = new Cesium.PrimitiveCollection();
-    
+
     this.viewer.dataSources.add(this._dataSource);
     this.viewer.scene.primitives.add(this._primitiveCollection);
 
@@ -387,7 +523,7 @@ export class SeaLevelRiseSimulator {
     tideM = 1.5,
     windKmh = 175,
     pressureHPa = 955,
-    headingDeg = 20
+    headingDeg = 20,
   } = {}) {
     this.state.stormSurgeEnabled = !!enabled;
     this.state.astronomicalTideM = tideM;
@@ -448,13 +584,13 @@ export class SeaLevelRiseSimulator {
   flyToOverview() {
     if (!this.viewer) return;
     this.viewer.camera.flyTo({
-      destination: Cesium.Cartesian3.fromDegrees(90.15, 21.80, 280000.0),
+      destination: Cesium.Cartesian3.fromDegrees(90.15, 21.8, 280000.0),
       orientation: {
         heading: Cesium.Math.toRadians(0.0),
         pitch: Cesium.Math.toRadians(-55.0),
-        roll: 0.0
+        roll: 0.0,
       },
-      duration: 2.5
+      duration: 2.5,
     });
   }
 
@@ -468,9 +604,9 @@ export class SeaLevelRiseSimulator {
       orientation: {
         heading: Cesium.Math.toRadians(350.0),
         pitch: Cesium.Math.toRadians(-40.0),
-        roll: 0.0
+        roll: 0.0,
       },
-      duration: 2.0
+      duration: 2.0,
     });
   }
 
@@ -486,7 +622,7 @@ export class SeaLevelRiseSimulator {
         centralPressureHPa: this.state.centralPressureHPa,
         maxSustainedWindKmh: this.state.cycloneWindKmh,
         approachAngleDeg: this.state.approachAngleDeg,
-        seaLevelRiseBaseM: this.state.seaLevelRiseM
+        seaLevelRiseBaseM: this.state.seaLevelRiseM,
       });
     }
 
@@ -498,7 +634,7 @@ export class SeaLevelRiseSimulator {
     let breachedAssetsCount = 0;
 
     // Evaluation for each district
-    COASTAL_DISTRICTS.forEach(district => {
+    COASTAL_DISTRICTS.forEach((district) => {
       // Topographic inundation model:
       // Inundation fraction = 1 / (1 + exp(-2.4 * (WaterLevel - BaselineElevation)))
       const diff = effectiveWaterM - district.baselineElevationM;
@@ -507,18 +643,22 @@ export class SeaLevelRiseSimulator {
         inundationFraction = 1.0 / (1.0 + Math.exp(-2.2 * diff));
       } else {
         // Polders provide protection up to 2.2m design crest
-        inundationFraction = Math.max(0, 1.0 / (1.0 + Math.exp(-2.0 * (effectiveWaterM - 2.5))));
+        inundationFraction = Math.max(
+          0,
+          1.0 / (1.0 + Math.exp(-2.0 * (effectiveWaterM - 2.5))),
+        );
       }
 
       inundationFraction = Math.min(0.98, Math.max(0.04, inundationFraction));
 
       const floodedArea = district.areaSqKm * inundationFraction;
-      const displaced = district.population * inundationFraction * district.vulnerabilityWeight;
+      const displaced =
+        district.population * inundationFraction * district.vulnerabilityWeight;
 
       totalInundatedArea += floodedArea;
       totalDisplacedPop += displaced;
 
-      district.criticalAssets.forEach(asset => {
+      district.criticalAssets.forEach((asset) => {
         if (effectiveWaterM >= asset.elevation) {
           breachedAssetsCount++;
         }
@@ -529,7 +669,11 @@ export class SeaLevelRiseSimulator {
     this.state.displacedPopulation = Math.round(totalDisplacedPop);
     this.state.criticalFacilitiesBreached = breachedAssetsCount;
     this.state.vulnerabilityIndex = Number(
-      Math.min(10.0, (effectiveWaterM / 5.0) * 8.5 + (this.state.polderBreachMode ? 1.5 : 0.0)).toFixed(1)
+      Math.min(
+        10.0,
+        (effectiveWaterM / 5.0) * 8.5 +
+          (this.state.polderBreachMode ? 1.5 : 0.0),
+      ).toFixed(1),
     );
   }
 
@@ -542,13 +686,8 @@ export class SeaLevelRiseSimulator {
 
     // Create coastal flood water polygon
     const coastalPositions = Cesium.Cartesian3.fromDegreesArray([
-      88.85, 21.60,
-      91.00, 21.60,
-      91.00, 22.80,
-      90.70, 23.10,
-      90.20, 23.00,
-      89.50, 22.85,
-      88.85, 22.50
+      88.85, 21.6, 91.0, 21.6, 91.0, 22.8, 90.7, 23.1, 90.2, 23.0, 89.5, 22.85,
+      88.85, 22.5,
     ]);
 
     const waterMaterial = new Cesium.Material({
@@ -562,10 +701,10 @@ export class SeaLevelRiseSimulator {
           u_surgeHighlightColor: new Cesium.Color(0.9, 0.95, 1.0, 0.95),
           u_waveAmplitude: 0.08,
           u_waveFrequency: 45.0,
-          u_salinityFrontOpacity: 0.7
+          u_salinityFrontOpacity: 0.7,
         },
-        source: WATER_SURFACE_GLSL
-      }
+        source: WATER_SURFACE_GLSL,
+      },
     });
 
     this._waterEntity = this._dataSource.entities.add({
@@ -573,11 +712,14 @@ export class SeaLevelRiseSimulator {
       polygon: {
         hierarchy: coastalPositions,
         height: 0.0,
-        extrudedHeight: new Cesium.CallbackProperty(() => this.state.totalEffectiveWaterM, false),
+        extrudedHeight: new Cesium.CallbackProperty(
+          () => this.state.totalEffectiveWaterM,
+          false,
+        ),
         material: Cesium.Color.fromCssColorString('#0288d1').withAlpha(0.6),
         outline: true,
-        outlineColor: Cesium.Color.CYAN
-      }
+        outlineColor: Cesium.Color.CYAN,
+      },
     });
   }
 
@@ -588,16 +730,20 @@ export class SeaLevelRiseSimulator {
   _buildCoastalPoldersAndShelters() {
     if (!this._dataSource) return;
 
-    COASTAL_DISTRICTS.forEach(district => {
+    COASTAL_DISTRICTS.forEach((district) => {
       // District Hub marker
       this._dataSource.entities.add({
-        position: Cesium.Cartesian3.fromDegrees(district.center[0], district.center[1], 15.0),
+        position: Cesium.Cartesian3.fromDegrees(
+          district.center[0],
+          district.center[1],
+          15.0,
+        ),
         name: `District: ${district.name}`,
         billboard: {
           image: this._generatePinCanvas(district.name, '#00e5ff'),
           verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
           scale: 0.85,
-          disableDepthTestDistance: Number.POSITIVE_INFINITY
+          disableDepthTestDistance: Number.POSITIVE_INFINITY,
         },
         description: `
           <div style="font-family: sans-serif; font-size: 12px; color: #fff;">
@@ -607,23 +753,28 @@ export class SeaLevelRiseSimulator {
             <p><strong>Cyclone Shelters:</strong> ${district.cycloneShelters}</p>
             <p><strong>Polders:</strong> ${district.polders.join(', ')}</p>
           </div>
-        `
+        `,
       });
 
       // Critical Asset markers
-      district.criticalAssets.forEach(asset => {
+      district.criticalAssets.forEach((asset) => {
         const isBreached = this.state.totalEffectiveWaterM >= asset.elevation;
         this._dataSource.entities.add({
-          position: Cesium.Cartesian3.fromDegrees(asset.coords[0], asset.coords[1], asset.elevation),
+          position: Cesium.Cartesian3.fromDegrees(
+            asset.coords[0],
+            asset.coords[1],
+            asset.elevation,
+          ),
           name: asset.name,
           point: {
             pixelSize: asset.critical ? 12 : 8,
             color: new Cesium.CallbackProperty(() => {
-              const submerged = this.state.totalEffectiveWaterM >= asset.elevation;
+              const submerged =
+                this.state.totalEffectiveWaterM >= asset.elevation;
               return submerged ? Cesium.Color.RED : Cesium.Color.SPRINGGREEN;
             }, false),
             outlineColor: Cesium.Color.BLACK,
-            outlineWidth: 2
+            outlineWidth: 2,
           },
           label: {
             text: asset.name,
@@ -634,8 +785,11 @@ export class SeaLevelRiseSimulator {
             style: Cesium.LabelStyle.FILL_AND_OUTLINE,
             verticalOrigin: Cesium.VerticalOrigin.TOP,
             pixelOffset: new Cesium.Cartesian2(0, 10),
-            distanceDisplayCondition: new Cesium.DistanceDisplayCondition(0, 150000)
-          }
+            distanceDisplayCondition: new Cesium.DistanceDisplayCondition(
+              0,
+              150000,
+            ),
+          },
         });
       });
     });
@@ -656,21 +810,30 @@ export class SeaLevelRiseSimulator {
           // Dynamic latitude inland shift (approx 0.08 deg inland per meter of rise)
           const inlandOffset = this.state.totalEffectiveWaterM * 0.06;
           return Cesium.Cartesian3.fromDegreesArray([
-            88.90, 22.40 + inlandOffset,
-            89.40, 22.55 + inlandOffset,
-            89.80, 22.65 + inlandOffset,
-            90.25, 22.75 + inlandOffset,
-            90.80, 22.60 + inlandOffset,
-            91.00, 22.50 + inlandOffset
+            88.9,
+            22.4 + inlandOffset,
+            89.4,
+            22.55 + inlandOffset,
+            89.8,
+            22.65 + inlandOffset,
+            90.25,
+            22.75 + inlandOffset,
+            90.8,
+            22.6 + inlandOffset,
+            91.0,
+            22.5 + inlandOffset,
           ]);
         }, false),
         width: 3.5,
         material: new Cesium.PolylineDashMaterialProperty({
           color: Cesium.Color.YELLOW,
-          dashLength: 16.0
+          dashLength: 16.0,
         }),
-        show: new Cesium.CallbackProperty(() => this.state.salinityFrontVisible, false)
-      }
+        show: new Cesium.CallbackProperty(
+          () => this.state.salinityFrontVisible,
+          false,
+        ),
+      },
     });
 
     this._entities.push(salinityFront);
@@ -751,26 +914,34 @@ export class SeaLevelRiseSimulator {
         baselineSeaLevelRiseM: this.state.seaLevelRiseM,
         stormSurgeActive: this.state.stormSurgeEnabled,
         totalEffectiveWaterLevelM: this.state.totalEffectiveWaterM,
-        totalEffectiveWaterLevelFt: Number((this.state.totalEffectiveWaterM * 3.28084).toFixed(2)),
+        totalEffectiveWaterLevelFt: Number(
+          (this.state.totalEffectiveWaterM * 3.28084).toFixed(2),
+        ),
         totalInundatedAreaSqKm: this.state.inundatedAreaSqKm,
         displacedPopulationEst: this.state.displacedPopulation,
         criticalAssetsSubmerged: this.state.criticalFacilitiesBreached,
         compositeVulnerabilityIndex: this.state.vulnerabilityIndex,
-        polderBreached: this.state.polderBreachMode
+        polderBreached: this.state.polderBreachMode,
       },
-      districts: COASTAL_DISTRICTS.map(d => {
-        const submerged = this.state.totalEffectiveWaterM >= d.baselineElevationM;
+      districts: COASTAL_DISTRICTS.map((d) => {
+        const submerged =
+          this.state.totalEffectiveWaterM >= d.baselineElevationM;
         const diff = this.state.totalEffectiveWaterM - d.baselineElevationM;
-        const floodedFraction = Math.min(1.0, Math.max(0.05, 1.0 / (1.0 + Math.exp(-2.2 * diff))));
+        const floodedFraction = Math.min(
+          1.0,
+          Math.max(0.05, 1.0 / (1.0 + Math.exp(-2.2 * diff))),
+        );
         return {
           id: d.id,
           name: d.name,
           inundatedSqKm: Math.round(d.areaSqKm * floodedFraction),
           exposedPopulation: Math.round(d.population * floodedFraction),
           riskLevel: diff > 1.5 ? 'CRITICAL' : diff > 0.5 ? 'HIGH' : 'ELEVATED',
-          submergedAssets: d.criticalAssets.filter(a => this.state.totalEffectiveWaterM >= a.elevation).map(a => a.name)
+          submergedAssets: d.criticalAssets
+            .filter((a) => this.state.totalEffectiveWaterM >= a.elevation)
+            .map((a) => a.name),
         };
-      })
+      }),
     };
   }
 

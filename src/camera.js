@@ -6,7 +6,7 @@ import * as Cesium from 'cesium';
  */
 export const CAMERA_PRESETS = {
   bangladesh: {
-    destination: Cesium.Cartesian3.fromDegrees(90.3563, 23.6850, 650000),
+    destination: Cesium.Cartesian3.fromDegrees(90.3563, 23.685, 650000),
     orientation: {
       heading: Cesium.Math.toRadians(0),
       pitch: Cesium.Math.toRadians(-60),
@@ -22,7 +22,7 @@ export const CAMERA_PRESETS = {
     },
   },
   barisal: {
-    destination: Cesium.Cartesian3.fromDegrees(90.3667, 22.7010, 18000),
+    destination: Cesium.Cartesian3.fromDegrees(90.3667, 22.701, 18000),
     orientation: {
       heading: Cesium.Math.toRadians(15),
       pitch: Cesium.Math.toRadians(-35),
@@ -30,7 +30,7 @@ export const CAMERA_PRESETS = {
     },
   },
   bayOfBengal: {
-    destination: Cesium.Cartesian3.fromDegrees(90.5000, 21.5000, 350000),
+    destination: Cesium.Cartesian3.fromDegrees(90.5, 21.5, 350000),
     orientation: {
       heading: Cesium.Math.toRadians(0),
       pitch: Cesium.Math.toRadians(-50),
@@ -85,7 +85,7 @@ export function flyToPreset(viewer, presetName, duration = 3.0) {
 export function flyToBangladesh(viewer) {
   // Start from space above South Asia
   viewer.camera.setView({
-    destination: Cesium.Cartesian3.fromDegrees(90.3563, 23.6850, 4500000),
+    destination: Cesium.Cartesian3.fromDegrees(90.3563, 23.685, 4500000),
     orientation: {
       heading: Cesium.Math.toRadians(0),
       pitch: Cesium.Math.toRadians(-90),
@@ -97,7 +97,7 @@ export function flyToBangladesh(viewer) {
   const timer = setTimeout(() => {
     if (viewer.isDestroyed()) return;
     viewer.camera.flyTo({
-      destination: Cesium.Cartesian3.fromDegrees(90.3563, 23.6850, 850000),
+      destination: Cesium.Cartesian3.fromDegrees(90.3563, 23.685, 850000),
       orientation: {
         heading: Cesium.Math.toRadians(0),
         pitch: Cesium.Math.toRadians(-65),

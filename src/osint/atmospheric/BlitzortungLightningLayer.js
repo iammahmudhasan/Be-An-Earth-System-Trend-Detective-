@@ -14,29 +14,123 @@ import * as Cesium from 'cesium';
 // ============================================================================
 
 export const STRIKE_TYPES = {
-  CG_NEGATIVE: { id: 'CG-', name: 'Cloud-to-Ground (-)', color: Cesium.Color.fromCssColorString('#00E5FF'), hex: '#00E5FF' },
-  CG_POSITIVE: { id: 'CG+', name: 'Cloud-to-Ground (+) Superbolt', color: Cesium.Color.fromCssColorString('#FFD700'), hex: '#FFD700' },
-  IC: { id: 'IC', name: 'Intra-Cloud / Cloud-to-Cloud', color: Cesium.Color.fromCssColorString('#D500F9'), hex: '#D500F9' },
+  CG_NEGATIVE: {
+    id: 'CG-',
+    name: 'Cloud-to-Ground (-)',
+    color: Cesium.Color.fromCssColorString('#00E5FF'),
+    hex: '#00E5FF',
+  },
+  CG_POSITIVE: {
+    id: 'CG+',
+    name: 'Cloud-to-Ground (+) Superbolt',
+    color: Cesium.Color.fromCssColorString('#FFD700'),
+    hex: '#FFD700',
+  },
+  IC: {
+    id: 'IC',
+    name: 'Intra-Cloud / Cloud-to-Cloud',
+    color: Cesium.Color.fromCssColorString('#D500F9'),
+    hex: '#D500F9',
+  },
 };
 
 export const AGE_GRADIENT = [
-  { maxAgeSec: 5, color: Cesium.Color.WHITE, size: 10, label: '< 5s (Active Flash & Shockwave)' },
-  { maxAgeSec: 60, color: Cesium.Color.fromCssColorString('#00E5FF'), size: 7, label: '< 1 min (Electric Blue)' },
-  { maxAgeSec: 300, color: Cesium.Color.fromCssColorString('#FFEB3B'), size: 5, label: '1–5 min (Warm Yellow)' },
-  { maxAgeSec: 900, color: Cesium.Color.fromCssColorString('#FF6D00'), size: 4, label: '5–15 min (Orange)' },
-  { maxAgeSec: 1800, color: Cesium.Color.fromCssColorString('#D50000'), size: 3, label: '15–30 min (Deep Red)' },
-  { maxAgeSec: 3600, color: Cesium.Color.fromCssColorString('#78909C'), size: 2, label: '30–60 min (Faded Trail)' },
+  {
+    maxAgeSec: 5,
+    color: Cesium.Color.WHITE,
+    size: 10,
+    label: '< 5s (Active Flash & Shockwave)',
+  },
+  {
+    maxAgeSec: 60,
+    color: Cesium.Color.fromCssColorString('#00E5FF'),
+    size: 7,
+    label: '< 1 min (Electric Blue)',
+  },
+  {
+    maxAgeSec: 300,
+    color: Cesium.Color.fromCssColorString('#FFEB3B'),
+    size: 5,
+    label: '1–5 min (Warm Yellow)',
+  },
+  {
+    maxAgeSec: 900,
+    color: Cesium.Color.fromCssColorString('#FF6D00'),
+    size: 4,
+    label: '5–15 min (Orange)',
+  },
+  {
+    maxAgeSec: 1800,
+    color: Cesium.Color.fromCssColorString('#D50000'),
+    size: 3,
+    label: '15–30 min (Deep Red)',
+  },
+  {
+    maxAgeSec: 3600,
+    color: Cesium.Color.fromCssColorString('#78909C'),
+    size: 2,
+    label: '30–60 min (Faded Trail)',
+  },
 ];
 
 /** Global active convective thunderstorm tracks */
 export const STORM_SYSTEM_CENTERS = [
-  { id: 'catatumbo-vz', name: 'Catatumbo Lightning Epicenter', lat: 9.34, lon: -71.60, activityRate: 1.8, spreadDeg: 1.2 },
-  { id: 'congo-basin-cd', name: 'Congo Basin Convective Complex', lat: 0.25, lon: 23.40, activityRate: 1.5, spreadDeg: 4.5 },
-  { id: 'great-plains-us', name: 'US Tornado Alley Severe Front', lat: 34.80, lon: -97.50, activityRate: 1.4, spreadDeg: 3.8 },
-  { id: 'florida-gulf-us', name: 'Florida Lightning Alley', lat: 28.10, lon: -82.00, activityRate: 1.2, spreadDeg: 2.2 },
-  { id: 'malacca-strait-my', name: 'Strait of Malacca Monsoon Line', lat: 3.15, lon: 101.40, activityRate: 1.3, spreadDeg: 2.5 },
-  { id: 'rio-de-la-plata-ar', name: 'Pampas Mesoscale Convective System', lat: -34.20, lon: -58.50, activityRate: 1.1, spreadDeg: 3.0 },
-  { id: 'brahmaputra-in', name: 'Brahmaputra Pre-Monsoon Front', lat: 26.20, lon: 91.75, activityRate: 1.2, spreadDeg: 2.8 },
+  {
+    id: 'catatumbo-vz',
+    name: 'Catatumbo Lightning Epicenter',
+    lat: 9.34,
+    lon: -71.6,
+    activityRate: 1.8,
+    spreadDeg: 1.2,
+  },
+  {
+    id: 'congo-basin-cd',
+    name: 'Congo Basin Convective Complex',
+    lat: 0.25,
+    lon: 23.4,
+    activityRate: 1.5,
+    spreadDeg: 4.5,
+  },
+  {
+    id: 'great-plains-us',
+    name: 'US Tornado Alley Severe Front',
+    lat: 34.8,
+    lon: -97.5,
+    activityRate: 1.4,
+    spreadDeg: 3.8,
+  },
+  {
+    id: 'florida-gulf-us',
+    name: 'Florida Lightning Alley',
+    lat: 28.1,
+    lon: -82.0,
+    activityRate: 1.2,
+    spreadDeg: 2.2,
+  },
+  {
+    id: 'malacca-strait-my',
+    name: 'Strait of Malacca Monsoon Line',
+    lat: 3.15,
+    lon: 101.4,
+    activityRate: 1.3,
+    spreadDeg: 2.5,
+  },
+  {
+    id: 'rio-de-la-plata-ar',
+    name: 'Pampas Mesoscale Convective System',
+    lat: -34.2,
+    lon: -58.5,
+    activityRate: 1.1,
+    spreadDeg: 3.0,
+  },
+  {
+    id: 'brahmaputra-in',
+    name: 'Brahmaputra Pre-Monsoon Front',
+    lat: 26.2,
+    lon: 91.75,
+    activityRate: 1.2,
+    spreadDeg: 2.8,
+  },
 ];
 
 const SPEED_OF_SOUND_MPS = 343.0; // Speed of sound at sea level (20°C)
@@ -77,14 +171,17 @@ export function createBlitzortungLightningLayer({
    * @returns {Object} Strike event
    */
   function createStrikeRecord(override = {}) {
-    const storm = STORM_SYSTEM_CENTERS[Math.floor(Math.random() * STORM_SYSTEM_CENTERS.length)];
+    const storm =
+      STORM_SYSTEM_CENTERS[
+        Math.floor(Math.random() * STORM_SYSTEM_CENTERS.length)
+      ];
     const u = Math.random();
     const v = Math.random();
     const r = Math.sqrt(-2 * Math.log(u)) * storm.spreadDeg * 0.4;
     const theta = 2 * Math.PI * v;
 
-    const lat = override.lat ?? (storm.lat + r * Math.cos(theta));
-    const lon = override.lon ?? (storm.lon + r * Math.sin(theta));
+    const lat = override.lat ?? storm.lat + r * Math.cos(theta);
+    const lon = override.lon ?? storm.lon + r * Math.sin(theta);
     const isPositive = Math.random() < 0.12;
     const isIC = !isPositive && Math.random() < 0.28;
 
@@ -95,7 +192,11 @@ export function createBlitzortungLightningLayer({
         : -Math.round(10 + Math.random() * 65);
 
     const isSuperbolt = Math.abs(currentKa) >= 100;
-    const type = isPositive ? STRIKE_TYPES.CG_POSITIVE : isIC ? STRIKE_TYPES.IC : STRIKE_TYPES.CG_NEGATIVE;
+    const type = isPositive
+      ? STRIKE_TYPES.CG_POSITIVE
+      : isIC
+        ? STRIKE_TYPES.IC
+        : STRIKE_TYPES.CG_NEGATIVE;
 
     return {
       id: `BLITZ-${Date.now()}-${Math.floor(Math.random() * 10000)}`,
@@ -110,7 +211,11 @@ export function createBlitzortungLightningLayer({
       color: type.color,
       isSuperbolt,
       stationsParticipating: Math.floor(12 + Math.random() * 45),
-      positionCartesian: Cesium.Cartesian3.fromDegrees(lon, lat, isIC ? 6500 : 10),
+      positionCartesian: Cesium.Cartesian3.fromDegrees(
+        lon,
+        lat,
+        isIC ? 6500 : 10,
+      ),
       shockwaveRadiusM: 0,
       shockwaveAlpha: 1.0,
       bornAt: performance.now(),
@@ -130,14 +235,21 @@ export function createBlitzortungLightningLayer({
     }
 
     // Add acoustic shockwave entity if enabled and CG
-    if (enableSonicShockwaves && strike.altitudeM === 0 && _dataSource && _enabled) {
+    if (
+      enableSonicShockwaves &&
+      strike.altitudeM === 0 &&
+      _dataSource &&
+      _enabled
+    ) {
       _activeShockwaves.push({
         id: strike.id,
         lon: strike.lon,
         lat: strike.lat,
         peakCurrentKa: strike.peakCurrentKa,
         bornAt: performance.now(),
-        color: strike.isSuperbolt ? Cesium.Color.fromCssColorString('#FF1744') : Cesium.Color.fromCssColorString('#00E5FF'),
+        color: strike.isSuperbolt
+          ? Cesium.Color.fromCssColorString('#FF1744')
+          : Cesium.Color.fromCssColorString('#00E5FF'),
       });
     }
 
@@ -155,7 +267,9 @@ export function createBlitzortungLightningLayer({
     const nowEpoch = Date.now();
 
     // 1. Calculate Rolling Strikes / Minute
-    _recentMinuteCounts = _recentMinuteCounts.filter((t) => nowEpoch - t <= 60_000);
+    _recentMinuteCounts = _recentMinuteCounts.filter(
+      (t) => nowEpoch - t <= 60_000,
+    );
     _strikesPerMinute = _recentMinuteCounts.length;
 
     // 2. Update Active Acoustic Thunder Shockwaves
@@ -169,7 +283,10 @@ export function createBlitzortungLightningLayer({
 
         if (elapsedSec < MAX_SHOCKWAVE_DURATION_SEC) {
           const currentRadiusM = elapsedSec * SPEED_OF_SOUND_MPS * 1.6;
-          const alpha = Math.max(0, 1.0 - elapsedSec / MAX_SHOCKWAVE_DURATION_SEC);
+          const alpha = Math.max(
+            0,
+            1.0 - elapsedSec / MAX_SHOCKWAVE_DURATION_SEC,
+          );
 
           _dataSource.entities.add(
             new Cesium.Entity({
@@ -178,13 +295,15 @@ export function createBlitzortungLightningLayer({
               ellipse: {
                 semiMajorAxis: currentRadiusM,
                 semiMinorAxis: currentRadiusM,
-                material: new Cesium.ColorMaterialProperty(wave.color.withAlpha(alpha * 0.45)),
+                material: new Cesium.ColorMaterialProperty(
+                  wave.color.withAlpha(alpha * 0.45),
+                ),
                 outline: true,
                 outlineColor: wave.color.withAlpha(alpha * 0.95),
                 outlineWidth: 3,
                 heightReference: Cesium.HeightReference.CLAMP_TO_GROUND,
               },
-            })
+            }),
           );
           remainingWaves.push(wave);
         }
@@ -207,7 +326,8 @@ export function createBlitzortungLightningLayer({
 
         for (const tier of AGE_GRADIENT) {
           if (ageSec <= tier.maxAgeSec) {
-            color = ageSec < 3 && s.isSuperbolt ? Cesium.Color.WHITE : tier.color;
+            color =
+              ageSec < 3 && s.isSuperbolt ? Cesium.Color.WHITE : tier.color;
             pSize = tier.size;
             break;
           }
@@ -272,7 +392,9 @@ export function createBlitzortungLightningLayer({
       }
       _strikeHistory.sort((a, b) => b.timestamp - a.timestamp);
 
-      console.log('[OSINT:Atmospheric] Blitzortung Lightning Layer initialized');
+      console.log(
+        '[OSINT:Atmospheric] Blitzortung Lightning Layer initialized',
+      );
     },
 
     enable(viewer = _viewer) {
@@ -281,7 +403,8 @@ export function createBlitzortungLightningLayer({
       if (_pointCollection) _pointCollection.show = true;
 
       if (!_removeTickListener && _viewer) {
-        _removeTickListener = _viewer.scene.preRender.addEventListener(onFrameTick);
+        _removeTickListener =
+          _viewer.scene.preRender.addEventListener(onFrameTick);
       }
       startSimulation();
       notify();
@@ -315,7 +438,13 @@ export function createBlitzortungLightningLayer({
     /**
      * Ingests a raw external strike payload (e.g. from WebSocket or API).
      */
-    addExternalStrike({ lat, lon, peakCurrentKa, altitudeM = 0, isIC = false }) {
+    addExternalStrike({
+      lat,
+      lon,
+      peakCurrentKa,
+      altitudeM = 0,
+      isIC = false,
+    }) {
       const strike = createStrikeRecord({ lat, lon });
       strike.peakCurrentKa = peakCurrentKa;
       strike.altitudeM = altitudeM;
@@ -334,7 +463,8 @@ export function createBlitzortungLightningLayer({
      * @returns {{distanceKm: number, thunderDelaySeconds: number, isAudible: boolean}}
      */
     calculateThunderDelay(strike) {
-      if (!_viewer) return { distanceKm: 0, thunderDelaySeconds: 0, isAudible: false };
+      if (!_viewer)
+        return { distanceKm: 0, thunderDelaySeconds: 0, isAudible: false };
       const camPos = _viewer.camera.positionCartographic;
       const camLat = Cesium.Math.toDegrees(camPos.latitude);
       const camLon = Cesium.Math.toDegrees(camPos.longitude);
@@ -345,12 +475,16 @@ export function createBlitzortungLightningLayer({
       const dLon = Cesium.Math.toRadians(strike.lon - camLon);
       const a =
         Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-        Math.cos(Cesium.Math.toRadians(camLat)) * Math.cos(Cesium.Math.toRadians(strike.lat)) *
-        Math.sin(dLon / 2) * Math.sin(dLon / 2);
+        Math.cos(Cesium.Math.toRadians(camLat)) *
+          Math.cos(Cesium.Math.toRadians(strike.lat)) *
+          Math.sin(dLon / 2) *
+          Math.sin(dLon / 2);
       const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
       const distanceKm = R * c;
 
-      const thunderDelaySeconds = Number(((distanceKm * 1000) / SPEED_OF_SOUND_MPS).toFixed(1));
+      const thunderDelaySeconds = Number(
+        ((distanceKm * 1000) / SPEED_OF_SOUND_MPS).toFixed(1),
+      );
       const isAudible = distanceKm <= 25.0; // Thunder audible threshold ~25km
 
       return {

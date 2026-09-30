@@ -654,10 +654,18 @@ body.cockpit-mode #cockpit-cloud-effects.active {
   transition: var(--transition-smooth);
 }
 
-#data-panel .panel-glow { inset: -20px; }
-#scene-panel .panel-glow { inset: -20px; }
-#cctv-panel .panel-glow { inset: -20px; }
-#global-context-panel .panel-glow { inset: -20px; }
+#data-panel .panel-glow {
+  inset: -20px;
+}
+#scene-panel .panel-glow {
+  inset: -20px;
+}
+#cctv-panel .panel-glow {
+  inset: -20px;
+}
+#global-context-panel .panel-glow {
+  inset: -20px;
+}
 
 @media (max-width: 720px) {
   #left-panel-stack,
@@ -669,4 +677,3 @@ body.cockpit-mode #cockpit-cloud-effects.active {
     inset: 0;
   }
 }
-

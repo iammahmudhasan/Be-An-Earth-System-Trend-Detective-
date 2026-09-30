@@ -31,21 +31,28 @@ export const TACTICAL_SECTORS = {
   bay_of_bengal: {
     id: 'bay_of_bengal',
     name: 'Bay of Bengal EEZ & Maritime Corridor',
-    coords: [89.80, 20.20, 380000],
+    coords: [89.8, 20.2, 380000],
     orientation: { heading: 0.0, pitch: -52.0, roll: 0.0 },
     primaryDomain: 'maritime',
     threatBaseline: 'ELEVATED',
-    description: 'Strategic naval chokepoint, dark vessel trafficking, and high-seas marine sanctuaries.',
-    recommendedLayers: ['darkVessels', 'aisStream', 'fishingWatch', 'militaryAirspace'],
+    description:
+      'Strategic naval chokepoint, dark vessel trafficking, and high-seas marine sanctuaries.',
+    recommendedLayers: [
+      'darkVessels',
+      'aisStream',
+      'fishingWatch',
+      'militaryAirspace',
+    ],
   },
   chittagong_port: {
     id: 'chittagong_port',
     name: 'Chittagong Port & Karnaphuli Naval Anchorage',
-    coords: [91.80, 22.25, 14000],
+    coords: [91.8, 22.25, 14000],
     orientation: { heading: 340.0, pitch: -36.0, roll: 0.0 },
     primaryDomain: 'maritime',
     threatBaseline: 'MODERATE',
-    description: 'Premier national commercial container anchorage, petroleum tankers, and naval base BNS Issa Khan.',
+    description:
+      'Premier national commercial container anchorage, petroleum tankers, and naval base BNS Issa Khan.',
     recommendedLayers: ['aisStream', 'darkVessels', 'sentinel5p'],
   },
   payra_port: {
@@ -55,17 +62,19 @@ export const TACTICAL_SECTORS = {
     orientation: { heading: 15.0, pitch: -32.0, roll: 0.0 },
     primaryDomain: 'maritime',
     threatBaseline: 'ELEVATED',
-    description: 'Deep sea coal handling terminal, estuarine storm surge vulnerability, and naval approach.',
+    description:
+      'Deep sea coal handling terminal, estuarine storm surge vulnerability, and naval approach.',
     recommendedLayers: ['aisStream', 'seaLevelRise', 'sentinel1Sar'],
   },
   mongla_port: {
     id: 'mongla_port',
     name: 'Mongla Port & Sundarbans Pussur Gateway',
-    coords: [89.60, 22.48, 15000],
+    coords: [89.6, 22.48, 15000],
     orientation: { heading: 30.0, pitch: -35.0, roll: 0.0 },
     primaryDomain: 'climate',
     threatBaseline: 'ELEVATED',
-    description: 'UNESCO Sundarbans mangrove gateway, river siltation, and marine wildlife protection zone.',
+    description:
+      'UNESCO Sundarbans mangrove gateway, river siltation, and marine wildlife protection zone.',
     recommendedLayers: ['aisStream', 'sentinel2Multi', 'seaLevelRise'],
   },
   sylhet_haor: {
@@ -75,17 +84,19 @@ export const TACTICAL_SECTORS = {
     orientation: { heading: 10.0, pitch: -45.0, roll: 0.0 },
     primaryDomain: 'satellite',
     threatBaseline: 'SEVERE',
-    description: 'Flash-flood inundated haor wetlands, transboundary Meghalaya runoff, and submerged villages.',
+    description:
+      'Flash-flood inundated haor wetlands, transboundary Meghalaya runoff, and submerged villages.',
     recommendedLayers: ['sentinel1Sar', 'blitzortung', 'sentinel2Multi'],
   },
   feni_surge: {
     id: 'feni_surge',
     name: 'Feni Muhuri River Delta & Coastal Plain',
-    coords: [91.40, 23.01, 35000],
+    coords: [91.4, 23.01, 35000],
     orientation: { heading: 355.0, pitch: -40.0, roll: 0.0 },
     primaryDomain: 'satellite',
     threatBaseline: 'HIGH',
-    description: 'Embankment breach corridor, agricultural flash flood zone, and railway bridge choke.',
+    description:
+      'Embankment breach corridor, agricultural flash flood zone, and railway bridge choke.',
     recommendedLayers: ['sentinel1Sar', 'seaLevelRise', 'firmsFires'],
   },
   dhaka_industrial: {
@@ -95,7 +106,8 @@ export const TACTICAL_SECTORS = {
     orientation: { heading: 330.0, pitch: -45.0, roll: 0.0 },
     primaryDomain: 'atmospheric',
     threatBaseline: 'HIGH',
-    description: 'TROPOMI methane/NO2 atmospheric plume concentration and heavy industrial brick kiln cluster.',
+    description:
+      'TROPOMI methane/NO2 atmospheric plume concentration and heavy industrial brick kiln cluster.',
     recommendedLayers: ['sentinel5p', 'firmsFires', 'squawkAlert'],
   },
   chittagong_hills: {
@@ -105,57 +117,63 @@ export const TACTICAL_SECTORS = {
     orientation: { heading: 45.0, pitch: -38.0, roll: 0.0 },
     primaryDomain: 'satellite',
     threatBaseline: 'ELEVATED',
-    description: 'NASA FIRMS VIIRS/MODIS active thermal fire anomalies, deforestation, and hilly terrain radar shadow.',
+    description:
+      'NASA FIRMS VIIRS/MODIS active thermal fire anomalies, deforestation, and hilly terrain radar shadow.',
     recommendedLayers: ['firmsFires', 'sentinel2Multi', 'militaryAirspace'],
   },
   barisal_coastal: {
     id: 'barisal_coastal',
     name: 'Barisal Coastal Belt & Bhola Polder Inundation Arc',
-    coords: [90.50, 22.50, 65000],
+    coords: [90.5, 22.5, 65000],
     orientation: { heading: 180.0, pitch: -50.0, roll: 0.0 },
     primaryDomain: 'climate',
     threatBaseline: 'CRITICAL',
-    description: 'Low-elevation coastal zone vulnerable to 1m–5m sea level rise and severe cyclone storm surges.',
+    description:
+      'Low-elevation coastal zone vulnerable to 1m–5m sea level rise and severe cyclone storm surges.',
     recommendedLayers: ['seaLevelRise', 'sentinel1Sar', 'aisStream'],
   },
   barind_tract: {
     id: 'barind_tract',
     name: 'Barind Tract Deep Aquifer & Drought Belt',
-    coords: [88.60, 24.50, 60000],
+    coords: [88.6, 24.5, 60000],
     orientation: { heading: 0.0, pitch: -58.0, roll: 0.0 },
     primaryDomain: 'climate',
     threatBaseline: 'HIGH',
-    description: 'NASA GRACE-FO gravity anomaly groundwater depletion and severe agricultural irrigation drawdown.',
+    description:
+      'NASA GRACE-FO gravity anomaly groundwater depletion and severe agricultural irrigation drawdown.',
     recommendedLayers: ['graceWater', 'sentinel2Multi', 'firmsFires'],
   },
   bangabandhu_sat_1: {
     id: 'bangabandhu_sat_1',
     name: 'Bangabandhu Satellite-1 (GEO Slot 119.1°E)',
-    coords: [119.10, 0.0, 35786000],
+    coords: [119.1, 0.0, 35786000],
     orientation: { heading: 0.0, pitch: -90.0, roll: 0.0 },
     primaryDomain: 'airspace',
     threatBaseline: 'HIGH',
-    description: 'Geostationary orbital slot conjunction risk with Cosmos-2251 and space debris fragments.',
+    description:
+      'Geostationary orbital slot conjunction risk with Cosmos-2251 and space debris fragments.',
     recommendedLayers: ['satelliteConjunction', 'militaryAirspace'],
   },
   iss_orbit: {
     id: 'iss_orbit',
     name: 'International Space Station (LEO Track)',
-    coords: [88.50, 22.30, 420000],
+    coords: [88.5, 22.3, 420000],
     orientation: { heading: 45.0, pitch: -60.0, roll: 0.0 },
     primaryDomain: 'airspace',
     threatBaseline: 'CRITICAL',
-    description: 'Low Earth Orbit orbital debris conjunction risk with Fengyun-1C hypervelocity fragments.',
+    description:
+      'Low Earth Orbit orbital debris conjunction risk with Fengyun-1C hypervelocity fragments.',
     recommendedLayers: ['satelliteConjunction', 'militaryAirspace'],
   },
   coxs_bazar: {
     id: 'coxs_bazar',
-    name: 'Cox\'s Bazar Coastal Radar Station & Naf Estuary',
+    name: "Cox's Bazar Coastal Radar Station & Naf Estuary",
     coords: [91.98, 21.43, 22000],
     orientation: { heading: 315.0, pitch: -38.0, roll: 0.0 },
     primaryDomain: 'airspace',
     threatBaseline: 'HIGH',
-    description: 'Border surveillance radar outpost, maritime refugee corridor, and naval patrol anchorage.',
+    description:
+      'Border surveillance radar outpost, maritime refugee corridor, and naval patrol anchorage.',
     recommendedLayers: ['militaryAirspace', 'darkVessels', 'aisStream'],
   },
   austin_base: {
@@ -165,7 +183,8 @@ export const TACTICAL_SECTORS = {
     orientation: { heading: 0.0, pitch: -35.0, roll: 0.0 },
     primaryDomain: 'ai_analyst',
     threatBaseline: 'LOW',
-    description: 'Project Orion Space North American ground station and tactical AI command nexus.',
+    description:
+      'Project Orion Space North American ground station and tactical AI command nexus.',
     recommendedLayers: ['blitzortung', 'squawkAlert'],
   },
 };
@@ -178,43 +197,68 @@ export const SHADER_PRESETS = {
   thermal_white_hot: {
     style: 'thermal',
     name: 'FLIR White-Hot',
-    description: 'Military thermal imaging: high heat signatures render as bright white, cold as black.',
-    uniforms: { mode: 0.0, palette: 0.0, sensitivity: 0.85, bloom: 0.70, pixelation: 1.5 },
+    description:
+      'Military thermal imaging: high heat signatures render as bright white, cold as black.',
+    uniforms: {
+      mode: 0.0,
+      palette: 0.0,
+      sensitivity: 0.85,
+      bloom: 0.7,
+      pixelation: 1.5,
+    },
   },
   thermal_black_hot: {
     style: 'thermal',
     name: 'FLIR Black-Hot',
-    description: 'Military thermal imaging: high heat signatures render as deep black against warm terrain.',
-    uniforms: { mode: 1.0, palette: 0.0, sensitivity: 0.80, bloom: 0.50, pixelation: 1.5 },
+    description:
+      'Military thermal imaging: high heat signatures render as deep black against warm terrain.',
+    uniforms: {
+      mode: 1.0,
+      palette: 0.0,
+      sensitivity: 0.8,
+      bloom: 0.5,
+      pixelation: 1.5,
+    },
   },
   thermal_ironbow: {
     style: 'thermal',
     name: 'FLIR Ironbow (Predator)',
-    description: 'Dynamic multi-hue thermal palette: purple/red (cool) to yellow/white (superheated).',
-    uniforms: { mode: 0.0, palette: 1.0, sensitivity: 0.90, bloom: 0.75, pixelation: 1.2 },
+    description:
+      'Dynamic multi-hue thermal palette: purple/red (cool) to yellow/white (superheated).',
+    uniforms: {
+      mode: 0.0,
+      palette: 1.0,
+      sensitivity: 0.9,
+      bloom: 0.75,
+      pixelation: 1.2,
+    },
   },
   surveillance: {
     style: 'surveillance',
     name: 'Night Vision (NVG Green Phosphor)',
-    description: 'Intensifier tube green phosphor night vision with temporal scintillation grain and scanlines.',
+    description:
+      'Intensifier tube green phosphor night vision with temporal scintillation grain and scanlines.',
     uniforms: { intensity: 1.0 },
   },
   noir: {
     style: 'noir',
     name: 'High-Contrast Noir Recon',
-    description: 'Monochromatic high-pass filter for enhanced topographic edge discrimination.',
+    description:
+      'Monochromatic high-pass filter for enhanced topographic edge discrimination.',
     uniforms: { intensity: 1.0 },
   },
   retro: {
     style: 'retro',
     name: 'Tactical CRT Terminal',
-    description: 'Amber/Green phosphor CRT display with horizontal raster scanlines and barrel distortion.',
+    description:
+      'Amber/Green phosphor CRT display with horizontal raster scanlines and barrel distortion.',
     uniforms: { intensity: 1.0 },
   },
   normal: {
     style: 'normal',
     name: 'Standard Optical Spectrum',
-    description: 'Natural true-color satellite and aerial imagery pass-through.',
+    description:
+      'Natural true-color satellite and aerial imagery pass-through.',
     uniforms: {},
   },
 };
@@ -224,18 +268,96 @@ export const SHADER_PRESETS = {
 // ============================================================================
 
 export const CONSOLE_COMMANDS = [
-  { intent: 'SECTOR_FLY', verbs: ['fly', 'goto', 'navigate', 'jump', 'move to', 'pan to', 'focus'], syntax: 'fly to <sector>' },
-  { intent: 'CAMERA_ORBIT', verbs: ['orbit', 'circle', 'rotate around', '360 scan'], syntax: 'orbit [speed]' },
-  { intent: 'CAMERA_TOPDOWN', verbs: ['topdown', 'nadir', 'overhead', 'bird eye', 'satellite view'], syntax: 'topdown' },
-  { intent: 'CAMERA_RESET', verbs: ['reset camera', 'home view', 'center'], syntax: 'reset camera' },
-  { intent: 'SHADER_SET', verbs: ['thermal', 'flir', 'night vision', 'nvg', 'noir', 'retro', 'normal', 'optical', 'shader'], syntax: 'set shader <name>' },
-  { intent: 'FLIR_MODE', verbs: ['white hot', 'black hot', 'ironbow', 'predator'], syntax: 'set flir mode <whot|bhot|ironbow>' },
-  { intent: 'LAYER_TOGGLE', verbs: ['toggle', 'enable', 'disable', 'show', 'hide', 'activate', 'turn on', 'turn off'], syntax: 'toggle layer <name>' },
-  { intent: 'DOMAIN_CONTROL', verbs: ['domain', 'maritime', 'satellite', 'airspace', 'atmospheric', 'climate'], syntax: 'activate domain <name>' },
-  { intent: 'INTEL_BRIEFING', verbs: ['brief', 'briefing', 'sitrep', 'threat', 'report', 'intel', 'assessment'], syntax: 'briefing [sector]' },
-  { intent: 'SYSTEM_STATUS', verbs: ['status', 'health', 'telemetry', 'ping', 'sensors', 'diagnostics'], syntax: 'status' },
+  {
+    intent: 'SECTOR_FLY',
+    verbs: ['fly', 'goto', 'navigate', 'jump', 'move to', 'pan to', 'focus'],
+    syntax: 'fly to <sector>',
+  },
+  {
+    intent: 'CAMERA_ORBIT',
+    verbs: ['orbit', 'circle', 'rotate around', '360 scan'],
+    syntax: 'orbit [speed]',
+  },
+  {
+    intent: 'CAMERA_TOPDOWN',
+    verbs: ['topdown', 'nadir', 'overhead', 'bird eye', 'satellite view'],
+    syntax: 'topdown',
+  },
+  {
+    intent: 'CAMERA_RESET',
+    verbs: ['reset camera', 'home view', 'center'],
+    syntax: 'reset camera',
+  },
+  {
+    intent: 'SHADER_SET',
+    verbs: [
+      'thermal',
+      'flir',
+      'night vision',
+      'nvg',
+      'noir',
+      'retro',
+      'normal',
+      'optical',
+      'shader',
+    ],
+    syntax: 'set shader <name>',
+  },
+  {
+    intent: 'FLIR_MODE',
+    verbs: ['white hot', 'black hot', 'ironbow', 'predator'],
+    syntax: 'set flir mode <whot|bhot|ironbow>',
+  },
+  {
+    intent: 'LAYER_TOGGLE',
+    verbs: [
+      'toggle',
+      'enable',
+      'disable',
+      'show',
+      'hide',
+      'activate',
+      'turn on',
+      'turn off',
+    ],
+    syntax: 'toggle layer <name>',
+  },
+  {
+    intent: 'DOMAIN_CONTROL',
+    verbs: [
+      'domain',
+      'maritime',
+      'satellite',
+      'airspace',
+      'atmospheric',
+      'climate',
+    ],
+    syntax: 'activate domain <name>',
+  },
+  {
+    intent: 'INTEL_BRIEFING',
+    verbs: [
+      'brief',
+      'briefing',
+      'sitrep',
+      'threat',
+      'report',
+      'intel',
+      'assessment',
+    ],
+    syntax: 'briefing [sector]',
+  },
+  {
+    intent: 'SYSTEM_STATUS',
+    verbs: ['status', 'health', 'telemetry', 'ping', 'sensors', 'diagnostics'],
+    syntax: 'status',
+  },
   { intent: 'CLEAR', verbs: ['clear', 'cls'], syntax: 'clear' },
-  { intent: 'HELP', verbs: ['help', '?', 'commands', 'manual'], syntax: 'help' },
+  {
+    intent: 'HELP',
+    verbs: ['help', '?', 'commands', 'manual'],
+    syntax: 'help',
+  },
 ];
 
 // ============================================================================
@@ -431,13 +553,16 @@ export class OrionAIIntelligenceConsole {
           mode: 0.0,
           palette: 0.0,
           sensitivity: 0.85,
-          bloom: 0.70,
+          bloom: 0.7,
         },
       });
       this._flirPostProcessStage.enabled = false;
       this.viewer.scene.postProcessStages.add(this._flirPostProcessStage);
     } catch (err) {
-      console.warn('[OrionAIConsole] Standalone shader stage creation deferred:', err.message);
+      console.warn(
+        '[OrionAIConsole] Standalone shader stage creation deferred:',
+        err.message,
+      );
     }
   }
 
@@ -467,7 +592,12 @@ export class OrionAIIntelligenceConsole {
     this._emit('command', { command, timestamp: new Date().toISOString() });
 
     // 1. Help / Commands Query
-    if (lower === 'help' || lower === '?' || lower === 'commands' || lower === 'man') {
+    if (
+      lower === 'help' ||
+      lower === '?' ||
+      lower === 'commands' ||
+      lower === 'man'
+    ) {
       return this._handleHelp();
     }
 
@@ -475,30 +605,58 @@ export class OrionAIIntelligenceConsole {
     if (lower === 'clear' || lower === 'cls') {
       this.history = [];
       this._updateTerminalLog();
-      return { ok: true, action: 'CLEAR', message: 'Console terminal cleared.' };
+      return {
+        ok: true,
+        action: 'CLEAR',
+        message: 'Console terminal cleared.',
+      };
     }
 
     // 3. System Status / Health
-    if (lower.includes('status') || lower.includes('health') || lower.includes('sensors') || lower.includes('diagnostics')) {
+    if (
+      lower.includes('status') ||
+      lower.includes('health') ||
+      lower.includes('sensors') ||
+      lower.includes('diagnostics')
+    ) {
       return this._handleStatus();
     }
 
     // 4. Intelligence Briefing Request
-    if (lower.includes('brief') || lower.includes('sitrep') || lower.includes('threat') || lower.includes('report') || lower.includes('assessment')) {
+    if (
+      lower.includes('brief') ||
+      lower.includes('sitrep') ||
+      lower.includes('threat') ||
+      lower.includes('report') ||
+      lower.includes('assessment')
+    ) {
       const sector = this._extractSector(lower) || this.activeSector;
       return await this._handleBriefing(sector);
     }
 
     // 5. Camera Maneuver: Orbit
-    if (lower.includes('orbit') || lower.includes('circle') || lower.includes('360')) {
-      if (lower.includes('stop') || lower.includes('cancel') || lower.includes('halt')) {
+    if (
+      lower.includes('orbit') ||
+      lower.includes('circle') ||
+      lower.includes('360')
+    ) {
+      if (
+        lower.includes('stop') ||
+        lower.includes('cancel') ||
+        lower.includes('halt')
+      ) {
         return this.stopTacticalOrbit();
       }
       return this.startTacticalOrbit();
     }
 
     // 6. Camera Maneuver: Top-down / Nadir
-    if (lower.includes('topdown') || lower.includes('nadir') || lower.includes('overhead') || lower.includes('bird eye')) {
+    if (
+      lower.includes('topdown') ||
+      lower.includes('nadir') ||
+      lower.includes('overhead') ||
+      lower.includes('bird eye')
+    ) {
       return this.setTopDownView();
     }
 
@@ -508,18 +666,40 @@ export class OrionAIIntelligenceConsole {
     }
 
     // 8. Visual / FLIR Shader Triggers
-    if (lower.includes('flir') || lower.includes('thermal') || lower.includes('night vision') || lower.includes('nvg') || lower.includes('noir') || lower.includes('retro') || lower.includes('normal') || lower.includes('optical')) {
+    if (
+      lower.includes('flir') ||
+      lower.includes('thermal') ||
+      lower.includes('night vision') ||
+      lower.includes('nvg') ||
+      lower.includes('noir') ||
+      lower.includes('retro') ||
+      lower.includes('normal') ||
+      lower.includes('optical')
+    ) {
       return this._handleShaderCommand(lower);
     }
 
     // 9. OSINT Layer Toggles
-    if (lower.includes('layer') || lower.includes('toggle') || lower.includes('show') || lower.includes('hide') || lower.includes('enable') || lower.includes('disable')) {
+    if (
+      lower.includes('layer') ||
+      lower.includes('toggle') ||
+      lower.includes('show') ||
+      lower.includes('hide') ||
+      lower.includes('enable') ||
+      lower.includes('disable')
+    ) {
       const layerResult = this._handleLayerToggle(lower);
       if (layerResult) return layerResult;
     }
 
     // 10. Domain Bulk Toggles
-    if (lower.includes('maritime') || lower.includes('satellite') || lower.includes('airspace') || lower.includes('atmospheric') || lower.includes('climate')) {
+    if (
+      lower.includes('maritime') ||
+      lower.includes('satellite') ||
+      lower.includes('airspace') ||
+      lower.includes('atmospheric') ||
+      lower.includes('climate')
+    ) {
       const domainResult = this._handleDomainCommand(lower);
       if (domainResult) return domainResult;
     }
@@ -541,24 +721,69 @@ export class OrionAIIntelligenceConsole {
     const keys = Object.keys(TACTICAL_SECTORS);
     for (const key of keys) {
       const s = TACTICAL_SECTORS[key];
-      if (text.includes(key.replace(/_/g, ' ')) || text.includes(s.name.toLowerCase()) || text.includes(key)) {
+      if (
+        text.includes(key.replace(/_/g, ' ')) ||
+        text.includes(s.name.toLowerCase()) ||
+        text.includes(key)
+      ) {
         return s;
       }
     }
     // Specific common alias checks
-    if (text.includes('bengal') || text.includes('bay')) return TACTICAL_SECTORS.bay_of_bengal;
-    if (text.includes('chittagong') || text.includes('ctg') || text.includes('chattogram')) return TACTICAL_SECTORS.chittagong_port;
-    if (text.includes('payra') || text.includes('kuakata')) return TACTICAL_SECTORS.payra_port;
-    if (text.includes('mongla') || text.includes('sundarban')) return TACTICAL_SECTORS.mongla_port;
-    if (text.includes('sylhet') || text.includes('haor') || text.includes('surma')) return TACTICAL_SECTORS.sylhet_haor;
-    if (text.includes('feni') || text.includes('muhuri')) return TACTICAL_SECTORS.feni_surge;
-    if (text.includes('dhaka') || text.includes('gazipur') || text.includes('savar')) return TACTICAL_SECTORS.dhaka_industrial;
-    if (text.includes('hill tracts') || text.includes('bandarban') || text.includes('rangamati')) return TACTICAL_SECTORS.chittagong_hills;
-    if (text.includes('barisal') || text.includes('bhola') || text.includes('patuakhali')) return TACTICAL_SECTORS.barisal_coastal;
-    if (text.includes('barind') || text.includes('rajshahi') || text.includes('naogaon')) return TACTICAL_SECTORS.barind_tract;
-    if (text.includes('bangabandhu') || text.includes('bd-1') || text.includes('bd1')) return TACTICAL_SECTORS.bangabandhu_sat_1;
-    if (text.includes('iss') || text.includes('station')) return TACTICAL_SECTORS.iss_orbit;
-    if (text.includes('cox') || text.includes('naf')) return TACTICAL_SECTORS.coxs_bazar;
+    if (text.includes('bengal') || text.includes('bay'))
+      return TACTICAL_SECTORS.bay_of_bengal;
+    if (
+      text.includes('chittagong') ||
+      text.includes('ctg') ||
+      text.includes('chattogram')
+    )
+      return TACTICAL_SECTORS.chittagong_port;
+    if (text.includes('payra') || text.includes('kuakata'))
+      return TACTICAL_SECTORS.payra_port;
+    if (text.includes('mongla') || text.includes('sundarban'))
+      return TACTICAL_SECTORS.mongla_port;
+    if (
+      text.includes('sylhet') ||
+      text.includes('haor') ||
+      text.includes('surma')
+    )
+      return TACTICAL_SECTORS.sylhet_haor;
+    if (text.includes('feni') || text.includes('muhuri'))
+      return TACTICAL_SECTORS.feni_surge;
+    if (
+      text.includes('dhaka') ||
+      text.includes('gazipur') ||
+      text.includes('savar')
+    )
+      return TACTICAL_SECTORS.dhaka_industrial;
+    if (
+      text.includes('hill tracts') ||
+      text.includes('bandarban') ||
+      text.includes('rangamati')
+    )
+      return TACTICAL_SECTORS.chittagong_hills;
+    if (
+      text.includes('barisal') ||
+      text.includes('bhola') ||
+      text.includes('patuakhali')
+    )
+      return TACTICAL_SECTORS.barisal_coastal;
+    if (
+      text.includes('barind') ||
+      text.includes('rajshahi') ||
+      text.includes('naogaon')
+    )
+      return TACTICAL_SECTORS.barind_tract;
+    if (
+      text.includes('bangabandhu') ||
+      text.includes('bd-1') ||
+      text.includes('bd1')
+    )
+      return TACTICAL_SECTORS.bangabandhu_sat_1;
+    if (text.includes('iss') || text.includes('station'))
+      return TACTICAL_SECTORS.iss_orbit;
+    if (text.includes('cox') || text.includes('naf'))
+      return TACTICAL_SECTORS.coxs_bazar;
     if (text.includes('austin')) return TACTICAL_SECTORS.austin_base;
     return null;
   }
@@ -581,15 +806,30 @@ export class OrionAIIntelligenceConsole {
     if (!this.viewer || !this.viewer.camera) {
       const msg = `[OrionAIConsole] Camera navigation simulated for ${sector.name}`;
       this._appendLog('NAV', msg);
-      return { ok: true, action: 'FLY_TO', sector: sector.name, simulated: true };
+      return {
+        ok: true,
+        action: 'FLY_TO',
+        sector: sector.name,
+        simulated: true,
+      };
     }
 
     const duration = options.duration || 3.0;
     const [lon, lat, height] = sector.coords;
-    const dest = Cesium.Cartesian3.fromDegrees(lon, lat, options.height || height);
-    const headingRad = Cesium.Math.toRadians(options.heading != null ? options.heading : sector.orientation.heading);
-    const pitchRad = Cesium.Math.toRadians(options.pitch != null ? options.pitch : sector.orientation.pitch);
-    const rollRad = Cesium.Math.toRadians(options.roll != null ? options.roll : sector.orientation.roll);
+    const dest = Cesium.Cartesian3.fromDegrees(
+      lon,
+      lat,
+      options.height || height,
+    );
+    const headingRad = Cesium.Math.toRadians(
+      options.heading != null ? options.heading : sector.orientation.heading,
+    );
+    const pitchRad = Cesium.Math.toRadians(
+      options.pitch != null ? options.pitch : sector.orientation.pitch,
+    );
+    const rollRad = Cesium.Math.toRadians(
+      options.roll != null ? options.roll : sector.orientation.roll,
+    );
 
     this.viewer.camera.flyTo({
       destination: dest,
@@ -601,9 +841,19 @@ export class OrionAIIntelligenceConsole {
     this._playSfx('radar');
     const msg = `EXECUTING TACTICAL FLY-TO ➔ ${sector.name} (ALT: ${height.toLocaleString()}m, PITCH: ${sector.orientation.pitch}°)`;
     this._appendLog('EXEC', msg);
-    this._emit('maneuver', { type: 'FLY_TO', sector: sector.name, coords: sector.coords });
+    this._emit('maneuver', {
+      type: 'FLY_TO',
+      sector: sector.name,
+      coords: sector.coords,
+    });
 
-    return { ok: true, action: 'FLY_TO', sector: sector.name, coords: sector.coords, duration };
+    return {
+      ok: true,
+      action: 'FLY_TO',
+      sector: sector.name,
+      coords: sector.coords,
+      duration,
+    };
   }
 
   /**
@@ -611,11 +861,16 @@ export class OrionAIIntelligenceConsole {
    */
   flyToCoordinates(lon, lat, heightM = 15000, options = {}) {
     this.stopTacticalOrbit();
-    if (!this.viewer?.camera) return { ok: false, message: 'Viewer camera unavailable' };
+    if (!this.viewer?.camera)
+      return { ok: false, message: 'Viewer camera unavailable' };
 
     const duration = options.duration || 3.0;
-    const headingRad = Cesium.Math.toRadians(options.heading != null ? options.heading : 0.0);
-    const pitchRad = Cesium.Math.toRadians(options.pitch != null ? options.pitch : -45.0);
+    const headingRad = Cesium.Math.toRadians(
+      options.heading != null ? options.heading : 0.0,
+    );
+    const pitchRad = Cesium.Math.toRadians(
+      options.pitch != null ? options.pitch : -45.0,
+    );
 
     this.viewer.camera.flyTo({
       destination: Cesium.Cartesian3.fromDegrees(lon, lat, heightM),
@@ -633,7 +888,8 @@ export class OrionAIIntelligenceConsole {
    * Start 360-degree tactical continuous orbit around current position or specified Cartesian3.
    */
   startTacticalOrbit(centerPosition = null, radiusM = 40000, speed = 0.003) {
-    if (!this.viewer?.camera) return { ok: false, message: 'Viewer camera unavailable' };
+    if (!this.viewer?.camera)
+      return { ok: false, message: 'Viewer camera unavailable' };
     this.stopTacticalOrbit();
 
     let center = centerPosition;
@@ -647,25 +903,31 @@ export class OrionAIIntelligenceConsole {
     this.orbitActive = true;
 
     // Attach tick listener for smooth continuous camera rotation
-    this._orbitRemoveCallback = this.viewer.clock.onTick.addEventListener(() => {
-      if (!this.orbitActive || !this._orbitCenter) return;
-      this._orbitAngleRad += this._orbitSpeed;
-      if (this._orbitAngleRad > Math.PI * 2) this._orbitAngleRad -= Math.PI * 2;
+    this._orbitRemoveCallback = this.viewer.clock.onTick.addEventListener(
+      () => {
+        if (!this.orbitActive || !this._orbitCenter) return;
+        this._orbitAngleRad += this._orbitSpeed;
+        if (this._orbitAngleRad > Math.PI * 2)
+          this._orbitAngleRad -= Math.PI * 2;
 
-      this.viewer.camera.lookAt(
-        this._orbitCenter,
-        new Cesium.HeadingPitchRange(
-          this._orbitAngleRad,
-          Cesium.Math.toRadians(-35),
-          this._orbitRadiusM
-        )
-      );
-    });
+        this.viewer.camera.lookAt(
+          this._orbitCenter,
+          new Cesium.HeadingPitchRange(
+            this._orbitAngleRad,
+            Cesium.Math.toRadians(-35),
+            this._orbitRadiusM,
+          ),
+        );
+      },
+    );
 
     this._playSfx('affirmative');
     const msg = `TACTICAL 360° ORBIT INITIATED around ${this.activeSector.name}`;
     this._appendLog('MANEUVER', msg);
-    this._emit('maneuver', { type: 'ORBIT_START', sector: this.activeSector.name });
+    this._emit('maneuver', {
+      type: 'ORBIT_START',
+      sector: this.activeSector.name,
+    });
     return { ok: true, action: 'ORBIT_START', sector: this.activeSector.name };
   }
 
@@ -673,7 +935,8 @@ export class OrionAIIntelligenceConsole {
    * Stop active tactical orbit and release camera lock.
    */
   stopTacticalOrbit() {
-    if (!this.orbitActive) return { ok: true, action: 'ORBIT_STOP', message: 'Orbit was inactive.' };
+    if (!this.orbitActive)
+      return { ok: true, action: 'ORBIT_STOP', message: 'Orbit was inactive.' };
 
     this.orbitActive = false;
     if (this._orbitRemoveCallback) {
@@ -695,7 +958,8 @@ export class OrionAIIntelligenceConsole {
    */
   setTopDownView(heightM = 85000) {
     this.stopTacticalOrbit();
-    if (!this.viewer?.camera) return { ok: false, message: 'Viewer camera unavailable' };
+    if (!this.viewer?.camera)
+      return { ok: false, message: 'Viewer camera unavailable' };
 
     const [lon, lat] = this.activeSector.coords;
     this.viewer.camera.flyTo({
@@ -711,7 +975,12 @@ export class OrionAIIntelligenceConsole {
 
     const msg = `NADIR SATELLITE SURVEY MODE: Overhead pitch -90° at ${this.activeSector.name}`;
     this._appendLog('NAV', msg);
-    return { ok: true, action: 'TOP_DOWN', sector: this.activeSector.name, heightM };
+    return {
+      ok: true,
+      action: 'TOP_DOWN',
+      sector: this.activeSector.name,
+      heightM,
+    };
   }
 
   // ==========================================================================
@@ -719,10 +988,16 @@ export class OrionAIIntelligenceConsole {
   // ==========================================================================
 
   _handleShaderCommand(lower) {
-    if (lower.includes('white hot') || (lower.includes('flir') && lower.includes('white'))) {
+    if (
+      lower.includes('white hot') ||
+      (lower.includes('flir') && lower.includes('white'))
+    ) {
       return this.setFlirMode('white_hot');
     }
-    if (lower.includes('black hot') || (lower.includes('flir') && lower.includes('black'))) {
+    if (
+      lower.includes('black hot') ||
+      (lower.includes('flir') && lower.includes('black'))
+    ) {
       return this.setFlirMode('black_hot');
     }
     if (lower.includes('ironbow') || lower.includes('predator')) {
@@ -731,7 +1006,11 @@ export class OrionAIIntelligenceConsole {
     if (lower.includes('thermal') || lower.includes('flir')) {
       return this.setShader('thermal');
     }
-    if (lower.includes('night vision') || lower.includes('nvg') || lower.includes('surveillance')) {
+    if (
+      lower.includes('night vision') ||
+      lower.includes('nvg') ||
+      lower.includes('surveillance')
+    ) {
       return this.setShader('surveillance');
     }
     if (lower.includes('noir')) {
@@ -740,7 +1019,11 @@ export class OrionAIIntelligenceConsole {
     if (lower.includes('retro')) {
       return this.setShader('retro');
     }
-    if (lower.includes('normal') || lower.includes('optical') || lower.includes('off')) {
+    if (
+      lower.includes('normal') ||
+      lower.includes('optical') ||
+      lower.includes('off')
+    ) {
       return this.setShader('normal');
     }
     return { ok: false, message: 'Unknown shader specification.' };
@@ -760,7 +1043,10 @@ export class OrionAIIntelligenceConsole {
       try {
         this.styleManager.setStyle(targetStyle);
       } catch (err) {
-        console.warn('[OrionAIConsole] styleManager.setStyle failed, falling back to standalone stage:', err);
+        console.warn(
+          '[OrionAIConsole] styleManager.setStyle failed, falling back to standalone stage:',
+          err,
+        );
       }
     }
 
@@ -787,7 +1073,8 @@ export class OrionAIIntelligenceConsole {
    */
   setFlirMode(modeKey) {
     this.activeFlirMode = modeKey;
-    const preset = SHADER_PRESETS[`thermal_${modeKey}`] || SHADER_PRESETS.thermal_white_hot;
+    const preset =
+      SHADER_PRESETS[`thermal_${modeKey}`] || SHADER_PRESETS.thermal_white_hot;
 
     // Ensure thermal shader is active
     if (this.activeShader !== 'thermal') {
@@ -797,7 +1084,8 @@ export class OrionAIIntelligenceConsole {
     if (this._flirPostProcessStage) {
       this._flirPostProcessStage.uniforms.mode = preset.uniforms.mode;
       this._flirPostProcessStage.uniforms.palette = preset.uniforms.palette;
-      this._flirPostProcessStage.uniforms.sensitivity = preset.uniforms.sensitivity;
+      this._flirPostProcessStage.uniforms.sensitivity =
+        preset.uniforms.sensitivity;
       this._flirPostProcessStage.uniforms.bloom = preset.uniforms.bloom;
     }
 
@@ -805,7 +1093,12 @@ export class OrionAIIntelligenceConsole {
     const msg = `FLIR THERMAL RADIOMETER MODE ➔ [${preset.name.toUpperCase()}] — ${preset.description}`;
     this._appendLog('FLIR', msg);
     this._emit('flir_mode', { mode: modeKey, name: preset.name });
-    return { ok: true, action: 'SET_FLIR_MODE', mode: modeKey, name: preset.name };
+    return {
+      ok: true,
+      action: 'SET_FLIR_MODE',
+      mode: modeKey,
+      name: preset.name,
+    };
   }
 
   // ==========================================================================
@@ -813,32 +1106,35 @@ export class OrionAIIntelligenceConsole {
   // ==========================================================================
 
   _handleLayerToggle(lower) {
-    const isEnable = !lower.includes('disable') && !lower.includes('hide') && !lower.includes('off');
+    const isEnable =
+      !lower.includes('disable') &&
+      !lower.includes('hide') &&
+      !lower.includes('off');
 
     const layerMap = {
       'dark vessel': 'darkVessels',
-      'ais': 'aisStream',
-      'fishing': 'fishingWatch',
-      'sar': 'sentinel1Sar',
-      'flood': 'sentinel1Sar',
-      'multispectral': 'sentinel2Multi',
-      'ndvi': 'sentinel2Multi',
-      'fire': 'firmsFires',
-      'firms': 'firmsFires',
-      'hex': 'militaryAirspace',
-      'military': 'militaryAirspace',
-      'squawk': 'squawkAlert',
-      'emergency': 'squawkAlert',
-      'debris': 'satelliteConjunction',
-      'conjunction': 'satelliteConjunction',
-      'methane': 'sentinel5p',
-      'tropomi': 'sentinel5p',
-      'lightning': 'blitzortung',
-      'blitzortung': 'blitzortung',
+      ais: 'aisStream',
+      fishing: 'fishingWatch',
+      sar: 'sentinel1Sar',
+      flood: 'sentinel1Sar',
+      multispectral: 'sentinel2Multi',
+      ndvi: 'sentinel2Multi',
+      fire: 'firmsFires',
+      firms: 'firmsFires',
+      hex: 'militaryAirspace',
+      military: 'militaryAirspace',
+      squawk: 'squawkAlert',
+      emergency: 'squawkAlert',
+      debris: 'satelliteConjunction',
+      conjunction: 'satelliteConjunction',
+      methane: 'sentinel5p',
+      tropomi: 'sentinel5p',
+      lightning: 'blitzortung',
+      blitzortung: 'blitzortung',
       'sea level': 'seaLevelRise',
-      'surge': 'seaLevelRise',
-      'groundwater': 'graceWater',
-      'grace': 'graceWater',
+      surge: 'seaLevelRise',
+      groundwater: 'graceWater',
+      grace: 'graceWater',
     };
 
     for (const [term, layerKey] of Object.entries(layerMap)) {
@@ -850,8 +1146,17 @@ export class OrionAIIntelligenceConsole {
   }
 
   _handleDomainCommand(lower) {
-    const isEnable = !lower.includes('disable') && !lower.includes('off') && !lower.includes('hide');
-    const domains = ['maritime', 'satellite', 'airspace', 'atmospheric', 'climate'];
+    const isEnable =
+      !lower.includes('disable') &&
+      !lower.includes('off') &&
+      !lower.includes('hide');
+    const domains = [
+      'maritime',
+      'satellite',
+      'airspace',
+      'atmospheric',
+      'climate',
+    ];
 
     for (const d of domains) {
       if (lower.includes(d)) {
@@ -865,7 +1170,10 @@ export class OrionAIIntelligenceConsole {
    * Toggle individual OSINT layer by key.
    */
   setLayerState(layerKey, enabled = true) {
-    if (this.osintRegistry && typeof this.osintRegistry.setLayerState === 'function') {
+    if (
+      this.osintRegistry &&
+      typeof this.osintRegistry.setLayerState === 'function'
+    ) {
       this.osintRegistry.setLayerState(layerKey, enabled);
     }
     const stateStr = enabled ? 'ENABLED (ONLINE)' : 'DISABLED (OFFLINE)';
@@ -880,7 +1188,10 @@ export class OrionAIIntelligenceConsole {
    * Bulk enable/disable all layers within a specific OSINT domain.
    */
   setDomainState(domain, enabled = true) {
-    if (this.osintRegistry && typeof this.osintRegistry.setDomainState === 'function') {
+    if (
+      this.osintRegistry &&
+      typeof this.osintRegistry.setDomainState === 'function'
+    ) {
       this.osintRegistry.setDomainState(domain, enabled);
     }
     const stateStr = enabled ? 'ACTIVE TASKING' : 'STANDBY';
@@ -905,7 +1216,10 @@ export class OrionAIIntelligenceConsole {
   async _handleBriefing(targetSector) {
     const sector = targetSector || this.activeSector;
     this._playSfx('radar');
-    this._appendLog('INTEL', `COMPILING COMPOSITE TACTICAL INTELLIGENCE BRIEFING FOR ${sector.name.toUpperCase()}...`);
+    this._appendLog(
+      'INTEL',
+      `COMPILING COMPOSITE TACTICAL INTELLIGENCE BRIEFING FOR ${sector.name.toUpperCase()}...`,
+    );
 
     const briefingId = `ORION-INTEL-${Date.now().toString(36).toUpperCase()}`;
     const timestampUtc = new Date().toISOString();
@@ -946,7 +1260,8 @@ export class OrionAIIntelligenceConsole {
         'Squawk 7700 (General Distress) - BG-304 B737 Rapid Descent (Dhaka Radar)',
         'Squawk 7600 (NORDO Radio Loss) - CAL-819 A321 over Bay of Bengal Coast',
       ],
-      conjunctionAlert: 'Bangabandhu-1 vs Cosmos-2251 Frag #884 (Pc: 4.82e-4, TCA: 14.6h)',
+      conjunctionAlert:
+        'Bangabandhu-1 vs Cosmos-2251 Frag #884 (Pc: 4.82e-4, TCA: 14.6h)',
     };
 
     // 4. Atmospheric & Convective Assessment
@@ -956,7 +1271,8 @@ export class OrionAIIntelligenceConsole {
       methanePlumeConcentrationPpb: 1980,
       lightningStrikesPerMin: 142,
       superboltsDetected: 8,
-      convectiveCluster: 'Brahmaputra Pre-Monsoon Front (Lat: 26.20°, Lon: 91.75°)',
+      convectiveCluster:
+        'Brahmaputra Pre-Monsoon Front (Lat: 26.20°, Lon: 91.75°)',
     };
 
     // 5. Climate & Groundwater Assessment
@@ -1134,7 +1450,10 @@ Available Operator Command Syntaxes:
    * @param {HTMLElement|string} container - Parent element or DOM selector
    */
   mount(container) {
-    const parent = typeof container === 'string' ? document.querySelector(container) : container;
+    const parent =
+      typeof container === 'string'
+        ? document.querySelector(container)
+        : container;
     if (!parent) {
       console.warn('[OrionAIConsole] Cannot mount: invalid DOM container.');
       return;
@@ -1223,8 +1542,14 @@ Available Operator Command Syntaxes:
         font-size: 10px;
         transition: all 0.2s ease;
       `;
-      btn.onmouseenter = () => { btn.style.background = 'rgba(0, 229, 255, 0.25)'; btn.style.color = '#fff'; };
-      btn.onmouseleave = () => { btn.style.background = 'rgba(0, 229, 255, 0.08)'; btn.style.color = '#80deea'; };
+      btn.onmouseenter = () => {
+        btn.style.background = 'rgba(0, 229, 255, 0.25)';
+        btn.style.color = '#fff';
+      };
+      btn.onmouseleave = () => {
+        btn.style.background = 'rgba(0, 229, 255, 0.08)';
+        btn.style.color = '#80deea';
+      };
       btn.onclick = () => {
         this.processCommand(qa.cmd);
       };
@@ -1294,12 +1619,14 @@ Available Operator Command Syntaxes:
       } else if (e.key === 'ArrowUp') {
         if (this.historyIndex > 0) {
           this.historyIndex--;
-          this._domElements.input.value = this.commandHistory[this.historyIndex] || '';
+          this._domElements.input.value =
+            this.commandHistory[this.historyIndex] || '';
         }
       } else if (e.key === 'ArrowDown') {
         if (this.historyIndex < this.commandHistory.length - 1) {
           this.historyIndex++;
-          this._domElements.input.value = this.commandHistory[this.historyIndex] || '';
+          this._domElements.input.value =
+            this.commandHistory[this.historyIndex] || '';
         } else {
           this.historyIndex = this.commandHistory.length;
           this._domElements.input.value = '';
@@ -1310,11 +1637,17 @@ Available Operator Command Syntaxes:
     this._domElements.audioBtn.addEventListener('click', () => {
       this.soundEnabled = !this.soundEnabled;
       this._domElements.audioBtn.textContent = this.soundEnabled ? '🔊' : '🔇';
-      this._appendLog('SYS', `Audio sound effects ${this.soundEnabled ? 'ENABLED' : 'MUTED'}`);
+      this._appendLog(
+        'SYS',
+        `Audio sound effects ${this.soundEnabled ? 'ENABLED' : 'MUTED'}`,
+      );
     });
 
     // Initial greeting
-    this._appendLog('SYS', `Autonomous Orion AI Analyst Online. Active Sector: ${this.activeSector.name}. Type "help" or click tactical chips above.`);
+    this._appendLog(
+      'SYS',
+      `Autonomous Orion AI Analyst Online. Active Sector: ${this.activeSector.name}. Type "help" or click tactical chips above.`,
+    );
   }
 
   /**
@@ -1344,11 +1677,13 @@ Available Operator Command Syntaxes:
 
       p.textContent = entry;
       this._domElements.logArea.appendChild(p);
-      this._domElements.logArea.scrollTop = this._domElements.logArea.scrollHeight;
+      this._domElements.logArea.scrollTop =
+        this._domElements.logArea.scrollHeight;
     }
 
     if (this._domElements.sectorTag) {
-      this._domElements.sectorTag.textContent = this.activeSector.id.toUpperCase();
+      this._domElements.sectorTag.textContent =
+        this.activeSector.id.toUpperCase();
     }
     if (this._domElements.shaderTag) {
       this._domElements.shaderTag.textContent = `[${this.activeShader.toUpperCase()}]`;
@@ -1385,7 +1720,10 @@ Available Operator Command Syntaxes:
       try {
         cb(data);
       } catch (err) {
-        console.error(`[OrionAIConsole] Listener error on event "${event}":`, err);
+        console.error(
+          `[OrionAIConsole] Listener error on event "${event}":`,
+          err,
+        );
       }
     }
   }

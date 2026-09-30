@@ -28,13 +28,44 @@ export const HISTORICAL_VESSEL_TRAJECTORIES = [
     riskLevel: 'LOW',
     color: '#00FF66',
     route: [
-      { lat: 18.20, lon: 88.50, speed: 12.4, heading: 45, time: '2026-09-29 02:00 UTC' },
-      { lat: 19.45, lon: 89.80, speed: 11.8, heading: 42, time: '2026-09-29 14:00 UTC' },
-      { lat: 20.90, lon: 91.10, speed: 9.5, heading: 38, time: '2026-09-30 04:00 UTC' },
-      { lat: 21.75, lon: 91.55, speed: 5.2, heading: 30, time: '2026-09-30 10:00 UTC' },
-      { lat: 22.18, lon: 91.74, speed: 0.2, heading: 15, time: '2026-09-30 13:45 UTC' }
+      {
+        lat: 18.2,
+        lon: 88.5,
+        speed: 12.4,
+        heading: 45,
+        time: '2026-09-29 02:00 UTC',
+      },
+      {
+        lat: 19.45,
+        lon: 89.8,
+        speed: 11.8,
+        heading: 42,
+        time: '2026-09-29 14:00 UTC',
+      },
+      {
+        lat: 20.9,
+        lon: 91.1,
+        speed: 9.5,
+        heading: 38,
+        time: '2026-09-30 04:00 UTC',
+      },
+      {
+        lat: 21.75,
+        lon: 91.55,
+        speed: 5.2,
+        heading: 30,
+        time: '2026-09-30 10:00 UTC',
+      },
+      {
+        lat: 22.18,
+        lon: 91.74,
+        speed: 0.2,
+        heading: 15,
+        time: '2026-09-30 13:45 UTC',
+      },
     ],
-    osintNotes: 'Regular crude carrier shuttle between Singapore/Fujairah and Eastern Refinery Ltd (ERL) Chittagong SPM.'
+    osintNotes:
+      'Regular crude carrier shuttle between Singapore/Fujairah and Eastern Refinery Ltd (ERL) Chittagong SPM.',
   },
   {
     mmsi: '563119000',
@@ -51,12 +82,37 @@ export const HISTORICAL_VESSEL_TRAJECTORIES = [
     riskLevel: 'LOW',
     color: '#38BDF8',
     route: [
-      { lat: 15.50, lon: 93.20, speed: 17.5, heading: 345, time: '2026-09-28 20:00 UTC' },
-      { lat: 17.80, lon: 92.60, speed: 16.8, heading: 342, time: '2026-09-29 10:00 UTC' },
-      { lat: 20.10, lon: 92.00, speed: 15.2, heading: 340, time: '2026-09-30 00:00 UTC' },
-      { lat: 21.85, lon: 91.60, speed: 13.8, heading: 335, time: '2026-09-30 13:30 UTC' }
+      {
+        lat: 15.5,
+        lon: 93.2,
+        speed: 17.5,
+        heading: 345,
+        time: '2026-09-28 20:00 UTC',
+      },
+      {
+        lat: 17.8,
+        lon: 92.6,
+        speed: 16.8,
+        heading: 342,
+        time: '2026-09-29 10:00 UTC',
+      },
+      {
+        lat: 20.1,
+        lon: 92.0,
+        speed: 15.2,
+        heading: 340,
+        time: '2026-09-30 00:00 UTC',
+      },
+      {
+        lat: 21.85,
+        lon: 91.6,
+        speed: 13.8,
+        heading: 335,
+        time: '2026-09-30 13:30 UTC',
+      },
     ],
-    osintNotes: 'Express feeder service Colombo-Chittagong. Verified active AIS beacon transponder.'
+    osintNotes:
+      'Express feeder service Colombo-Chittagong. Verified active AIS beacon transponder.',
   },
   {
     mmsi: '414332000',
@@ -73,12 +129,37 @@ export const HISTORICAL_VESSEL_TRAJECTORIES = [
     riskLevel: 'LOW',
     color: '#FACC15',
     route: [
-      { lat: 16.00, lon: 88.00, speed: 11.0, heading: 25, time: '2026-09-28 16:00 UTC' },
-      { lat: 18.50, lon: 89.20, speed: 10.5, heading: 22, time: '2026-09-29 08:00 UTC' },
-      { lat: 20.30, lon: 89.90, speed: 9.8, heading: 20, time: '2026-09-29 22:00 UTC' },
-      { lat: 21.72, lon: 90.28, speed: 8.5, heading: 18, time: '2026-09-30 13:15 UTC' }
+      {
+        lat: 16.0,
+        lon: 88.0,
+        speed: 11.0,
+        heading: 25,
+        time: '2026-09-28 16:00 UTC',
+      },
+      {
+        lat: 18.5,
+        lon: 89.2,
+        speed: 10.5,
+        heading: 22,
+        time: '2026-09-29 08:00 UTC',
+      },
+      {
+        lat: 20.3,
+        lon: 89.9,
+        speed: 9.8,
+        heading: 20,
+        time: '2026-09-29 22:00 UTC',
+      },
+      {
+        lat: 21.72,
+        lon: 90.28,
+        speed: 8.5,
+        heading: 18,
+        time: '2026-09-30 13:15 UTC',
+      },
     ],
-    osintNotes: 'Indonesia-Payra dedicated coal supply corridor for 1320MW Payra Thermal Power Station.'
+    osintNotes:
+      'Indonesia-Payra dedicated coal supply corridor for 1320MW Payra Thermal Power Station.',
   },
   {
     mmsi: 'DK-9902',
@@ -95,13 +176,38 @@ export const HISTORICAL_VESSEL_TRAJECTORIES = [
     riskLevel: 'CRITICAL',
     color: '#FF0055',
     route: [
-      { lat: 18.00, lon: 92.50, speed: 13.0, heading: 310, time: '2026-09-28 01:00 UTC [LAST KNOWN AIS]' },
-      { lat: 19.20, lon: 91.80, speed: 12.1, heading: 305, time: '2026-09-28 18:00 UTC [SAR SAT DETECT]' },
-      { lat: 20.10, lon: 91.40, speed: 11.8, heading: 300, time: '2026-09-29 12:00 UTC [SAR SAT DETECT]' },
-      { lat: 20.85, lon: 91.12, speed: 11.4, heading: 215, time: '2026-09-30 12:00 UTC [SENTINEL-1 SAR]' }
+      {
+        lat: 18.0,
+        lon: 92.5,
+        speed: 13.0,
+        heading: 310,
+        time: '2026-09-28 01:00 UTC [LAST KNOWN AIS]',
+      },
+      {
+        lat: 19.2,
+        lon: 91.8,
+        speed: 12.1,
+        heading: 305,
+        time: '2026-09-28 18:00 UTC [SAR SAT DETECT]',
+      },
+      {
+        lat: 20.1,
+        lon: 91.4,
+        speed: 11.8,
+        heading: 300,
+        time: '2026-09-29 12:00 UTC [SAR SAT DETECT]',
+      },
+      {
+        lat: 20.85,
+        lon: 91.12,
+        speed: 11.4,
+        heading: 215,
+        time: '2026-09-30 12:00 UTC [SENTINEL-1 SAR]',
+      },
     ],
-    osintNotes: 'CRITICAL OSINT ALERT: AIS transponder switched OFF for 58 consecutive hours. Sentinel-1 SAR Radar cross-section indicates 180m metallic hull vessel conducting potential illicit ship-to-ship fuel transfer.'
-  }
+    osintNotes:
+      'CRITICAL OSINT ALERT: AIS transponder switched OFF for 58 consecutive hours. Sentinel-1 SAR Radar cross-section indicates 180m metallic hull vessel conducting potential illicit ship-to-ship fuel transfer.',
+  },
 ];
 
 export class MaritimeRouteTracker {
@@ -131,8 +237,10 @@ export class MaritimeRouteTracker {
   render() {
     this.clear();
 
-    HISTORICAL_VESSEL_TRAJECTORIES.forEach(vessel => {
-      const positions = vessel.route.map(pt => Cesium.Cartesian3.fromDegrees(pt.lon, pt.lat, 1500));
+    HISTORICAL_VESSEL_TRAJECTORIES.forEach((vessel) => {
+      const positions = vessel.route.map((pt) =>
+        Cesium.Cartesian3.fromDegrees(pt.lon, pt.lat, 1500),
+      );
       const color = Cesium.Color.fromCssColorString(vessel.color);
 
       // 1. Render Historical Route Polyline
@@ -143,10 +251,10 @@ export class MaritimeRouteTracker {
           width: vessel.riskLevel === 'CRITICAL' ? 4.0 : 3.0,
           material: new Cesium.PolylineGlowMaterialProperty({
             glowPower: 0.3,
-            color
+            color,
           }),
-          depthFailMaterial: color
-        }
+          depthFailMaterial: color,
+        },
       });
       this.entities.push(lineEntity);
 
@@ -154,25 +262,31 @@ export class MaritimeRouteTracker {
       vessel.route.forEach((pt, idx) => {
         const isCurrent = idx === vessel.route.length - 1;
         const waypointEntity = this.viewer.entities.add({
-          position: Cesium.Cartesian3.fromDegrees(pt.lon, pt.lat, isCurrent ? 2500 : 1500),
+          position: Cesium.Cartesian3.fromDegrees(
+            pt.lon,
+            pt.lat,
+            isCurrent ? 2500 : 1500,
+          ),
           point: {
             pixelSize: isCurrent ? 12 : 7,
             color: isCurrent ? color : color.withAlpha(0.8),
             outlineColor: Cesium.Color.BLACK,
             outlineWidth: isCurrent ? 2 : 1,
-            disableDepthTestDistance: Number.POSITIVE_INFINITY
+            disableDepthTestDistance: Number.POSITIVE_INFINITY,
           },
-          label: isCurrent ? {
-            text: `🚢 ${vessel.name}\n[${vessel.type}] · SPD: ${pt.speed}kn\nETA: ${vessel.eta}`,
-            font: '11px JetBrains Mono, monospace',
-            fillColor: color,
-            showBackground: true,
-            backgroundColor: Cesium.Color.BLACK.withAlpha(0.85),
-            verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
-            pixelOffset: new Cesium.Cartesian2(0, -14),
-            disableDepthTestDistance: Number.POSITIVE_INFINITY
-          } : undefined,
-          description: this._generateDossierHtml(vessel, pt)
+          label: isCurrent
+            ? {
+                text: `🚢 ${vessel.name}\n[${vessel.type}] · SPD: ${pt.speed}kn\nETA: ${vessel.eta}`,
+                font: '11px JetBrains Mono, monospace',
+                fillColor: color,
+                showBackground: true,
+                backgroundColor: Cesium.Color.BLACK.withAlpha(0.85),
+                verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
+                pixelOffset: new Cesium.Cartesian2(0, -14),
+                disableDepthTestDistance: Number.POSITIVE_INFINITY,
+              }
+            : undefined,
+          description: this._generateDossierHtml(vessel, pt),
         });
         this.entities.push(waypointEntity);
       });
@@ -208,7 +322,7 @@ export class MaritimeRouteTracker {
   }
 
   clear() {
-    this.entities.forEach(e => this.viewer.entities.remove(e));
+    this.entities.forEach((e) => this.viewer.entities.remove(e));
     this.entities = [];
   }
 }

@@ -28,12 +28,12 @@ import * as Cesium from 'cesium';
  * produce significantly higher return energy (-12 dB to > 0 dB).
  */
 export const SAR_THRESHOLDS = {
-  OPEN_WATER_MAX_DB: -16.0,          // Calm open water upper bound (dB)
-  DEEP_INUNDATION_DB: -20.5,         // Deep open standing water (high confidence)
-  MODERATE_FLOOD_DB: -16.5,          // Inundated agriculture / shallow haor flood
-  PARTIAL_SUBMERGED_VEG_DB: -13.0,   // Flooded vegetation / flooded paddy (VV/VH ratio)
-  DRY_LAND_BASELINE_DB: -8.5,        // Dry soil / urban / forest canopy
-  CHANGE_DETECTION_DROP_DB: -3.5,    // Drop from reference dry baseline indicating new water
+  OPEN_WATER_MAX_DB: -16.0, // Calm open water upper bound (dB)
+  DEEP_INUNDATION_DB: -20.5, // Deep open standing water (high confidence)
+  MODERATE_FLOOD_DB: -16.5, // Inundated agriculture / shallow haor flood
+  PARTIAL_SUBMERGED_VEG_DB: -13.0, // Flooded vegetation / flooded paddy (VV/VH ratio)
+  DRY_LAND_BASELINE_DB: -8.5, // Dry soil / urban / forest canopy
+  CHANGE_DETECTION_DROP_DB: -3.5, // Drop from reference dry baseline indicating new water
 };
 
 /**
@@ -66,12 +66,42 @@ export const FLOOD_REGIONS = {
     center: { lon: 91.87, lat: 24.89, heightM: 95000 },
     elevationBaselineM: 6.5,
     criticalAssets: [
-      { name: 'Sylhet Osmani Int\'l Airport (VGSY)', coords: [91.871, 24.963], elevationM: 15.2, type: 'Airport' },
-      { name: 'Kumargaon 132/33kV Power Grid Substation', coords: [91.821, 24.912], elevationM: 8.4, type: 'Power Grid' },
-      { name: 'Surma River City Embankment Breach', coords: [91.865, 24.887], elevationM: 7.1, type: 'Embankment' },
-      { name: 'Sunamganj Sadar Hospital Islanding Zone', coords: [91.398, 25.071], elevationM: 5.8, type: 'Medical' },
-      { name: 'Tahirpur Tanguar Haor Wetland Core', coords: [91.198, 25.125], elevationM: 3.2, type: 'Wetland' },
-      { name: 'Kanaighat Surma Sluice Gate Control', coords: [92.261, 25.012], elevationM: 9.8, type: 'Hydraulic' },
+      {
+        name: "Sylhet Osmani Int'l Airport (VGSY)",
+        coords: [91.871, 24.963],
+        elevationM: 15.2,
+        type: 'Airport',
+      },
+      {
+        name: 'Kumargaon 132/33kV Power Grid Substation',
+        coords: [91.821, 24.912],
+        elevationM: 8.4,
+        type: 'Power Grid',
+      },
+      {
+        name: 'Surma River City Embankment Breach',
+        coords: [91.865, 24.887],
+        elevationM: 7.1,
+        type: 'Embankment',
+      },
+      {
+        name: 'Sunamganj Sadar Hospital Islanding Zone',
+        coords: [91.398, 25.071],
+        elevationM: 5.8,
+        type: 'Medical',
+      },
+      {
+        name: 'Tahirpur Tanguar Haor Wetland Core',
+        coords: [91.198, 25.125],
+        elevationM: 3.2,
+        type: 'Wetland',
+      },
+      {
+        name: 'Kanaighat Surma Sluice Gate Control',
+        coords: [92.261, 25.012],
+        elevationM: 9.8,
+        type: 'Hydraulic',
+      },
     ],
     verifiedEvents: [
       {
@@ -99,15 +129,40 @@ export const FLOOD_REGIONS = {
     id: 'feni_muhuri',
     name: 'Feni Muhuri Basin & Eastern Flash Flood Zone',
     division: 'Chattogram',
-    bounds: { west: 91.20, south: 22.75, east: 91.65, north: 23.35 },
-    center: { lon: 91.40, lat: 23.02, heightM: 72000 },
+    bounds: { west: 91.2, south: 22.75, east: 91.65, north: 23.35 },
+    center: { lon: 91.4, lat: 23.02, heightM: 72000 },
     elevationBaselineM: 5.0,
     criticalAssets: [
-      { name: 'Dhaka-Chittagong Highway (N1) Muhuri Overpass', coords: [91.432, 22.998], elevationM: 8.5, type: 'Highway' },
-      { name: 'Muhuri River Regulating Sluice Barrier (40 Vents)', coords: [91.462, 22.845], elevationM: 4.2, type: 'Hydraulic' },
-      { name: 'Parshuram Upazila Embankment Breach Point', coords: [91.441, 23.212], elevationM: 6.8, type: 'Embankment' },
-      { name: 'Fulgazi Munshirhat Flood Bypass', coords: [91.418, 23.165], elevationM: 6.2, type: 'Drainage' },
-      { name: 'Feni Railway Link Culvert Submersion', coords: [91.398, 23.011], elevationM: 7.2, type: 'Rail' },
+      {
+        name: 'Dhaka-Chittagong Highway (N1) Muhuri Overpass',
+        coords: [91.432, 22.998],
+        elevationM: 8.5,
+        type: 'Highway',
+      },
+      {
+        name: 'Muhuri River Regulating Sluice Barrier (40 Vents)',
+        coords: [91.462, 22.845],
+        elevationM: 4.2,
+        type: 'Hydraulic',
+      },
+      {
+        name: 'Parshuram Upazila Embankment Breach Point',
+        coords: [91.441, 23.212],
+        elevationM: 6.8,
+        type: 'Embankment',
+      },
+      {
+        name: 'Fulgazi Munshirhat Flood Bypass',
+        coords: [91.418, 23.165],
+        elevationM: 6.2,
+        type: 'Drainage',
+      },
+      {
+        name: 'Feni Railway Link Culvert Submersion',
+        coords: [91.398, 23.011],
+        elevationM: 7.2,
+        type: 'Rail',
+      },
     ],
     verifiedEvents: [
       {
@@ -126,14 +181,34 @@ export const FLOOD_REGIONS = {
     id: 'kurigram_jamuna',
     name: 'Kurigram & Northern Brahmaputra/Jamuna Inflow',
     division: 'Rangpur',
-    bounds: { west: 89.45, south: 25.40, east: 90.15, north: 26.20 },
+    bounds: { west: 89.45, south: 25.4, east: 90.15, north: 26.2 },
     center: { lon: 89.65, lat: 25.81, heightM: 85000 },
     elevationBaselineM: 24.0,
     criticalAssets: [
-      { name: 'Chilmari River Port & Ferry Terminal', coords: [89.702, 25.558], elevationM: 24.8, type: 'Port' },
-      { name: 'Dharla River Bridge Pylons Kurigram', coords: [89.661, 25.832], elevationM: 26.5, type: 'Bridge' },
-      { name: 'Roumari Isolated Char Complex', coords: [89.845, 25.562], elevationM: 23.1, type: 'Char Settlement' },
-      { name: 'Teesta-Brahmaputra Confluence Flood Embankment', coords: [89.623, 25.512], elevationM: 25.2, type: 'Embankment' },
+      {
+        name: 'Chilmari River Port & Ferry Terminal',
+        coords: [89.702, 25.558],
+        elevationM: 24.8,
+        type: 'Port',
+      },
+      {
+        name: 'Dharla River Bridge Pylons Kurigram',
+        coords: [89.661, 25.832],
+        elevationM: 26.5,
+        type: 'Bridge',
+      },
+      {
+        name: 'Roumari Isolated Char Complex',
+        coords: [89.845, 25.562],
+        elevationM: 23.1,
+        type: 'Char Settlement',
+      },
+      {
+        name: 'Teesta-Brahmaputra Confluence Flood Embankment',
+        coords: [89.623, 25.512],
+        elevationM: 25.2,
+        type: 'Embankment',
+      },
     ],
     verifiedEvents: [
       {
@@ -152,8 +227,8 @@ export const FLOOD_REGIONS = {
     id: 'bangladesh_national',
     name: 'Bangladesh Nationwide SAR Flood Surveillance',
     division: 'National',
-    bounds: { west: 88.00, south: 20.60, east: 92.70, north: 26.70 },
-    center: { lon: 90.35, lat: 23.70, heightM: 650000 },
+    bounds: { west: 88.0, south: 20.6, east: 92.7, north: 26.7 },
+    center: { lon: 90.35, lat: 23.7, heightM: 650000 },
     elevationBaselineM: 10.0,
     criticalAssets: [],
     verifiedEvents: [],
@@ -274,7 +349,10 @@ export class Sentinel1FloodSAR {
   constructor(options = {}) {
     this.viewer = options.viewer || null;
     this.currentRegionKey = options.initialRegion || 'sylhet_haor';
-    this.thresholdDb = typeof options.thresholdDb === 'number' ? options.thresholdDb : SAR_THRESHOLDS.OPEN_WATER_MAX_DB;
+    this.thresholdDb =
+      typeof options.thresholdDb === 'number'
+        ? options.thresholdDb
+        : SAR_THRESHOLDS.OPEN_WATER_MAX_DB;
     this.polarization = options.polarization || 'VV';
     this.opacity = typeof options.opacity === 'number' ? options.opacity : 0.85;
     this.enableScanAnimation = options.enableScanAnimation !== false;
@@ -302,7 +380,10 @@ export class Sentinel1FloodSAR {
    * @param {Cesium.Viewer} viewer
    */
   mount(viewer) {
-    if (!viewer) throw new Error('[Sentinel1FloodSAR] Valid Cesium.Viewer required for mount()');
+    if (!viewer)
+      throw new Error(
+        '[Sentinel1FloodSAR] Valid Cesium.Viewer required for mount()',
+      );
     if (this._mounted) this.unmount();
 
     this.viewer = viewer;
@@ -318,7 +399,11 @@ export class Sentinel1FloodSAR {
     this._buildRegionVisualization(this.currentRegionKey);
 
     this._mounted = true;
-    this._emitStatus({ mounted: true, region: this.currentRegionKey, thresholdDb: this.thresholdDb });
+    this._emitStatus({
+      mounted: true,
+      region: this.currentRegionKey,
+      thresholdDb: this.thresholdDb,
+    });
   }
 
   /**
@@ -446,7 +531,9 @@ export class Sentinel1FloodSAR {
   toggleScanAnimation(active) {
     this.enableScanAnimation = Boolean(active);
     if (this._material) {
-      this._material.uniforms.u_scanSpeed = this.enableScanAnimation ? 1.0 : 0.0;
+      this._material.uniforms.u_scanSpeed = this.enableScanAnimation
+        ? 1.0
+        : 0.0;
     }
   }
 
@@ -461,7 +548,11 @@ export class Sentinel1FloodSAR {
     if (!region) return;
 
     this.viewer.camera.flyTo({
-      destination: Cesium.Cartesian3.fromDegrees(region.center.lon, region.center.lat, region.center.heightM),
+      destination: Cesium.Cartesian3.fromDegrees(
+        region.center.lon,
+        region.center.lat,
+        region.center.heightM,
+      ),
       orientation: {
         heading: Cesium.Math.toRadians(0.0),
         pitch: Cesium.Math.toRadians(-55.0),
@@ -496,7 +587,8 @@ export class Sentinel1FloodSAR {
    * @returns {Object} SAR point probe telemetry
    */
   probeBackscatter(lon, lat) {
-    const region = FLOOD_REGIONS[this.currentRegionKey] || FLOOD_REGIONS.sylhet_haor;
+    const region =
+      FLOOD_REGIONS[this.currentRegionKey] || FLOOD_REGIONS.sylhet_haor;
     const bounds = region.bounds;
 
     const u = (lon - bounds.west) / (bounds.east - bounds.west);
@@ -514,7 +606,10 @@ export class Sentinel1FloodSAR {
       sigma0VH = sigma0VV - 6.5;
 
       isWater = sigma0VV <= this.thresholdDb;
-      waterProbability = Math.max(0.0, Math.min(0.99, (this.thresholdDb - sigma0VV + 4.0) / 8.0));
+      waterProbability = Math.max(
+        0.0,
+        Math.min(0.99, (this.thresholdDb - sigma0VV + 4.0) / 8.0),
+      );
       if (isWater) {
         estimatedDepthM = Math.max(0.2, (Math.abs(sigma0VV) - 15.0) * 0.35);
       }
@@ -546,16 +641,27 @@ export class Sentinel1FloodSAR {
 
     // Topographic inundation calculation
     // Lower threshold means only deepest water detected; higher threshold captures shallow sheet flow
-    const thresholdFactor = Math.max(0.1, (this.thresholdDb - (-26.0)) / ((-10.0) - (-26.0)));
-    const totalAreaSqKm = (region.bounds.east - region.bounds.west) * 111.0 * (region.bounds.north - region.bounds.south) * 110.0;
+    const thresholdFactor = Math.max(
+      0.1,
+      (this.thresholdDb - -26.0) / (-10.0 - -26.0),
+    );
+    const totalAreaSqKm =
+      (region.bounds.east - region.bounds.west) *
+      111.0 *
+      (region.bounds.north - region.bounds.south) *
+      110.0;
 
     let baselineWaterFrac = 0.15;
     if (regionKey === 'sylhet_haor') baselineWaterFrac = 0.38;
     if (regionKey === 'feni_muhuri') baselineWaterFrac = 0.28;
     if (regionKey === 'kurigram_jamuna') baselineWaterFrac = 0.22;
 
-    const inundatedSqKm = Math.round(totalAreaSqKm * baselineWaterFrac * thresholdFactor);
-    const affectedPop = Math.round(inundatedSqKm * (regionKey === 'feni_muhuri' ? 980 : 720));
+    const inundatedSqKm = Math.round(
+      totalAreaSqKm * baselineWaterFrac * thresholdFactor,
+    );
+    const affectedPop = Math.round(
+      inundatedSqKm * (regionKey === 'feni_muhuri' ? 980 : 720),
+    );
 
     // Infrastructure status check
     const assetBreaches = region.criticalAssets.map((asset) => {
@@ -570,7 +676,9 @@ export class Sentinel1FloodSAR {
       };
     });
 
-    const submergedAssetsCount = assetBreaches.filter((a) => a.submerged).length;
+    const submergedAssetsCount = assetBreaches.filter(
+      (a) => a.submerged,
+    ).length;
 
     return {
       regionId: region.id,
@@ -580,7 +688,9 @@ export class Sentinel1FloodSAR {
       polarization: this.polarization,
       totalAreaSqKm: Math.round(totalAreaSqKm),
       inundatedAreaSqKm: inundatedSqKm,
-      inundationPercentage: Number(((inundatedSqKm / totalAreaSqKm) * 100).toFixed(1)),
+      inundationPercentage: Number(
+        ((inundatedSqKm / totalAreaSqKm) * 100).toFixed(1),
+      ),
       estimatedAffectedPopulation: affectedPop,
       submergedCriticalAssetsCount: submergedAssetsCount,
       totalCriticalAssetsCount: region.criticalAssets.length,
@@ -609,9 +719,9 @@ export class Sentinel1FloodSAR {
           u_scanSpeed: this.enableScanAnimation ? 1.0 : 0.0,
           u_inundationAlpha: this.opacity,
           u_pulsePhase: 0.0,
-          u_deepWaterColor: new Cesium.Color(0.0, 0.88, 1.0, 0.95),        // Neon Cyan
-          u_shallowWaterColor: new Cesium.Color(0.01, 0.18, 0.45, 0.75),   // Deep Navy/Indigo
-          u_radarScanColor: new Cesium.Color(0.15, 1.0, 0.65, 1.0),         // Radioactive Spring Green
+          u_deepWaterColor: new Cesium.Color(0.0, 0.88, 1.0, 0.95), // Neon Cyan
+          u_shallowWaterColor: new Cesium.Color(0.01, 0.18, 0.45, 0.75), // Deep Navy/Indigo
+          u_radarScanColor: new Cesium.Color(0.15, 1.0, 0.65, 1.0), // Radioactive Spring Green
           u_noiseScale: 1.0,
         },
         source: SAR_FLOOD_MATERIAL_GLSL,
@@ -626,11 +736,14 @@ export class Sentinel1FloodSAR {
   _initAnimationLoop() {
     if (!this.viewer) return;
 
-    this._clockTickRemoveListener = this.viewer.clock.onTick.addEventListener(() => {
-      if (!this._mounted || !this.enableScanAnimation || !this._material) return;
-      const elapsedSec = (performance.now() - this._startTime) / 1000.0;
-      this._material.uniforms.u_time = elapsedSec;
-    });
+    this._clockTickRemoveListener = this.viewer.clock.onTick.addEventListener(
+      () => {
+        if (!this._mounted || !this.enableScanAnimation || !this._material)
+          return;
+        const elapsedSec = (performance.now() - this._startTime) / 1000.0;
+        this._material.uniforms.u_time = elapsedSec;
+      },
+    );
   }
 
   /**
@@ -640,7 +753,9 @@ export class Sentinel1FloodSAR {
   _initScreenSpacePicking() {
     if (!this.viewer || !this.viewer.canvas) return;
 
-    this._screenSpaceHandler = new Cesium.ScreenSpaceEventHandler(this.viewer.canvas);
+    this._screenSpaceHandler = new Cesium.ScreenSpaceEventHandler(
+      this.viewer.canvas,
+    );
     this._screenSpaceHandler.setInputAction((click) => {
       if (!this._mounted) return;
       const ray = this.viewer.camera.getPickRay(click.position);
@@ -674,8 +789,14 @@ export class Sentinel1FloodSAR {
 
     // 1. Primary SAR Swath Rectangle Geometry Primitive with custom GLSL Material
     const rectGeometry = new Cesium.RectangleGeometry({
-      rectangle: Cesium.Rectangle.fromDegrees(bounds.west, bounds.south, bounds.east, bounds.north),
-      vertexFormat: Cesium.MaterialAppearance.MaterialSupport.TEXTURED.vertexFormat,
+      rectangle: Cesium.Rectangle.fromDegrees(
+        bounds.west,
+        bounds.south,
+        bounds.east,
+        bounds.north,
+      ),
+      vertexFormat:
+        Cesium.MaterialAppearance.MaterialSupport.TEXTURED.vertexFormat,
     });
 
     const instance = new Cesium.GeometryInstance({
@@ -701,11 +822,16 @@ export class Sentinel1FloodSAR {
 
     // 2. Swath Boundary Polyline Ring
     const borderPoints = Cesium.Cartesian3.fromDegreesArray([
-      bounds.west, bounds.south,
-      bounds.east, bounds.south,
-      bounds.east, bounds.north,
-      bounds.west, bounds.north,
-      bounds.west, bounds.south,
+      bounds.west,
+      bounds.south,
+      bounds.east,
+      bounds.south,
+      bounds.east,
+      bounds.north,
+      bounds.west,
+      bounds.north,
+      bounds.west,
+      bounds.south,
     ]);
 
     this._dataSource.entities.add({
@@ -727,7 +853,11 @@ export class Sentinel1FloodSAR {
 
       this._dataSource.entities.add({
         name: asset.name,
-        position: Cesium.Cartesian3.fromDegrees(asset.coords[0], asset.coords[1], 12.0),
+        position: Cesium.Cartesian3.fromDegrees(
+          asset.coords[0],
+          asset.coords[1],
+          12.0,
+        ),
         billboard: {
           image: this._generateTacticalPinCanvas(asset.type, pinColor),
           verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
@@ -742,7 +872,10 @@ export class Sentinel1FloodSAR {
           outlineWidth: 3,
           style: Cesium.LabelStyle.FILL_AND_OUTLINE,
           pixelOffset: new Cesium.Cartesian2(0, -32),
-          distanceDisplayCondition: new Cesium.DistanceDisplayCondition(0, 180000),
+          distanceDisplayCondition: new Cesium.DistanceDisplayCondition(
+            0,
+            180000,
+          ),
         },
         description: `
           <div style="font-family: sans-serif; font-size: 12px; line-height: 1.5; color: #fff; background: #0b132b; padding: 10px; border-radius: 6px; border: 1px solid #1c2541;">

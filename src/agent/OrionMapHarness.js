@@ -21,14 +21,16 @@ export const SECTORS = {
   barisal: {
     id: 'barisal',
     name: 'Barisal Coastal Belt & Climate Hotspot',
-    lat: 22.7010,
+    lat: 22.701,
     lon: 90.3535,
     altitude: 180000,
     heading: 0,
     pitch: -48,
-    actionDesc: 'Warming Hotspot (+0.452°C/dec, p=0.0062) & Sea Level Surge Sector',
+    actionDesc:
+      'Warming Hotspot (+0.452°C/dec, p=0.0062) & Sea Level Surge Sector',
     suggestedLayers: ['clouds', 'sea_level'],
-    speech: 'Maneuvering to Barisal sector. Displaying post-monsoon warming anomaly.'
+    speech:
+      'Maneuvering to Barisal sector. Displaying post-monsoon warming anomaly.',
   },
   dhaka: {
     id: 'dhaka',
@@ -40,7 +42,7 @@ export const SECTORS = {
     pitch: -55,
     actionDesc: 'Urban heat island & atmospheric concentration corridor',
     suggestedLayers: ['clouds', 'satellites'],
-    speech: 'Navigating to Dhaka central metropolitan corridor.'
+    speech: 'Navigating to Dhaka central metropolitan corridor.',
   },
   chittagong: {
     id: 'chittagong',
@@ -52,7 +54,7 @@ export const SECTORS = {
     pitch: -40,
     actionDesc: 'Primary national maritime port & coastal shipping approach',
     suggestedLayers: ['clouds', 'satellites'],
-    speech: 'Navigating to Chittagong Port and maritime approach.'
+    speech: 'Navigating to Chittagong Port and maritime approach.',
   },
   sylhet: {
     id: 'sylhet',
@@ -64,7 +66,7 @@ export const SECTORS = {
     pitch: -45,
     actionDesc: 'Sentinel-1 SAR radar flood extent & Haor wetland basin',
     suggestedLayers: ['clouds', 'satellites'],
-    speech: 'Maneuvering to Sylhet Haor basin flood monitoring sector.'
+    speech: 'Maneuvering to Sylhet Haor basin flood monitoring sector.',
   },
   feni: {
     id: 'feni',
@@ -76,7 +78,7 @@ export const SECTORS = {
     pitch: -45,
     actionDesc: 'August 2024 flash flood epicenter and embankment monitoring',
     suggestedLayers: ['clouds'],
-    speech: 'Navigating to Feni Muhuri flash flood surge corridor.'
+    speech: 'Navigating to Feni Muhuri flash flood surge corridor.',
   },
   sundarbans: {
     id: 'sundarbans',
@@ -88,7 +90,7 @@ export const SECTORS = {
     pitch: -50,
     actionDesc: 'UNESCO Biosphere mangrove fringe & tidal barrier',
     suggestedLayers: ['sea_level', 'clouds'],
-    speech: 'Arriving at Sundarbans mangrove biosphere.'
+    speech: 'Arriving at Sundarbans mangrove biosphere.',
   },
   rajshahi: {
     id: 'rajshahi',
@@ -100,7 +102,7 @@ export const SECTORS = {
     pitch: -50,
     actionDesc: 'NASA GRACE groundwater depletion & drought monitoring',
     suggestedLayers: ['clouds'],
-    speech: 'Maneuvering to Rajshahi Barind tract groundwater depletion zone.'
+    speech: 'Maneuvering to Rajshahi Barind tract groundwater depletion zone.',
   },
   kuakata: {
     id: 'kuakata',
@@ -112,44 +114,45 @@ export const SECTORS = {
     pitch: -35,
     actionDesc: 'Southernmost coastal delta, Payra Port, and sea level rise',
     suggestedLayers: ['sea_level', 'clouds'],
-    speech: 'Navigating to Payra Port and Kuakata shoreline.'
+    speech: 'Navigating to Payra Port and Kuakata shoreline.',
   },
   coxsbazar: {
     id: 'coxsbazar',
-    name: 'Cox\'s Bazar & Kutubdia Coastal Fringe',
+    name: "Cox's Bazar & Kutubdia Coastal Fringe",
     lat: 21.4272,
     lon: 91.9676,
     altitude: 120000,
     heading: 340,
     pitch: -42,
-    actionDesc: 'World\'s longest unbroken sea beach & cyclone approach line',
+    actionDesc: "World's longest unbroken sea beach & cyclone approach line",
     suggestedLayers: ['clouds'],
-    speech: 'Arriving at Cox\'s Bazar coastal sector.'
+    speech: "Arriving at Cox's Bazar coastal sector.",
   },
   bay_of_bengal: {
     id: 'bay_of_bengal',
     name: 'Bay of Bengal EEZ Maritime Sector',
-    lat: 20.2000,
-    lon: 89.8000,
+    lat: 20.2,
+    lon: 89.8,
     altitude: 600000,
     heading: 0,
     pitch: -55,
-    actionDesc: 'Cyclone genesis basin, depression tracking & deep water passes',
+    actionDesc:
+      'Cyclone genesis basin, depression tracking & deep water passes',
     suggestedLayers: ['clouds', 'satellites'],
-    speech: 'Framing Bay of Bengal cyclonic depression basin.'
+    speech: 'Framing Bay of Bengal cyclonic depression basin.',
   },
   bangladesh: {
     id: 'bangladesh',
-    name: 'People\'s Republic of Bangladesh',
-    lat: 23.6850,
+    name: "People's Republic of Bangladesh",
+    lat: 23.685,
     lon: 90.3563,
     altitude: 1500000,
     heading: 0,
     pitch: -65,
     actionDesc: 'National 34-station meteorological reanalysis grid overview',
     suggestedLayers: ['clouds'],
-    speech: 'Resetting to nationwide Bangladesh 34-station grid view.'
-  }
+    speech: 'Resetting to nationwide Bangladesh 34-station grid view.',
+  },
 };
 
 // ============================================================================
@@ -186,9 +189,12 @@ export class OrionMapHarness {
 
   /** Initialize Web Speech API for voice commanding. */
   _initSpeechRecognition() {
-    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    const SpeechRecognition =
+      window.SpeechRecognition || window.webkitSpeechRecognition;
     if (!SpeechRecognition) {
-      console.info('[OrionHarness] Web Speech API not supported in this browser; text input available.');
+      console.info(
+        '[OrionHarness] Web Speech API not supported in this browser; text input available.',
+      );
       return;
     }
 
@@ -201,7 +207,9 @@ export class OrionMapHarness {
       this.recognition.onstart = () => {
         this.isListening = true;
         this._updateMicButton(true);
-        this._setStatus('🎙️ LISTENING... SPEAK NOW (e.g. "Fly to Barisal", "Show real clouds")');
+        this._setStatus(
+          '🎙️ LISTENING... SPEAK NOW (e.g. "Fly to Barisal", "Show real clouds")',
+        );
       };
 
       this.recognition.onresult = (event) => {
@@ -396,8 +404,12 @@ export class OrionMapHarness {
     speechBtn?.addEventListener('click', () => {
       this.speechEnabled = !this.speechEnabled;
       speechBtn.textContent = this.speechEnabled ? '🔊' : '🔇';
-      speechBtn.title = this.speechEnabled ? 'Agent Voice Enabled' : 'Agent Voice Muted';
-      this._setStatus(this.speechEnabled ? 'Agent voice enabled' : 'Agent voice muted');
+      speechBtn.title = this.speechEnabled
+        ? 'Agent Voice Enabled'
+        : 'Agent Voice Muted';
+      this._setStatus(
+        this.speechEnabled ? 'Agent voice enabled' : 'Agent voice muted',
+      );
     });
 
     container.querySelectorAll('.harness-chip').forEach((chip) => {
@@ -410,7 +422,10 @@ export class OrionMapHarness {
 
     // Global toggle hotkey: Pressing 'Escape' or custom shortcut
     window.addEventListener('keydown', (e) => {
-      if (e.key === '`' && !['INPUT', 'TEXTAREA'].includes(document.activeElement?.tagName)) {
+      if (
+        e.key === '`' &&
+        !['INPUT', 'TEXTAREA'].includes(document.activeElement?.tagName)
+      ) {
         e.preventDefault();
         this.toggle();
       }
@@ -456,7 +471,9 @@ export class OrionMapHarness {
 
   startVoice() {
     if (!this.recognition) {
-      this._setStatus('Microphone recognition not available in this browser. Please type.');
+      this._setStatus(
+        'Microphone recognition not available in this browser. Please type.',
+      );
       return;
     }
     try {
@@ -522,7 +539,10 @@ export class OrionMapHarness {
       osc.type = 'sine';
       osc.frequency.setValueAtTime(freq, ctx.currentTime);
       gain.gain.setValueAtTime(0.04, ctx.currentTime);
-      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + durationSec);
+      gain.gain.exponentialRampToValueAtTime(
+        0.001,
+        ctx.currentTime + durationSec,
+      );
       osc.connect(gain);
       gain.connect(ctx.destination);
       osc.start();
@@ -547,48 +567,125 @@ export class OrionMapHarness {
     this._playTone(660, 0.06);
 
     // 1. Orbit command
-    if (lower.includes('orbit') || lower.includes('ghuro') || lower.includes('ঘুরো') || lower.includes('rotate') || lower.includes('360')) {
+    if (
+      lower.includes('orbit') ||
+      lower.includes('ghuro') ||
+      lower.includes('ঘুরো') ||
+      lower.includes('rotate') ||
+      lower.includes('360')
+    ) {
       return this.startOrbit();
     }
-    if (lower.includes('stop') || lower.includes('thamo') || lower.includes('থামো') || lower.includes('halt')) {
+    if (
+      lower.includes('stop') ||
+      lower.includes('thamo') ||
+      lower.includes('থামো') ||
+      lower.includes('halt')
+    ) {
       return this.stopOrbit();
     }
 
     // 2. Clouds command
-    if (lower.includes('cloud') || lower.includes('megh') || lower.includes('মেঘ') || lower.includes('gibs')) {
+    if (
+      lower.includes('cloud') ||
+      lower.includes('megh') ||
+      lower.includes('মেঘ') ||
+      lower.includes('gibs')
+    ) {
       return this.triggerClouds();
     }
 
     // 3. Shaders / Visual styles
-    if (lower.includes('thermal') || lower.includes('flir') || lower.includes('heat') || lower.includes('gorom')) {
-      return this.triggerShader('thermal', 'FLIR Thermal (Ironbow) Mode activated.');
+    if (
+      lower.includes('thermal') ||
+      lower.includes('flir') ||
+      lower.includes('heat') ||
+      lower.includes('gorom')
+    ) {
+      return this.triggerShader(
+        'thermal',
+        'FLIR Thermal (Ironbow) Mode activated.',
+      );
     }
-    if (lower.includes('nvg') || lower.includes('night') || lower.includes('raat') || lower.includes('rat')) {
-      return this.triggerShader('surveillance', 'Night Vision Sensor Pass activated.');
+    if (
+      lower.includes('nvg') ||
+      lower.includes('night') ||
+      lower.includes('raat') ||
+      lower.includes('rat')
+    ) {
+      return this.triggerShader(
+        'surveillance',
+        'Night Vision Sensor Pass activated.',
+      );
     }
-    if (lower.includes('noir') || lower.includes('monochrome') || lower.includes('black and white')) {
-      return this.triggerShader('noir', 'Swiss Monochrome Noir Style activated.');
+    if (
+      lower.includes('noir') ||
+      lower.includes('monochrome') ||
+      lower.includes('black and white')
+    ) {
+      return this.triggerShader(
+        'noir',
+        'Swiss Monochrome Noir Style activated.',
+      );
     }
-    if (lower.includes('normal') || lower.includes('optical') || lower.includes('reset style')) {
+    if (
+      lower.includes('normal') ||
+      lower.includes('optical') ||
+      lower.includes('reset style')
+    ) {
       return this.triggerShader('normal', 'Standard Optical Globe restored.');
     }
 
     // 4. Sea Level Rise Simulator
-    if (lower.includes('sea level') || lower.includes('slr') || lower.includes('surge') || lower.includes('pani') || lower.includes('জলস্তর')) {
+    if (
+      lower.includes('sea level') ||
+      lower.includes('slr') ||
+      lower.includes('surge') ||
+      lower.includes('pani') ||
+      lower.includes('জলস্তর')
+    ) {
       return this.triggerSeaLevelRise();
     }
 
     // 5. NASA Earth System Trend Detective (Climate Evidence Queries)
-    if (lower.includes('fastest') || lower.includes('where is warming') || lower.includes('hotspot') || lower.includes('shobcheye beshi gorom') || lower.includes('সবচেয়ে বেশি গরম') || lower.includes('warming fastest')) {
+    if (
+      lower.includes('fastest') ||
+      lower.includes('where is warming') ||
+      lower.includes('hotspot') ||
+      lower.includes('shobcheye beshi gorom') ||
+      lower.includes('সবচেয়ে বেশি গরম') ||
+      lower.includes('warming fastest')
+    ) {
       return this.handleFastestWarmingQuery();
     }
-    if (lower.includes('barisal evidence') || lower.includes('বরিশাল প্রমাণ') || (lower.includes('barisal') && (lower.includes('evidence') || lower.includes('trend') || lower.includes('stat') || lower.includes('data')))) {
+    if (
+      lower.includes('barisal evidence') ||
+      lower.includes('বরিশাল প্রমাণ') ||
+      (lower.includes('barisal') &&
+        (lower.includes('evidence') ||
+          lower.includes('trend') ||
+          lower.includes('stat') ||
+          lower.includes('data')))
+    ) {
       return this.handleBarisalEvidenceQuery();
     }
-    if (lower.includes('significant') || lower.includes('statistical proof') || lower.includes('mann kendall') || lower.includes('p value') || lower.includes('প্রমাণ') || lower.includes('detective') || lower.includes('proof')) {
+    if (
+      lower.includes('significant') ||
+      lower.includes('statistical proof') ||
+      lower.includes('mann kendall') ||
+      lower.includes('p value') ||
+      lower.includes('প্রমাণ') ||
+      lower.includes('detective') ||
+      lower.includes('proof')
+    ) {
       return this.handleStatisticalSignificanceQuery();
     }
-    if (lower.includes('october') || lower.includes('অক্টোবর') || lower.includes('seasonal') || lower.includes('post-monsoon')) {
+    if (
+      lower.includes('october') ||
+      lower.includes('অক্টোবর') ||
+      lower.includes('seasonal') ||
+      lower.includes('post-monsoon')
+    ) {
       return this.handleSeasonalDissociationQuery();
     }
 
@@ -604,7 +701,12 @@ export class OrionMapHarness {
       const lat = parseFloat(coordMatch[1]);
       const lon = parseFloat(coordMatch[2]);
       if (lat >= -90 && lat <= 90 && lon >= -180 && lon <= 180) {
-        return this.flyToCoords(lat, lon, 120000, `Coordinates [${lat.toFixed(4)}, ${lon.toFixed(4)}]`);
+        return this.flyToCoords(
+          lat,
+          lon,
+          120000,
+          `Coordinates [${lat.toFixed(4)}, ${lon.toFixed(4)}]`,
+        );
       }
     }
 
@@ -616,37 +718,92 @@ export class OrionMapHarness {
 
   /** Resolves geographic sector from natural language query. */
   _resolveSector(text) {
-    if (text.includes('barisal') || text.includes('barishal') || text.includes('বরিশাল') || text.includes('bhola') || text.includes('patuakhali')) {
+    if (
+      text.includes('barisal') ||
+      text.includes('barishal') ||
+      text.includes('বরিশাল') ||
+      text.includes('bhola') ||
+      text.includes('patuakhali')
+    ) {
       return SECTORS.barisal;
     }
-    if (text.includes('dhaka') || text.includes('ঢাকা') || text.includes('dacca') || text.includes('gazipur')) {
+    if (
+      text.includes('dhaka') ||
+      text.includes('ঢাকা') ||
+      text.includes('dacca') ||
+      text.includes('gazipur')
+    ) {
       return SECTORS.dhaka;
     }
-    if (text.includes('chittagong') || text.includes('ctg') || text.includes('chattogram') || text.includes('চট্টগ্রাম')) {
+    if (
+      text.includes('chittagong') ||
+      text.includes('ctg') ||
+      text.includes('chattogram') ||
+      text.includes('চট্টগ্রাম')
+    ) {
       return SECTORS.chittagong;
     }
-    if (text.includes('sylhet') || text.includes('সিলেট') || text.includes('haor') || text.includes('bonna') || text.includes('flood') || text.includes('বন্যা')) {
+    if (
+      text.includes('sylhet') ||
+      text.includes('সিলেট') ||
+      text.includes('haor') ||
+      text.includes('bonna') ||
+      text.includes('flood') ||
+      text.includes('বন্যা')
+    ) {
       return SECTORS.sylhet;
     }
-    if (text.includes('feni') || text.includes('ফেনী') || text.includes('muhuri')) {
+    if (
+      text.includes('feni') ||
+      text.includes('ফেনী') ||
+      text.includes('muhuri')
+    ) {
       return SECTORS.feni;
     }
-    if (text.includes('sundarban') || text.includes('সুন্দরবন') || text.includes('mangrove') || text.includes('khulna')) {
+    if (
+      text.includes('sundarban') ||
+      text.includes('সুন্দরবন') ||
+      text.includes('mangrove') ||
+      text.includes('khulna')
+    ) {
       return SECTORS.sundarbans;
     }
-    if (text.includes('rajshahi') || text.includes('রাজশাহী') || text.includes('barind') || text.includes('বরেন্দ্র') || text.includes('groundwater') || text.includes('drought')) {
+    if (
+      text.includes('rajshahi') ||
+      text.includes('রাজশাহী') ||
+      text.includes('barind') ||
+      text.includes('বরেন্দ্র') ||
+      text.includes('groundwater') ||
+      text.includes('drought')
+    ) {
       return SECTORS.rajshahi;
     }
-    if (text.includes('kuakata') || text.includes('কুয়াকাটা') || text.includes('payra') || text.includes('পায়রা')) {
+    if (
+      text.includes('kuakata') ||
+      text.includes('কুয়াকাটা') ||
+      text.includes('payra') ||
+      text.includes('পায়রা')
+    ) {
       return SECTORS.kuakata;
     }
     if (text.includes('cox') || text.includes('কক্সবাজার')) {
       return SECTORS.coxsbazar;
     }
-    if (text.includes('bay') || text.includes('bengal') || text.includes('বঙ্গোপসাগর') || text.includes('cyclone') || text.includes('ঘূর্ণিঝড়')) {
+    if (
+      text.includes('bay') ||
+      text.includes('bengal') ||
+      text.includes('বঙ্গোপসাগর') ||
+      text.includes('cyclone') ||
+      text.includes('ঘূর্ণিঝড়')
+    ) {
       return SECTORS.bay_of_bengal;
     }
-    if (text.includes('bangladesh') || text.includes('বাংলাদেশ') || text.includes('home') || text.includes('reset')) {
+    if (
+      text.includes('bangladesh') ||
+      text.includes('বাংলাদেশ') ||
+      text.includes('home') ||
+      text.includes('reset')
+    ) {
       return SECTORS.bangladesh;
     }
     return null;
@@ -667,12 +824,19 @@ export class OrionMapHarness {
     }
 
     const badge = document.getElementById('orion-harness-sector-badge');
-    if (badge) badge.textContent = `${sector.id.toUpperCase()} [${Math.round(sector.altitude / 1000)}KM]`;
+    if (badge)
+      badge.textContent = `${sector.id.toUpperCase()} [${Math.round(sector.altitude / 1000)}KM]`;
 
-    this._setStatus(`🚀 Maneuvering to ${sector.name} (${sector.actionDesc})...`);
+    this._setStatus(
+      `🚀 Maneuvering to ${sector.name} (${sector.actionDesc})...`,
+    );
     this.speak(sector.speech);
 
-    const dest = Cesium.Cartesian3.fromDegrees(sector.lon, sector.lat, sector.altitude);
+    const dest = Cesium.Cartesian3.fromDegrees(
+      sector.lon,
+      sector.lat,
+      sector.altitude,
+    );
     const heading = Cesium.Math.toRadians(sector.heading);
     const pitch = Cesium.Math.toRadians(sector.pitch);
 
@@ -684,7 +848,7 @@ export class OrionMapHarness {
       complete: () => {
         this._setStatus(`✓ Arrived at ${sector.name}. Sector live.`);
         this._briefSectorHighlight(sector);
-      }
+      },
     });
   }
 
@@ -700,13 +864,13 @@ export class OrionMapHarness {
       orientation: {
         heading: Cesium.Math.toRadians(0),
         pitch: Cesium.Math.toRadians(-50),
-        roll: 0.0
+        roll: 0.0,
       },
       duration: 3.0,
       easingFunction: Cesium.EasingFunction.CUBIC_IN_OUT,
       complete: () => {
         this._setStatus(`✓ Arrived at ${label}.`);
-      }
+      },
     });
   }
 
@@ -714,7 +878,9 @@ export class OrionMapHarness {
   startOrbit() {
     this.stopOrbit();
     const sector = this.activeSector || SECTORS.barisal;
-    this._setStatus(`🔄 Engaging continuous 360° tactical orbit around ${sector.name}...`);
+    this._setStatus(
+      `🔄 Engaging continuous 360° tactical orbit around ${sector.name}...`,
+    );
     this.speak(`Engaging 360 degree orbit around ${sector.name}`);
 
     const center = Cesium.Cartesian3.fromDegrees(sector.lon, sector.lat, 0);
@@ -726,7 +892,11 @@ export class OrionMapHarness {
       heading += 0.003;
       this.viewer.camera.lookAt(
         center,
-        new Cesium.HeadingPitchRange(heading, Cesium.Math.toRadians(sector.pitch), distance)
+        new Cesium.HeadingPitchRange(
+          heading,
+          Cesium.Math.toRadians(sector.pitch),
+          distance,
+        ),
       );
     }, 25);
   }
@@ -749,7 +919,9 @@ export class OrionMapHarness {
     if (dockBtn) {
       dockBtn.click();
       const isActive = dockBtn.getAttribute('aria-pressed') === 'true';
-      const msg = isActive ? 'NASA GIBS live cloud imagery online.' : 'NASA GIBS cloud overlay deactivated.';
+      const msg = isActive
+        ? 'NASA GIBS live cloud imagery online.'
+        : 'NASA GIBS cloud overlay deactivated.';
       this._setStatus(msg);
       this.speak(msg);
     } else {
@@ -772,7 +944,8 @@ export class OrionMapHarness {
   /** Trigger Sea Level Rise simulation over Barisal. */
   triggerSeaLevelRise() {
     this.flyToSector(SECTORS.barisal);
-    const msg = 'Activating coastal Sea Level Rise & Surge Inundation simulation for Barisal and Bhola.';
+    const msg =
+      'Activating coastal Sea Level Rise & Surge Inundation simulation for Barisal and Bhola.';
     this._setStatus(`🌊 ${msg}`);
     this.speak(msg);
   }
@@ -786,11 +959,13 @@ export class OrionMapHarness {
         ellipse: {
           semiMinorAxis: 15000.0,
           semiMajorAxis: 15000.0,
-          material: new Cesium.ColorMaterialProperty(Cesium.Color.WHITE.withAlpha(0.25)),
+          material: new Cesium.ColorMaterialProperty(
+            Cesium.Color.WHITE.withAlpha(0.25),
+          ),
           outline: true,
           outlineColor: Cesium.Color.WHITE.withAlpha(0.8),
-          outlineWidth: 2.0
-        }
+          outlineWidth: 2.0,
+        },
       });
       setTimeout(() => {
         try {
@@ -808,8 +983,12 @@ export class OrionMapHarness {
   async _loadClimateData() {
     try {
       const [spatialRes, seasonalRes] = await Promise.all([
-        fetch('/data/climate/bangladesh_t2m_spatial_trends_filtered.csv').catch(() => null),
-        fetch('/data/climate/bangladesh_t2m_seasonal_trends.csv').catch(() => null)
+        fetch('/data/climate/bangladesh_t2m_spatial_trends_filtered.csv').catch(
+          () => null,
+        ),
+        fetch('/data/climate/bangladesh_t2m_seasonal_trends.csv').catch(
+          () => null,
+        ),
       ]);
 
       if (spatialRes && spatialRes.ok) {
@@ -821,7 +1000,9 @@ export class OrionMapHarness {
         this.seasonalTrends = this._parseCSV(text);
       }
       this.climateLoaded = true;
-      console.info(`[OrionHarness] Climate data hydrated: ${this.spatialTrends.length} spatial stations, ${this.seasonalTrends.length} seasonal records.`);
+      console.info(
+        `[OrionHarness] Climate data hydrated: ${this.spatialTrends.length} spatial stations, ${this.seasonalTrends.length} seasonal records.`,
+      );
     } catch (e) {
       console.warn('[OrionHarness] Climate data load error:', e);
     }
@@ -831,10 +1012,10 @@ export class OrionMapHarness {
   _parseCSV(text) {
     const lines = text.trim().split(/\r?\n/);
     if (lines.length < 2) return [];
-    const headers = lines[0].split(',').map(h => h.trim());
+    const headers = lines[0].split(',').map((h) => h.trim());
     const records = [];
     for (let i = 1; i < lines.length; i++) {
-      const parts = lines[i].split(',').map(p => p.trim());
+      const parts = lines[i].split(',').map((p) => p.trim());
       if (parts.length === headers.length) {
         const obj = {};
         headers.forEach((h, idx) => {
@@ -932,23 +1113,30 @@ export class OrionMapHarness {
       </div>
     `;
 
-    card.querySelector('#orion-evidence-close-btn')?.addEventListener('click', () => {
-      card.remove();
-    });
+    card
+      .querySelector('#orion-evidence-close-btn')
+      ?.addEventListener('click', () => {
+        card.remove();
+      });
 
-    card.querySelector('#orion-evidence-speak-btn')?.addEventListener('click', () => {
-      this.speak(data.speech || data.narrative);
-    });
+    card
+      .querySelector('#orion-evidence-speak-btn')
+      ?.addEventListener('click', () => {
+        this.speak(data.speech || data.narrative);
+      });
 
-    card.querySelector('#orion-evidence-orbit-btn')?.addEventListener('click', () => {
-      this.startOrbit();
-    });
+    card
+      .querySelector('#orion-evidence-orbit-btn')
+      ?.addEventListener('click', () => {
+        this.startOrbit();
+      });
   }
 
   /** Query 1: Fastest Warming Hotspot (Barisal) */
   async handleFastestWarmingQuery() {
     await this.flyToSector(SECTORS.barisal);
-    const speech = 'NASA MERRA-2 daily telemetry confirms the fastest warming sector is the Barisal coastal delta, with post-monsoon October warming of plus 0.457 degrees Celsius per decade, statistically significant at p equals 0.007.';
+    const speech =
+      'NASA MERRA-2 daily telemetry confirms the fastest warming sector is the Barisal coastal delta, with post-monsoon October warming of plus 0.457 degrees Celsius per decade, statistically significant at p equals 0.007.';
     this.showEvidenceCard({
       title: 'FASTEST WARMING HOTSPOT',
       sector: 'Barisal Coastal Belt [22.5°N, 90.0°E]',
@@ -956,8 +1144,9 @@ export class OrionMapHarness {
       senSlope: '+0.0435°C / year (Theil-Sen)',
       pValue: 'p = 0.0070 (p < 0.01 ★★★)',
       significance: 'HIGHLY SIGNIFICANT',
-      narrative: 'Across 34 grid stations in Bangladesh, the Barisal coastal belt experiences the fastest post-monsoon thermal acceleration (+0.457°C/decade). Rising sea temperatures and delta low-elevation amplify thermal retention.',
-      speech
+      narrative:
+        'Across 34 grid stations in Bangladesh, the Barisal coastal belt experiences the fastest post-monsoon thermal acceleration (+0.457°C/decade). Rising sea temperatures and delta low-elevation amplify thermal retention.',
+      speech,
     });
     this.speak(speech);
   }
@@ -970,23 +1159,26 @@ export class OrionMapHarness {
   /** Query 3: Statistical Significance Proof (Mann-Kendall & Theil-Sen) */
   async handleStatisticalSignificanceQuery() {
     this._setStatus('Analyzing 34-station Mann-Kendall hypothesis tests...');
-    const speech = 'Statistical hypothesis testing confirms significant warming. Thirty-one of thirty-four stations across Bangladesh exhibit statistically significant October warming with p-values below 0.05.';
+    const speech =
+      'Statistical hypothesis testing confirms significant warming. Thirty-one of thirty-four stations across Bangladesh exhibit statistically significant October warming with p-values below 0.05.';
     this.showEvidenceCard({
       title: 'MANN-KENDALL STATISTICAL PROOF',
       sector: 'All-Bangladesh 34-Station Grid',
       slope: '31 of 34 Stations Significant in Oct (91.2%)',
-      senSlope: 'Median Sen\'s Slope: +0.038°C / year',
+      senSlope: "Median Sen's Slope: +0.038°C / year",
       pValue: 'p < 0.0001 (Combined Test)',
       significance: 'REJECT NULL HYPOTHESIS H0',
-      narrative: 'The Mann-Kendall rank correlation test rejects the null hypothesis of no trend at the 99% confidence level. 33 stations in September and 31 stations in October demonstrate robust warming.',
-      speech
+      narrative:
+        'The Mann-Kendall rank correlation test rejects the null hypothesis of no trend at the 99% confidence level. 33 stations in September and 31 stations in October demonstrate robust warming.',
+      speech,
     });
     this.speak(speech);
   }
 
   /** Query 4: Seasonal Dissociation (Why annual avg masks October warming) */
   async handleSeasonalDissociationQuery() {
-    const speech = 'Seasonal dissociation analysis shows that while annual average temperatures show modest warming, post-monsoon months of September and October exhibit severe, statistically significant warming across Bangladesh.';
+    const speech =
+      'Seasonal dissociation analysis shows that while annual average temperatures show modest warming, post-monsoon months of September and October exhibit severe, statistically significant warming across Bangladesh.';
     this.showEvidenceCard({
       title: 'SEASONAL DISSOCIATION PHENOMENON',
       sector: 'Bangladesh Temporal Signal Decomposition',
@@ -994,8 +1186,9 @@ export class OrionMapHarness {
       senSlope: '15x Amplification in Post-Monsoon Season',
       pValue: 'Annual p=0.45 (ns) vs Oct p=0.007 (***)',
       significance: 'EXTREME SEASONAL VARIATION',
-      narrative: 'Crucial discovery: Evaluating only annual averages dilutes the extreme post-monsoon autumn signal. Farmers and disaster managers must prepare for delayed cooling and extended post-monsoon tropical heat.',
-      speech
+      narrative:
+        'Crucial discovery: Evaluating only annual averages dilutes the extreme post-monsoon autumn signal. Farmers and disaster managers must prepare for delayed cooling and extended post-monsoon tropical heat.',
+      speech,
     });
     this.speak(speech);
   }
