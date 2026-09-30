@@ -94,8 +94,32 @@ def check_nasa_compliance():
                 found = q.lower() in content.lower()
                 print(f"  Question '{q}': {'FOUND' if found else 'MISSING'}")
 
+def check_user_facing_files():
+    print("\n--- 4. STRICT USER-FACING FILES AUDIT ---")
+    files_to_check = [
+        "index.html", "README.md", "NASA_SPACEAPPS_2026_SUBMISSION.md",
+        "SUBMISSION_PORTAL_GUIDE.md", "API_KEY_MANUAL.md", "package.json",
+        "src/agent/OrionMapHarness.js", "src/main.js"
+    ]
+    pattern_legacy = re.compile(r"god[\s_\-'\"]*eye", re.IGNORECASE)
+    pattern_ai = re.compile(r"\b(claude|chatgpt|copilot|antigravity)\b", re.IGNORECASE)
+    
+    for f in files_to_check:
+        if os.path.exists(f):
+            with open(f, 'r', encoding='utf-8', errors='ignore') as fp:
+                content = fp.read()
+                leg_matches = pattern_legacy.findall(content)
+                ai_matches = pattern_ai.findall(content)
+                print(f"File: {f:30} | Legacy: {len(leg_matches)} | AI: {len(ai_matches)}")
+                if leg_matches:
+                    print(f"  Legacy details: {leg_matches}")
+                if ai_matches:
+                    print(f"  AI details: {ai_matches}")
+
 if __name__ == "__main__":
     check_csv_telemetry()
     check_authorship_and_anonymity()
     check_nasa_compliance()
+    check_user_facing_files()
+
 

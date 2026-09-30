@@ -42,7 +42,7 @@ Bangladesh's southern coastal delta—home to 16 million people living within 0.
 1. **What is changing?** (Surface temperature, precipitation, and sea level)
 2. **Where is it changing?** (Across a 34-station national meteorological grid)
 3. **How much is it changing?** (Quantified via Theil-Sen robust median slope)
-4. **Is it statistically significant?** (Verified via autocorrelation-corrected Mann-Kendall tests)
+4. **Is it Significant?** (Statistical significance verified via autocorrelation-corrected Mann-Kendall tests, p=0.0070 in Barisal)
 
 ### 2. Our Approach: "LLM ≠ Scientific Calculator"
 Rather than relying on black-box AI generators prone to hallucinations, Project Orion Space separates computation from interface:
