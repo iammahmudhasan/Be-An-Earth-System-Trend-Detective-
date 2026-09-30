@@ -1,18 +1,18 @@
 {
-  "name": "gods-eye-view",
+  "name": "orion-space-gods-eye",
   "private": true,
-  "version": "0.1.1",
-  "description": "A real-time intelligence console for planet Earth — photorealistic 3D globe, live aircraft/ships/satellites/earthquakes/CCTV, and hands-free voice control. Runs in a browser.",
+  "version": "1.0.0",
+  "description": "Project Orion Space — NASA Space Apps Challenge 2026: Be An Earth System Trend Detective! Lead Developer: Md Mushfiqur Rahim (Barisal, Bangladesh)",
   "type": "module",
   "license": "MIT",
-  "author": "Bilawal Sidhu",
-  "homepage": "https://github.com/bilawalsidhu/gods-eye-view#readme",
+  "author": "Md Mushfiqur Rahim",
+  "homepage": "https://github.com/MD-Mushfiqur123/orion-space-gods-eye#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/bilawalsidhu/gods-eye-view.git"
+    "url": "https://github.com/MD-Mushfiqur123/orion-space-gods-eye.git"
   },
   "bugs": {
-    "url": "https://github.com/bilawalsidhu/gods-eye-view/issues"
+    "url": "https://github.com/MD-Mushfiqur123/orion-space-gods-eye/issues"
   },
   "engines": {
     "node": ">=24.14.0 <25 || >=26 <27"

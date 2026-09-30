@@ -1,105 +1,341 @@
-  <aside id="right-context-rail">
-    <!-- NASA Climate Detective Analytics Panel -->
-    <div id="climate-detective-panel" class="panel-collapsible" data-panel-id="climate-detective-panel">
-      <div class="panel-header">
-        <span class="panel-title">CLIMATE DETECTIVE</span>
+<aside id="right-context-rail">
+  <!-- NASA Climate Detective Analytics Panel -->
+  <div
+    id="climate-detective-panel"
+    class="panel-collapsible"
+    data-panel-id="climate-detective-panel"
+  >
+    <div class="panel-header">
+      <span class="panel-title">CLIMATE DETECTIVE</span>
+    </div>
+    <div
+      class="climate-detective-body"
+      style="display: flex; flex-direction: column; gap: 10px"
+    >
+      <div class="climate-detective-card">
+        <div class="hotspot-title">BARISAL HOTSPOT</div>
+        <div class="hotspot-rate">+0.452°C / decade</div>
+        <div class="hotspot-meta">
+          p = 0.0062 · Significant Post-Monsoon Warming
+        </div>
       </div>
-      <div class="climate-detective-body" style="display: flex; flex-direction: column; gap: 10px;">
-        <div class="climate-detective-card">
-          <div class="hotspot-title">BARISAL HOTSPOT</div>
-          <div class="hotspot-rate">+0.452°C / decade</div>
-          <div class="hotspot-meta">p = 0.0062 · Significant Post-Monsoon Warming</div>
-        </div>
-        <div style="font-size: 11px; color: #a1a1aa; line-height: 1.6; border-top: 1px solid rgba(255,255,255,0.12); padding-top: 8px;">
-          <div><strong>Period:</strong> 2000 – 2026 (MERRA-2)</div>
-          <div><strong>Grid Points:</strong> 34 BD Stations</div>
-          <div><strong>Test:</strong> Mann-Kendall τ (+0.642)</div>
-          <div><strong>Slope:</strong> Sen's Slope β (+0.045°C/yr)</div>
-        </div>
+      <div
+        style="
+          font-size: 11px;
+          color: #a1a1aa;
+          line-height: 1.6;
+          border-top: 1px solid rgba(255, 255, 255, 0.12);
+          padding-top: 8px;
+        "
+      >
+        <div><strong>Period:</strong> 2000 – 2026 (MERRA-2)</div>
+        <div><strong>Grid Points:</strong> 34 BD Stations</div>
+        <div><strong>Test:</strong> Mann-Kendall τ (+0.642)</div>
+        <div><strong>Slope:</strong> Sen's Slope β (+0.045°C/yr)</div>
       </div>
     </div>
+  </div>
 
-    <!-- Live Global Radio Tuner (Any Country Streaming) -->
-    <div id="global-radio-panel" class="panel-collapsible" data-panel-id="global-radio-panel">
-      <div class="panel-header">
-        <span class="panel-title">LIVE GLOBAL RADIO</span>
-      </div>
-      <div style="display: flex; flex-direction: column; gap: 8px; font-size: 11px;">
-        <div style="display: flex; gap: 6px;">
-          <input type="search" id="radio-country-input" name="radio_country_search" placeholder="Search Country (e.g. Bangladesh, USA, Japan)..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" data-form-type="other" data-lpignore="true" style="width: 100%;" />
-        </div>
-        <div id="radio-station-select-wrap" style="display: flex; flex-direction: column; gap: 4px;">
-          <select id="live-radio-selector" style="width: 100%;">
-            <option value="https://stream.zeno.fm/f3wvbbqmdg8uv">🇧🇩 Bangladesh Betar (Dhaka)</option>
-            <option value="https://stream.zeno.fm/0r0xa792kwzuv">🇧🇩 Radio Foorti 88.0 FM</option>
-            <option value="https://stream.zeno.fm/k22222">🇧🇩 Radio Today 89.6 FM</option>
-            <option value="https://stream.live.vc.bbcmedia.co.uk/bbc_world_service">🇬🇧 BBC World Service (London)</option>
-            <option value="https://ice6.somafm.com/groovesalad-128-mp3">🇺🇸 SomaFM Ambient (San Francisco)</option>
-            <option value="https://nhk-lh.akamaihd.net/i/nhkworld_w@86720/master.m3u8">🇯🇵 NHK World Radio (Tokyo)</option>
-            <option value="https://stream.zeno.fm/4m6g91k2kwzuv">🇮🇳 AIR Vividh Bharati (Delhi)</option>
-            <option value="https://ice1.somafm.com/defcon-128-mp3">🌐 DEF CON Military Radio</option>
-          </select>
-        </div>
-        <div style="display: flex; gap: 6px; align-items: center;">
-          <button id="radio-play-toggle-btn" class="style-btn" style="flex: 1; justify-content: center; background: #ffffff !important; color: #000000 !important; font-weight: 700;">▶ TUNE & PLAY</button>
-          <button id="radio-stop-toggle-btn" class="style-btn" style="width: 60px; justify-content: center;">STOP</button>
-        </div>
-        <div id="radio-now-playing" style="font-size: 10px; color: #38bdf8; font-family: var(--font-mono); text-align: center; min-height: 16px;">
-          Radio Ready · Select station & press play
-        </div>
-        <audio id="global-radio-audio-player" preload="none"></audio>
-      </div>
+  <!-- Live Global Radio Tuner (Any Country Streaming) -->
+  <div
+    id="global-radio-panel"
+    class="panel-collapsible"
+    data-panel-id="global-radio-panel"
+  >
+    <div class="panel-header">
+      <span class="panel-title">LIVE GLOBAL RADIO</span>
     </div>
+    <div
+      style="display: flex; flex-direction: column; gap: 8px; font-size: 11px"
+    >
+      <div style="display: flex; gap: 6px">
+        <input
+          type="search"
+          id="radio-country-input"
+          name="radio_country_search"
+          placeholder="Search Country (e.g. Bangladesh, USA, Japan)..."
+          autocomplete="off"
+          autocorrect="off"
+          autocapitalize="off"
+          spellcheck="false"
+          data-form-type="other"
+          data-lpignore="true"
+          style="width: 100%"
+        />
+      </div>
+      <div
+        id="radio-station-select-wrap"
+        style="display: flex; flex-direction: column; gap: 4px"
+      >
+        <select id="live-radio-selector" style="width: 100%">
+          <option value="https://stream.zeno.fm/f3wvbbqmdg8uv">
+            🇧🇩 Bangladesh Betar (Dhaka)
+          </option>
+          <option value="https://stream.zeno.fm/0r0xa792kwzuv">
+            🇧🇩 Radio Foorti 88.0 FM
+          </option>
+          <option value="https://stream.zeno.fm/k22222">
+            🇧🇩 Radio Today 89.6 FM
+          </option>
+          <option
+            value="https://stream.live.vc.bbcmedia.co.uk/bbc_world_service"
+          >
+            🇬🇧 BBC World Service (London)
+          </option>
+          <option value="https://ice6.somafm.com/groovesalad-128-mp3">
+            🇺🇸 SomaFM Ambient (San Francisco)
+          </option>
+          <option
+            value="https://nhk-lh.akamaihd.net/i/nhkworld_w@86720/master.m3u8"
+          >
+            🇯🇵 NHK World Radio (Tokyo)
+          </option>
+          <option value="https://stream.zeno.fm/4m6g91k2kwzuv">
+            🇮🇳 AIR Vividh Bharati (Delhi)
+          </option>
+          <option value="https://ice1.somafm.com/defcon-128-mp3">
+            🌐 DEF CON Military Radio
+          </option>
+        </select>
+      </div>
+      <div style="display: flex; gap: 6px; align-items: center">
+        <button
+          id="radio-play-toggle-btn"
+          class="style-btn"
+          style="
+            flex: 1;
+            justify-content: center;
+            background: #ffffff !important;
+            color: #000000 !important;
+            font-weight: 700;
+          "
+        >
+          ▶ TUNE & PLAY
+        </button>
+        <button
+          id="radio-stop-toggle-btn"
+          class="style-btn"
+          style="width: 60px; justify-content: center"
+        >
+          STOP
+        </button>
+      </div>
+      <div
+        id="radio-now-playing"
+        style="
+          font-size: 10px;
+          color: #38bdf8;
+          font-family: var(--font-mono);
+          text-align: center;
+          min-height: 16px;
+        "
+      >
+        Radio Ready · Select station & press play
+      </div>
+      <audio id="global-radio-audio-player" preload="none"></audio>
+    </div>
+  </div>
 
-    <!-- Live Weather & Atmospheric Telemetry -->
-    <div id="live-weather-telemetry-panel" class="panel-collapsible" data-panel-id="live-weather-telemetry-panel">
-      <div class="panel-header">
-        <span class="panel-title">LIVE WEATHER &amp; CLIMATE</span>
+  <!-- Live Weather & Atmospheric Telemetry -->
+  <div
+    id="live-weather-telemetry-panel"
+    class="panel-collapsible"
+    data-panel-id="live-weather-telemetry-panel"
+  >
+    <div
+      class="panel-header"
+      style="display: flex; align-items: center; justify-content: space-between"
+    >
+      <span class="panel-title">LIVE WEATHER &amp; CLIMATE</span>
+      <span
+        id="weather-pulse-badge"
+        style="
+          display: inline-flex;
+          align-items: center;
+          gap: 4px;
+          font-size: 9px;
+          color: #4ade80;
+          font-family: var(--font-mono);
+          font-weight: 600;
+        "
+      >
+        <span
+          class="pulse-dot"
+          style="
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #4ade80;
+            box-shadow: 0 0 6px #4ade80;
+          "
+        ></span>
+        LIVE
+      </span>
+    </div>
+    <div
+      style="display: flex; flex-direction: column; gap: 8px; font-size: 11px"
+    >
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px">
+        <div
+          style="
+            padding: 6px;
+            background: rgba(255, 255, 255, 0.04);
+            border-radius: 6px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+          "
+        >
+          <div style="font-size: 9px; color: #a1a1aa">SURFACE TEMP</div>
+          <div
+            id="weather-val-temp"
+            style="
+              font-size: 14px;
+              font-weight: 700;
+              color: #ffffff;
+              font-family: var(--font-mono);
+            "
+          >
+            28.4 °C
+          </div>
+        </div>
+        <div
+          style="
+            padding: 6px;
+            background: rgba(255, 255, 255, 0.04);
+            border-radius: 6px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+          "
+        >
+          <div style="font-size: 9px; color: #a1a1aa">PRECIPITATION (GPM)</div>
+          <div
+            id="weather-val-rain"
+            style="
+              font-size: 14px;
+              font-weight: 700;
+              color: #38bdf8;
+              font-family: var(--font-mono);
+            "
+          >
+            12.5 mm/h
+          </div>
+        </div>
+        <div
+          style="
+            padding: 6px;
+            background: rgba(255, 255, 255, 0.04);
+            border-radius: 6px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+          "
+        >
+          <div style="font-size: 9px; color: #a1a1aa">WIND VELOCITY</div>
+          <div
+            id="weather-val-wind"
+            style="
+              font-size: 14px;
+              font-weight: 700;
+              color: #4ade80;
+              font-family: var(--font-mono);
+            "
+          >
+            18.2 km/h
+          </div>
+        </div>
+        <div
+          style="
+            padding: 6px;
+            background: rgba(255, 255, 255, 0.04);
+            border-radius: 6px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+          "
+        >
+          <div style="font-size: 9px; color: #a1a1aa">TROPOSPHERIC NO2</div>
+          <div
+            id="weather-val-no2"
+            style="
+              font-size: 14px;
+              font-weight: 700;
+              color: #fb923c;
+              font-family: var(--font-mono);
+            "
+          >
+            48.1 µmol/m²
+          </div>
+        </div>
       </div>
-      <div style="display: flex; flex-direction: column; gap: 8px; font-size: 11px;">
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px;">
-          <div style="padding: 6px; background: rgba(255,255,255,0.04); border-radius: 6px; border: 1px solid rgba(255,255,255,0.1);">
-            <div style="font-size: 9px; color: #a1a1aa;">SURFACE TEMP</div>
-            <div id="weather-val-temp" style="font-size: 14px; font-weight: 700; color: #ffffff; font-family: var(--font-mono);">28.4 °C</div>
-          </div>
-          <div style="padding: 6px; background: rgba(255,255,255,0.04); border-radius: 6px; border: 1px solid rgba(255,255,255,0.1);">
-            <div style="font-size: 9px; color: #a1a1aa;">PRECIPITATION (GPM)</div>
-            <div id="weather-val-rain" style="font-size: 14px; font-weight: 700; color: #38bdf8; font-family: var(--font-mono);">12.5 mm/h</div>
-          </div>
-          <div style="padding: 6px; background: rgba(255,255,255,0.04); border-radius: 6px; border: 1px solid rgba(255,255,255,0.1);">
-            <div style="font-size: 9px; color: #a1a1aa;">WIND VELOCITY</div>
-            <div id="weather-val-wind" style="font-size: 14px; font-weight: 700; color: #4ade80; font-family: var(--font-mono);">18.2 km/h</div>
-          </div>
-          <div style="padding: 6px; background: rgba(255,255,255,0.04); border-radius: 6px; border: 1px solid rgba(255,255,255,0.1);">
-            <div style="font-size: 9px; color: #a1a1aa;">TROPOSPHERIC NO2</div>
-            <div id="weather-val-no2" style="font-size: 14px; font-weight: 700; color: #fb923c; font-family: var(--font-mono);">48.1 µmol/m²</div>
-          </div>
+      <div
+        style="
+          font-size: 10px;
+          color: #a1a1aa;
+          line-height: 1.4;
+          border-top: 1px solid rgba(255, 255, 255, 0.1);
+          padding-top: 6px;
+        "
+      >
+        <div>
+          <strong>Active Sensor:</strong> Copernicus Sentinel-5P / NASA GPM
         </div>
-        <div style="font-size: 10px; color: #a1a1aa; line-height: 1.4; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 6px;">
-          <div><strong>Active Sensor:</strong> Copernicus Sentinel-5P / NASA GPM</div>
-          <div><strong>Update Frequency:</strong> Near Real-Time (NRT)</div>
-        </div>
+        <div><strong>Update Frequency:</strong> Near Real-Time (NRT)</div>
       </div>
     </div>
+  </div>
 
-    <!-- Bangladesh Climate Disasters Timeline -->
-    <div id="disaster-panel" class="panel-collapsible" data-panel-id="disaster-panel">
-      <div class="panel-header">
-        <span class="panel-title">HISTORICAL EVENTS</span>
+  <!-- Bangladesh Climate Disasters Timeline -->
+  <div
+    id="disaster-panel"
+    class="panel-collapsible"
+    data-panel-id="disaster-panel"
+  >
+    <div class="panel-header">
+      <span class="panel-title">HISTORICAL EVENTS</span>
+    </div>
+    <div
+      style="
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        font-size: 11px;
+        color: #e4e4e7;
+      "
+    >
+      <div
+        style="
+          padding: 6px 8px;
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          border-radius: 6px;
+          background: rgba(255, 255, 255, 0.02);
+        "
+      >
+        <strong>2024 · Feni-Noakhali Flood</strong>
+        <div style="font-size: 10px; color: #a1a1aa">
+          Inland flash flood, 5.8M affected
+        </div>
       </div>
-      <div style="display: flex; flex-direction: column; gap: 6px; font-size: 11px; color: #e4e4e7;">
-        <div style="padding: 6px 8px; border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; background: rgba(255,255,255,0.02);">
-          <strong>2024 · Feni-Noakhali Flood</strong>
-          <div style="font-size: 10px; color: #a1a1aa;">Inland flash flood, 5.8M affected</div>
+      <div
+        style="
+          padding: 6px 8px;
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          border-radius: 6px;
+          background: rgba(255, 255, 255, 0.02);
+        "
+      >
+        <strong>2022 · Sylhet Mega Flood</strong>
+        <div style="font-size: 10px; color: #a1a1aa">
+          122-year record, 7.2M displaced
         </div>
-        <div style="padding: 6px 8px; border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; background: rgba(255,255,255,0.02);">
-          <strong>2022 · Sylhet Mega Flood</strong>
-          <div style="font-size: 10px; color: #a1a1aa;">122-year record, 7.2M displaced</div>
-        </div>
-        <div style="padding: 6px 8px; border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; background: rgba(255,255,255,0.02);">
-          <strong>2007 · Cyclone Sidr</strong>
-          <div style="font-size: 10px; color: #a1a1aa;">Category 4, 3,406 casualties</div>
+      </div>
+      <div
+        style="
+          padding: 6px 8px;
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          border-radius: 6px;
+          background: rgba(255, 255, 255, 0.02);
+        "
+      >
+        <strong>2007 · Cyclone Sidr</strong>
+        <div style="font-size: 10px; color: #a1a1aa">
+          Category 4, 3,406 casualties
         </div>
       </div>
     </div>
-  </aside>
+  </div>
+</aside>

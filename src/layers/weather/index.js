@@ -725,3 +725,10 @@ export function createWeatherLayer({
   };
   return layer;
 }
+
+export {
+  RealEarthCloudStream,
+  SATELLITE_CONFIGS,
+  getUtcIsoDate,
+  probeGibsTileAvailable,
+} from './RealEarthCloudStream.js';
