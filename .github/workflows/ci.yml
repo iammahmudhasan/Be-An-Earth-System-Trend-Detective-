@@ -36,14 +36,23 @@ jobs:
       - name: Build Production Bundle
         run: npm run build
 
+      - name: Deploy to gh-pages branch
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: dist
+          branch: gh-pages
+
       - name: Setup GitHub Pages
         uses: actions/configure-pages@v5
+        continue-on-error: true
 
       - name: Upload Artifact
         uses: actions/upload-pages-artifact@v3
+        continue-on-error: true
         with:
           path: dist
 
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+        continue-on-error: true
