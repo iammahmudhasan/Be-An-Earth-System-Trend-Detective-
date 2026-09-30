@@ -71,8 +71,8 @@ application
         audio
           .play()
           .then(() => {
-            nowPlaying.textContent = `🔴 BROADCASTING LIVE: ${stationName}`;
-            playBtn.style.background = '#38bdf8';
+            nowPlaying.textContent = `● BROADCASTING LIVE: ${stationName}`;
+            playBtn.style.background = '#ffffff';
             playBtn.style.color = '#000000';
           })
           .catch((err) => {
@@ -134,13 +134,13 @@ application
       );
 
       if (pulseDot) {
-        pulseDot.style.transition = 'transform 0.3s ease, box-shadow 0.3s ease';
-        pulseDot.style.transform = 'scale(1.4)';
-        pulseDot.style.boxShadow = '0 0 10px #4ade80';
+        pulseDot.style.transition = 'transform 0.3s ease, opacity 0.3s ease';
+        pulseDot.style.transform = 'scale(1.3)';
+        pulseDot.style.opacity = '1';
         setTimeout(() => {
           if (pulseDot) {
             pulseDot.style.transform = 'scale(1)';
-            pulseDot.style.boxShadow = '0 0 4px #4ade80';
+            pulseDot.style.opacity = '0.75';
           }
         }, 400);
       }
