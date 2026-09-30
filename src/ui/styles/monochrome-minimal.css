@@ -1,0 +1,408 @@
+/* ═══════════════════════════════════════════════════════════════════════════════
+   PROJECT: ORION SPACE — Pure Swiss Monochrome Minimalist Interface
+   NASA Space Apps Challenge 2026 | Team Orion Space (Barisal)
+   Architecture: 
+     - Left Sidebar (Layers, Location, Navigation)
+     - Center Map Window (Capsule with Rounded Borders)
+     - Right Sidebar (Climate Detective, Hotspots, Telemetry, Weather)
+     - Bottom Centered Dock (Styles, Scrubber, Camera Actions)
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+/* ── 1. Universal Color Palette & Reset ────────────────────────────────────────── */
+:root {
+  --bg-dark: #000000 !important;
+  --glass-bg: #09090b !important;
+  --glass-border: rgba(255, 255, 255, 0.2) !important;
+  --glass-border-hover: rgba(255, 255, 255, 0.4) !important;
+  --accent: #ffffff !important;
+  --accent-dim: rgba(255, 255, 255, 0.12) !important;
+  --accent-glow: transparent !important;
+  --text-primary: #ffffff !important;
+  --text-secondary: #a1a1aa !important;
+  --text-dim: #71717a !important;
+  --menu-bg: #09090b !important;
+  --panel-radius: 12px !important;
+  --btn-radius: 6px !important;
+  --font-mono: 'JetBrains Mono', monospace !important;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+}
+
+body {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  font-family: var(--font-sans) !important;
+  overflow: hidden !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+*, *::before, *::after {
+  text-shadow: none !important;
+  box-shadow: none !important;
+}
+
+/* ── 2. Center Maps Capsule Window (Matches User Sketch) ─────────────────────── */
+#cesiumContainer {
+  position: fixed !important;
+  top: 14px !important;
+  bottom: 84px !important;
+  left: 334px !important;
+  right: 334px !important;
+  width: auto !important;
+  height: auto !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.35) !important;
+  border-radius: 28px !important;
+  overflow: hidden !important;
+  background: #000000 !important;
+  z-index: 5 !important;
+}
+
+#world-overlay-root {
+  position: fixed !important;
+  top: 14px !important;
+  bottom: 84px !important;
+  left: 334px !important;
+  right: 334px !important;
+  width: auto !important;
+  height: auto !important;
+  border-radius: 28px !important;
+  overflow: hidden !important;
+  pointer-events: none !important;
+  z-index: 6 !important;
+}
+
+/* Map Label / Badge Inside Center Map Capsule */
+#title-bar {
+  position: fixed !important;
+  top: 24px !important;
+  left: 350px !important;
+  z-index: 40 !important;
+  background: rgba(0, 0, 0, 0.8) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 8px !important;
+  padding: 6px 14px !important;
+  backdrop-filter: blur(12px) !important;
+}
+
+#title-bar h1 {
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.12em !important;
+  color: #ffffff !important;
+  margin: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+
+#title-bar .title-accent {
+  color: #ffffff !important;
+}
+
+#title-bar .subtitle {
+  font-size: 9px !important;
+  color: #a1a1aa !important;
+  letter-spacing: 0.08em !important;
+  margin-top: 2px !important;
+}
+
+#title-bar .title-glow {
+  display: none !important;
+}
+
+/* Top Center Camera & Map Actions */
+#top-center-actions {
+  position: fixed !important;
+  top: 24px !important;
+  right: 350px !important;
+  left: auto !important;
+  transform: none !important;
+  z-index: 40 !important;
+  background: rgba(0, 0, 0, 0.85) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 8px !important;
+  padding: 3px 6px !important;
+  display: flex !important;
+  gap: 4px !important;
+  backdrop-filter: blur(12px) !important;
+}
+
+#top-center-actions button {
+  width: 30px !important;
+  height: 30px !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+  color: #ffffff !important;
+  border-radius: 4px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+#top-center-actions button:hover {
+  background: #ffffff !important;
+  color: #000000 !important;
+}
+
+/* Style Indicator Pill */
+#style-indicator {
+  position: fixed !important;
+  top: 24px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  z-index: 40 !important;
+  background: rgba(0, 0, 0, 0.85) !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  border-radius: 20px !important;
+  padding: 4px 12px !important;
+  font-family: var(--font-mono) !important;
+  font-size: 11px !important;
+  color: #ffffff !important;
+  backdrop-filter: blur(12px) !important;
+}
+
+#style-indicator .indicator-label {
+  color: #71717a !important;
+  margin-right: 6px !important;
+}
+
+#style-indicator .indicator-value {
+  color: #ffffff !important;
+  font-weight: 600 !important;
+}
+
+/* ── 3. Left Sidebar Panel (Matches User Sketch) ────────────────────────────── */
+#left-panel-stack {
+  position: fixed !important;
+  top: 14px !important;
+  bottom: 14px !important;
+  left: 14px !important;
+  width: 308px !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.25) !important;
+  border-radius: 16px !important;
+  background: rgba(8, 8, 10, 0.96) !important;
+  z-index: 50 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  padding: 12px !important;
+  gap: 12px !important;
+  overflow-y: auto !important;
+  scrollbar-width: thin !important;
+  scrollbar-color: #27272a transparent !important;
+  backdrop-filter: blur(20px) !important;
+}
+
+#left-panel-stack > .panel-collapsible {
+  width: 100% !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  border-radius: 10px !important;
+  background: rgba(18, 18, 22, 0.8) !important;
+  margin-bottom: 0 !important;
+}
+
+#left-panel-stack .panel-header {
+  padding: 10px 12px !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+}
+
+#left-panel-stack .panel-title {
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.1em !important;
+  color: #ffffff !important;
+}
+
+/* ── 4. Right Sidebar Panel (Matches User Sketch) ───────────────────────────── */
+#right-context-rail {
+  position: fixed !important;
+  top: 14px !important;
+  bottom: 14px !important;
+  right: 14px !important;
+  width: 308px !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.25) !important;
+  border-radius: 16px !important;
+  background: rgba(8, 8, 10, 0.96) !important;
+  z-index: 50 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  padding: 12px !important;
+  gap: 12px !important;
+  overflow-y: auto !important;
+  scrollbar-width: thin !important;
+  scrollbar-color: #27272a transparent !important;
+  backdrop-filter: blur(20px) !important;
+}
+
+#right-context-rail > .panel-collapsible {
+  width: 100% !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  border-radius: 10px !important;
+  background: rgba(18, 18, 22, 0.8) !important;
+  margin-bottom: 0 !important;
+}
+
+#right-context-rail .panel-header {
+  padding: 10px 12px !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+}
+
+#right-context-rail .panel-title {
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.1em !important;
+  color: #ffffff !important;
+}
+
+/* Display Post-Processing Toggles inside Rail */
+#pp-toggles {
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  border-radius: 10px !important;
+  background: rgba(18, 18, 22, 0.8) !important;
+  width: 100% !important;
+}
+
+/* Climate Detective Custom Card Styling in Right Rail */
+.climate-detective-card {
+  padding: 12px !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  border-radius: 8px !important;
+  background: rgba(255, 255, 255, 0.03) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 8px !important;
+}
+
+.hotspot-title {
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  color: #ffffff !important;
+  letter-spacing: 0.08em !important;
+}
+
+.hotspot-rate {
+  font-family: var(--font-mono) !important;
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  color: #ffffff !important;
+}
+
+.hotspot-meta {
+  font-size: 10px !important;
+  color: #a1a1aa !important;
+  line-height: 1.4 !important;
+}
+
+/* ── 5. Bottom Centered Dock (Matches User Sketch) ─────────────────────────── */
+#command-dock {
+  position: fixed !important;
+  bottom: 14px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: min(680px, calc(100vw - 700px)) !important;
+  height: 56px !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.3) !important;
+  border-radius: 14px !important;
+  background: rgba(8, 8, 10, 0.95) !important;
+  z-index: 60 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 0 12px !important;
+  backdrop-filter: blur(20px) !important;
+}
+
+#command-dock > div {
+  background: transparent !important;
+  border: none !important;
+}
+
+#command-dock .button-grid {
+  display: flex !important;
+  flex-direction: row !important;
+  gap: 6px !important;
+  flex-wrap: nowrap !important;
+}
+
+/* Style and Preset Buttons: Minimal White Pill on Active */
+.style-btn,
+.mode-btn,
+.scene-btn,
+.pp-mode-btn {
+  background: rgba(255, 255, 255, 0.06) !important;
+  color: #e4e4e7 !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  border-radius: 6px !important;
+  padding: 5px 10px !important;
+  font-size: 11px !important;
+  font-weight: 500 !important;
+  cursor: pointer !important;
+  transition: all 120ms ease !important;
+}
+
+.style-btn:hover,
+.mode-btn:hover,
+.scene-btn:hover {
+  background: rgba(255, 255, 255, 0.18) !important;
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.4) !important;
+}
+
+.style-btn.active,
+.mode-btn.active,
+.scene-btn.active,
+button.active {
+  background: #ffffff !important;
+  color: #000000 !important;
+  border-color: #ffffff !important;
+  font-weight: 700 !important;
+}
+
+.style-btn.active *,
+.mode-btn.active * {
+  color: #000000 !important;
+}
+
+/* ── 6. Form Controls & Sliders ─────────────────────────────────────────────── */
+input[type="range"] {
+  accent-color: #ffffff !important;
+  height: 4px !important;
+  background: #27272a !important;
+  border-radius: 2px !important;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  background: #ffffff !important;
+  border: 1px solid #000000 !important;
+  width: 14px !important;
+  height: 14px !important;
+  border-radius: 50% !important;
+}
+
+input[type="text"], select {
+  background: #18181b !important;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  color: #ffffff !important;
+  border-radius: 6px !important;
+  padding: 6px 10px !important;
+  font-size: 12px !important;
+}
+
+/* ── 7. Clean Responsive Behavior ────────────────────────────────────────────── */
+@media (max-width: 1080px) {
+  #cesiumContainer, #world-overlay-root {
+    left: 260px !important;
+    right: 260px !important;
+  }
+  #left-panel-stack, #right-context-rail {
+    width: 240px !important;
+  }
+  #command-dock {
+    width: calc(100vw - 540px) !important;
+  }
+}

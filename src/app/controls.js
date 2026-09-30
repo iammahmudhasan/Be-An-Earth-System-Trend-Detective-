@@ -39,9 +39,9 @@ export function createApplicationControls({
   });
   defer(() => cockpitCloudEffects?.destroy());
 
-  // If no share link state, do default fly-to Austin
+  // If no share link state, do default fly-to Bangladesh
   if (!styleManager.hasShareState) {
-    loaderStatus.textContent = 'Flying to Austin, TX...';
+    loaderStatus.textContent = 'Engaging Bangladesh & Bay of Bengal Sector...';
     defer(flyToAustin(viewer));
   } else {
     loaderStatus.textContent = 'Restoring shared view...';

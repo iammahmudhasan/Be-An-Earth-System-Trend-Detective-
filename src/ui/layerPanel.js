@@ -379,9 +379,9 @@ export class LayerPanel {
 
   /** Qualify a loaded count when it does not mean items currently on screen. */
   _layerCountText(stats) {
-    if (typeof stats.countLabel === 'string' && stats.countLabel.trim())
+    if (typeof stats?.countLabel === 'string' && stats.countLabel.trim())
       return stats.countLabel;
-    return stats.count ? this._formatCount(stats.count) : '—';
+    return stats?.count ? this._formatCount(stats.count) : '';
   }
 
   /**

@@ -5,6 +5,38 @@ import * as Cesium from 'cesium';
  * Phase 1 default: fly to Austin, TX on load.
  */
 export const CAMERA_PRESETS = {
+  bangladesh: {
+    destination: Cesium.Cartesian3.fromDegrees(90.3563, 23.6850, 650000),
+    orientation: {
+      heading: Cesium.Math.toRadians(0),
+      pitch: Cesium.Math.toRadians(-60),
+      roll: 0.0,
+    },
+  },
+  dhaka: {
+    destination: Cesium.Cartesian3.fromDegrees(90.4125, 23.8103, 12000),
+    orientation: {
+      heading: Cesium.Math.toRadians(0),
+      pitch: Cesium.Math.toRadians(-45),
+      roll: 0.0,
+    },
+  },
+  barisal: {
+    destination: Cesium.Cartesian3.fromDegrees(90.3667, 22.7010, 18000),
+    orientation: {
+      heading: Cesium.Math.toRadians(15),
+      pitch: Cesium.Math.toRadians(-35),
+      roll: 0.0,
+    },
+  },
+  bayOfBengal: {
+    destination: Cesium.Cartesian3.fromDegrees(90.5000, 21.5000, 350000),
+    orientation: {
+      heading: Cesium.Math.toRadians(0),
+      pitch: Cesium.Math.toRadians(-50),
+      roll: 0.0,
+    },
+  },
   austin: {
     destination: Cesium.Cartesian3.fromDegrees(-97.7431, 30.2672, 800),
     orientation: {
@@ -47,13 +79,13 @@ export function flyToPreset(viewer, presetName, duration = 3.0) {
 }
 
 /**
- * Set camera to Austin on load with a cinematic fly-in.
+ * Set camera to Bangladesh on load with a cinematic fly-in.
  * @returns {Function} Cancels the pending or active startup flight.
  */
-export function flyToAustin(viewer) {
-  // Start from a high altitude, then fly down
+export function flyToBangladesh(viewer) {
+  // Start from space above South Asia
   viewer.camera.setView({
-    destination: Cesium.Cartesian3.fromDegrees(-97.7431, 30.2672, 25000),
+    destination: Cesium.Cartesian3.fromDegrees(90.3563, 23.6850, 4500000),
     orientation: {
       heading: Cesium.Math.toRadians(0),
       pitch: Cesium.Math.toRadians(-90),
@@ -61,22 +93,25 @@ export function flyToAustin(viewer) {
     },
   });
 
-  // Cinematic fly-in after a brief pause
+  // Cinematic fly-in directly over Bangladesh
   const timer = setTimeout(() => {
     if (viewer.isDestroyed()) return;
     viewer.camera.flyTo({
-      destination: Cesium.Cartesian3.fromDegrees(-97.7431, 30.2672, 600),
+      destination: Cesium.Cartesian3.fromDegrees(90.3563, 23.6850, 850000),
       orientation: {
-        heading: Cesium.Math.toRadians(15),
-        pitch: Cesium.Math.toRadians(-30),
+        heading: Cesium.Math.toRadians(0),
+        pitch: Cesium.Math.toRadians(-65),
         roll: 0.0,
       },
-      duration: 4.0,
+      duration: 3.5,
       easingFunction: Cesium.EasingFunction.CUBIC_IN_OUT,
     });
-  }, 500);
+  }, 400);
+
   return () => {
     clearTimeout(timer);
     if (!viewer.isDestroyed()) viewer.camera.cancelFlight();
   };
 }
+
+export const flyToAustin = flyToBangladesh;
