@@ -2,7 +2,7 @@
 
 <div align="center">
 
-# Project Orion Space: God's Eye View & Climate Trend Detective
+# Project Orion Space: Earth System Trend Detective
 ### *A 3D Photorealistic Satellite Digital Twin & Planetary Trend Detective for Climate Anomaly Telemetry*
 
 **NASA International Space Apps Challenge 2026**  
@@ -17,7 +17,7 @@
 
 ## 🧭 Executive Summary
 
-**Project Orion Space: God's Eye View & Climate Trend Detective** is an open-source, production-grade geospatial intelligence and planetary forensics engine built on top of high-performance **CesiumJS WebGL**, integrating over **25 years of NASA Earth observation data (2000–2025/2026)**. 
+**Project Orion Space: Earth System Trend Detective** is an open-source, production-grade geospatial intelligence and planetary forensics engine built on top of high-performance **CesiumJS WebGL**, integrating over **25 years of NASA Earth observation data (2000–2025/2026)**. 
 
 Conceived, engineered, and mathematically verified from **Barisal, Bangladesh**—one of the world's most climate-vulnerable coastal deltas—the platform directly addresses the core mandate of NASA's 2026 Space Apps Challenge: **"Be An Earth System Trend Detective!"**
 
@@ -28,7 +28,7 @@ Rather than relying on static 2D plots or black-box predictive models prone to h
 ## 📌 1. Challenge Category & Project Identity
 
 - **Challenge Category:** *Be An Earth System Trend Detective!* (Earth System Trend Detective / Climate Anomaly)
-- **Project Title:** **Project Orion Space: God's Eye View & Climate Trend Detective**
+- **Project Title:** **Project Orion Space: Earth System Trend Detective**
 - **Lead Developer & System Architect:** **Md Mushfiqur Rahim** ([@MD-Mushfiqur123](https://github.com/MD-Mushfiqur123))
 - **Team:** **Team Orion Space** (Barisal, Bangladesh)
 - **Target Geographic Focus:** Coastal Bangladesh Delta (Barisal, Bhola, Patuakhali) & National 34-Station Meteorological Grid
