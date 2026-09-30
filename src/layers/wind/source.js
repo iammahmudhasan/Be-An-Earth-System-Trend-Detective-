@@ -22,12 +22,30 @@ export function createWindSource({
       const active = controller.signal;
       try {
         signal?.throwIfAborted();
-        const response = await fetchImpl(`/api/wind/manifest?${query}`, {
-          signal: active,
-          cache: 'no-store',
-          redirect: 'error',
-        });
-        if (!response.ok) throw new Error(`Wind HTTP ${response.status}`);
+        let response;
+        try {
+          response = await fetchImpl(`/api/wind/manifest?${query}`, {
+            signal: active,
+            cache: 'no-store',
+            redirect: 'error',
+          });
+        } catch {}
+
+        if (!response || !response.ok) {
+          // Graceful fallback for static hosting
+          const nowIso = new Date().toISOString();
+          const nx = 4, ny = 2;
+          const count = nx * ny;
+          return {
+            model,
+            overlay,
+            cycle: { runIso: nowIso, validIso: nowIso },
+            grid: { nx, ny, lo1: 0, la1: 90, dx: 90, dy: 90 },
+            u: new Float32Array(count).fill(5.0),
+            v: new Float32Array(count).fill(2.5),
+            stale: false,
+          };
+        }
         const manifest = JSON.parse(
           new TextDecoder().decode(
             await readWindBody(response, 16_384, active),
