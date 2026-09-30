@@ -653,3 +653,20 @@ body.cockpit-mode #cockpit-cloud-effects.active {
   text-shadow: 0 0 20px var(--accent-glow);
   transition: var(--transition-smooth);
 }
+
+#data-panel .panel-glow { inset: -20px; }
+#scene-panel .panel-glow { inset: -20px; }
+#cctv-panel .panel-glow { inset: -20px; }
+#global-context-panel .panel-glow { inset: -20px; }
+
+@media (max-width: 720px) {
+  #left-panel-stack,
+  #right-context-rail {
+    overflow-y: auto;
+  }
+  #left-panel-stack .panel-glow,
+  #right-context-rail .panel-glow {
+    inset: 0;
+  }
+}
+
