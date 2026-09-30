@@ -45,6 +45,27 @@ application
               new CustomEvent('gev:clouds-toggled', { detail: diag }),
             );
           });
+
+          // ── Autonomous Orion Map Harness Agent (Voice & NLP) ────────────────────
+          import('./agent/OrionMapHarness.js')
+            .then(({ OrionMapHarness }) => {
+              const harness = new OrionMapHarness(viewer, { cloudStream: realCloudStream });
+              harness.mount(document.body);
+
+              const harnessDockBtn = document.getElementById('orion-harness-dock-btn');
+              harnessDockBtn?.addEventListener('click', () => {
+                harness.toggle();
+              });
+
+              window.addEventListener('keydown', (e) => {
+                if (e.code === 'Space' && !['INPUT', 'TEXTAREA'].includes(document.activeElement?.tagName)) {
+                  e.preventDefault();
+                  harness.toggle();
+                }
+              });
+              console.info('[AgentHarness] Autonomous Orion Map Harness Agent initialized.');
+            })
+            .catch((err) => console.error('[AgentHarness] Init error:', err));
         })
         .catch((err) =>
           console.error('[Clouds] Cloud stream init error:', err),
