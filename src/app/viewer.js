@@ -120,16 +120,24 @@ export function createApplicationViewer({ container, creditContainer }) {
     infoBox: false,
     baseLayer: false,
     creditContainer,
-    msaaSamples: 4,
-    contextOptions: { webgl: { preserveDrawingBuffer: true } },
+    msaaSamples: 2,
+    contextOptions: {
+      webgl: {
+        preserveDrawingBuffer: true,
+        powerPreference: 'high-performance',
+        antialias: true
+      }
+    },
   });
   try {
     viewer.targetFrameRate = 60;
+    viewer.resolutionScale = Math.min(window.devicePixelRatio || 1.0, 1.5);
     // Before any tile builds a draw command: Cesium's per-vertex model
     // atmosphere fails to LINK on Apple's Metal backend and kills the
     // render loop. See app/atmosphereCompat.js.
     applyModelAtmosphereWorkaround(viewer.scene);
     viewer.scene.globe.show = false;
+    viewer.scene.globe.maximumScreenSpaceError = 2.0;
     viewer.scene.skyAtmosphere.show = true;
     viewer.scene.skyAtmosphere.atmosphereLightIntensity = 18;
     viewer.scene.skyAtmosphere.saturationShift = -0.12;
