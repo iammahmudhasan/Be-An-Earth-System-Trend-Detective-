@@ -115,23 +115,61 @@ export function createAdsbLolSource({
   return {
     label: 'adsb.lol',
     async getIdentities(_query = {}, { signal } = {}) {
-      const { response, payload } = await readResponse(
-        fetchImpl,
-        '/api/adsblol/mil',
-        { signal },
-        'adsb.lol',
-      );
-      if (!response.ok) throw httpError(response, 'adsb.lol');
+      let response, payload;
+      try {
+        const res = await readResponse(
+          fetchImpl,
+          '/api/adsblol/mil',
+          { signal },
+          'adsb.lol',
+        );
+        response = res.response;
+        payload = res.payload;
+      } catch {}
+
+      if (!response || !response.ok) {
+        try {
+          const direct = await readResponse(
+            fetchImpl,
+            'https://api.adsb.lol/v2/mil',
+            { signal },
+            'adsb.lol',
+          );
+          response = direct.response;
+          payload = direct.payload;
+        } catch {}
+      }
+
+      if (!response || !response.ok) throw httpError(response || { status: 404 }, 'adsb.lol');
       return readsbIdentities(payload);
     },
     async getSnapshot(_query = {}, { signal } = {}) {
-      const { response, payload } = await readResponse(
-        fetchImpl,
-        '/api/adsblol/mil',
-        { signal },
-        'adsb.lol',
-      );
-      if (!response.ok) throw httpError(response, 'adsb.lol');
+      let response, payload;
+      try {
+        const res = await readResponse(
+          fetchImpl,
+          '/api/adsblol/mil',
+          { signal },
+          'adsb.lol',
+        );
+        response = res.response;
+        payload = res.payload;
+      } catch {}
+
+      if (!response || !response.ok) {
+        try {
+          const direct = await readResponse(
+            fetchImpl,
+            'https://api.adsb.lol/v2/mil',
+            { signal },
+            'adsb.lol',
+          );
+          response = direct.response;
+          payload = direct.payload;
+        } catch {}
+      }
+
+      if (!response || !response.ok) throw httpError(response || { status: 404 }, 'adsb.lol');
       const age = finite(header(response, 'x-ads-b-cache-age-ms'));
       return {
         ...readsbSnapshot(payload, {
@@ -143,13 +181,32 @@ export function createAdsbLolSource({
       };
     },
     async getTrack(reference, { signal } = {}) {
-      const { response, payload } = await readResponse(
-        fetchImpl,
-        '/api/adsblol/trace?hex=' + encodeURIComponent(reference),
-        { signal },
-        'adsb.lol',
-      );
-      if (!response.ok) throw httpError(response, 'adsb.lol');
+      let response, payload;
+      try {
+        const res = await readResponse(
+          fetchImpl,
+          '/api/adsblol/trace?hex=' + encodeURIComponent(reference),
+          { signal },
+          'adsb.lol',
+        );
+        response = res.response;
+        payload = res.payload;
+      } catch {}
+
+      if (!response || !response.ok) {
+        try {
+          const direct = await readResponse(
+            fetchImpl,
+            'https://api.adsb.lol/v2/trace/' + encodeURIComponent(reference),
+            { signal },
+            'adsb.lol',
+          );
+          response = direct.response;
+          payload = direct.payload;
+        } catch {}
+      }
+
+      if (!response || !response.ok) throw httpError(response || { status: 404 }, 'adsb.lol');
       const baseTimeMs = epoch(payload?.timestamp, 1000);
       return {
         records:
