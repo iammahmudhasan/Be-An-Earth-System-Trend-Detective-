@@ -7,7 +7,7 @@
  * Bangladesh Air Force tactical transports (C-130J), and regional patrol assets across
  * the Bay of Bengal, Chittagong FIR, and Andaman Sea maritime corridors.
  *
- * Project Orion Space - God's Eye View OSINT Airspace Suite
+ * Project Orion Space - Orion Space OSINT Airspace Suite
  * Zero Placeholders - 100% Production Ready
  */
 

@@ -1,7 +1,7 @@
 /**
  * @file index.js
  * @module osint
- * @description Master OSINT Registry & Unified Architecture Suite for Project Orion Space (God's Eye View).
+ * @description Master OSINT Registry & Unified Architecture Suite for Project Orion Space (Orion Space).
  *
  * Bundles all 6 Tactical OSINT Subsystems into a cohesive, high-performance geospatial intelligence engine:
  *  1. Maritime & Dark Vessel OSINT:
@@ -25,7 +25,7 @@
  *  6. Autonomous Orion AI Analyst:
  *     - OrionAIIntelligenceConsole (In-console tactical analyst, Cesium camera maneuvers, FLIR shaders)
  *
- * Project Orion Space - God's Eye View OSINT Master Suite
+ * Project Orion Space - Orion Space OSINT Master Suite
  * Zero Placeholders - 100% Production Ready Verified ES Module
  */
 

@@ -1,12 +1,12 @@
 # 🛰️ NASA SPACE APPS CHALLENGE 2026 — OFFICIAL SUBMISSION
 
 ## 📌 Project Overview
-- **Project Title:** Project Orion Space: God's Eye View & Earth System Trend Detective
+- **Project Title:** Project Orion Space — Earth System Trend Detective
 - **Challenge Category:** *Be An Earth System Trend Detective!*
 - **Local Event:** Barisal, Bangladesh
 - **Team Name:** Orion Space
 - **Lead Developer & System Architect:** **Md Mushfiqur Rahim** ([@MD-Mushfiqur123](https://github.com/MD-Mushfiqur123))
-- **Live GitHub Repository:** [https://github.com/MD-Mushfiqur123/orion-space-gods-eye](https://github.com/MD-Mushfiqur123/orion-space-gods-eye)
+- **Live GitHub Repository:** [https://github.com/MD-Mushfiqur123/orion-space](https://github.com/MD-Mushfiqur123/orion-space)
 
 ---
 
@@ -83,10 +83,10 @@ Barisal is located in the low-lying estuarine delta of Bangladesh, with average 
 ## 🚀 5. How to Run the Platform Locally
 ```bash
 # Clone the repository
-git clone https://github.com/MD-Mushfiqur123/orion-space-gods-eye.git
+git clone https://github.com/MD-Mushfiqur123/orion-space.git
 
 # Enter the project directory
-cd orion-space-gods-eye
+cd orion-space
 
 # Install dependencies
 npm install

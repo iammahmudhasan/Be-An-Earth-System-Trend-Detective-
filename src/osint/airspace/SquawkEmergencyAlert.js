@@ -10,7 +10,7 @@
  * Provides visual pulsating Cesium radar warning beacons, telemetry inspection,
  * and synthesized Web Audio tactical alert horns.
  *
- * Project Orion Space - God's Eye View OSINT Airspace Suite
+ * Project Orion Space - Orion Space OSINT Airspace Suite
  * Zero Placeholders - 100% Production Ready
  */
 

@@ -1,18 +1,18 @@
 {
-  "name": "orion-space-gods-eye",
+  "name": "orion-space",
   "private": true,
   "version": "1.0.0",
   "description": "Project Orion Space — NASA Space Apps Challenge 2026: Be An Earth System Trend Detective! Lead Developer: Md Mushfiqur Rahim (Barisal, Bangladesh)",
   "type": "module",
   "license": "MIT",
   "author": "Md Mushfiqur Rahim",
-  "homepage": "https://github.com/MD-Mushfiqur123/orion-space-gods-eye#readme",
+  "homepage": "https://github.com/MD-Mushfiqur123/orion-space#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/MD-Mushfiqur123/orion-space-gods-eye.git"
+    "url": "https://github.com/MD-Mushfiqur123/orion-space.git"
   },
   "bugs": {
-    "url": "https://github.com/MD-Mushfiqur123/orion-space-gods-eye/issues"
+    "url": "https://github.com/MD-Mushfiqur123/orion-space/issues"
   },
   "engines": {
     "node": ">=24.14.0 <25 || >=26 <27"

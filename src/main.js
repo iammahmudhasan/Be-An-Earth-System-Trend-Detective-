@@ -24,12 +24,12 @@ application
           cloudDockBtn?.addEventListener('click', () => {
             const active = realCloudStream.toggle();
             cloudDockBtn.style.background = active
-              ? '#38bdf8'
-              : 'rgba(56,189,248,0.1)';
-            cloudDockBtn.style.color = active ? '#000000' : '#38bdf8';
+              ? '#ffffff'
+              : 'rgba(255, 255, 255, 0.05)';
+            cloudDockBtn.style.color = active ? '#000000' : '#e4e4e7';
             cloudDockBtn.style.borderColor = active
-              ? '#38bdf8'
-              : 'rgba(56,189,248,0.4)';
+              ? '#ffffff'
+              : 'rgba(255, 255, 255, 0.15)';
             cloudDockBtn.setAttribute('aria-pressed', String(active));
             const label = cloudDockBtn.querySelector('.btn-label');
             if (label) {
@@ -167,7 +167,7 @@ application
     setInterval(updateWeatherTelemetry, 3500);
   })
   .catch((error) => {
-    console.error("God's Eye View initialization failed:", error);
+    console.error("Orion Space initialization failed:", error);
     const loaderStatus = document.querySelector(
       '#loading-screen .loader-status',
     );

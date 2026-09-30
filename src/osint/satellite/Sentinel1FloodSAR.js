@@ -10,7 +10,7 @@
  * and high-fidelity flood depth hypsometric rendering across Bangladesh (Sylhet Haor Basin,
  * Feni/Muhuri flash flood corridor, Kurigram/Jamuna floodplains, and the coastal delta).
  *
- * Project Orion Space - God's Eye View OSINT & Satellite Intelligence
+ * Project Orion Space - Orion Space OSINT & Satellite Intelligence
  * Zero Placeholders - 100% Production Ready
  */
 

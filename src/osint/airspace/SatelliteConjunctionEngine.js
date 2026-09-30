@@ -12,7 +12,7 @@
  *   - 2D/3D collision probability ($P_c$) via Foster-1992 covariance ellipsoid integration
  *   - 3D orbit trajectory visualizations and conjunction warning vectors in CesiumJS
  *
- * Project Orion Space - God's Eye View OSINT Airspace Suite
+ * Project Orion Space - Orion Space OSINT Airspace Suite
  * Zero Placeholders - 100% Production Ready
  */
 

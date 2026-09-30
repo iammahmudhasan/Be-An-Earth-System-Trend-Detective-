@@ -7,7 +7,7 @@
  * and high-fidelity geospatial vulnerability analytics across the Bangladesh Coastal Belt
  * (Barisal, Bhola, Patuakhali, Khulna, Bagerhat, Satkhira, Barguna, Pirojpur, Jhalokati).
  *
- * Project Orion Space - God's Eye View OSINT & Tactical Climate System
+ * Project Orion Space - Orion Space OSINT & Tactical Climate System
  * Zero Placeholders - 100% Production Ready
  */
 

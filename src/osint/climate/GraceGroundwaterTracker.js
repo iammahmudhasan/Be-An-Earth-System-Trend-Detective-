@@ -5,7 +5,7 @@
  * Anomaly & Groundwater Depletion Analytics Engine across the North Bengal Barind Tract
  * (Rajshahi, Naogaon, Chapai Nawabganj, Bogra, Joypurhat, Dinajpur, Rangpur, Gaibandha).
  *
- * Project Orion Space - God's Eye View OSINT & Tactical Climate System
+ * Project Orion Space - Orion Space OSINT & Tactical Climate System
  * Zero Placeholders - 100% Production Ready
  */
 

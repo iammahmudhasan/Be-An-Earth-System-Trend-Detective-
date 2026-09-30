@@ -17,7 +17,7 @@
  *  6. Integrated HUD Terminal UI: Floating glassmorphic tactical terminal with quick chips,
  *     command history, streaming output, and synthesized Web Audio tactical sound effects.
  *
- * Project Orion Space - God's Eye View OSINT Master Suite
+ * Project Orion Space - Orion Space OSINT Master Suite
  * Zero Placeholders - 100% Production Ready Verified ES Module
  */
 
@@ -301,7 +301,7 @@ export class OrionAIIntelligenceConsole {
   /**
    * @param {Cesium.Viewer} viewer - CesiumJS Viewer instance
    * @param {Object} [options] - Configuration parameters
-   * @param {Object} [options.styleManager] - Gods Eye View visualSettings or styleManager
+   * @param {Object} [options.styleManager] - Orion Space visualSettings or styleManager
    * @param {Object} [options.osintRegistry] - Master OSINT Registry instance
    * @param {boolean} [options.soundEnabled=true] - Enable Web Audio procedural SFX
    * @param {string} [options.operatorId='OPERATOR-ORION-01'] - Call-sign ID

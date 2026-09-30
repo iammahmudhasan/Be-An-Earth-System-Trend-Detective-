@@ -1,8 +1,5 @@
 /**
- * Scanner design inspired by kk376's tactical naval sonar visual style:
- * https://github.com/bilawalsidhu/gods-eye-view/pull/214
- *
- * This is a separate HUD/contact treatment, not a port of that PR's shader.
+ * Tactical naval sonar sweep and sensor contact styling.
  */
 export const CYBER_SONAR_PERIOD_MS = 5_200;
 // Parked-scene wake-ups and shared overlays use the fleet cadence. Native
