@@ -12,6 +12,7 @@ export function createBrowserViteConfig({
   command,
 } = {}) {
   return {
+    base: './',
     plugins: [cesium(), applicationHtmlPlugin(), ...plugins],
     ...(publicDir === undefined ? {} : { publicDir }),
     // A production build must not clean the dependency cache a running dev
