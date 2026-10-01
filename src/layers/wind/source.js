@@ -34,7 +34,8 @@ export function createWindSource({
         if (!response || !response.ok) {
           // Graceful fallback for static hosting
           const nowIso = new Date().toISOString();
-          const nx = 4, ny = 2;
+          const nx = 4,
+            ny = 2;
           const count = nx * ny;
           return {
             model,

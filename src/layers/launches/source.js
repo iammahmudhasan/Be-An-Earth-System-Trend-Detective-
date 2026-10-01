@@ -10,16 +10,21 @@ export function createLaunchSource({
         if (response.ok) {
           const payload = await response.json();
           signal?.throwIfAborted();
-          if (Array.isArray(payload) || Array.isArray(payload?.results)) return payload;
+          if (Array.isArray(payload) || Array.isArray(payload?.results))
+            return payload;
         }
       } catch {}
 
       try {
-        const direct = await fetchImpl('https://ll.thespacedevs.com/2.2.0/launch/previous/?limit=20&mode=normal', { signal });
+        const direct = await fetchImpl(
+          'https://ll.thespacedevs.com/2.2.0/launch/previous/?limit=20&mode=normal',
+          { signal },
+        );
         if (direct.ok) {
           const payload = await direct.json();
           signal?.throwIfAborted();
-          if (Array.isArray(payload) || Array.isArray(payload?.results)) return payload;
+          if (Array.isArray(payload) || Array.isArray(payload?.results))
+            return payload;
         }
       } catch {}
 
@@ -36,10 +41,14 @@ export function createLaunchSource({
               name: 'Space Launch Complex 40',
               latitude: 28.5619,
               longitude: -80.5772,
-              location: { name: 'Cape Canaveral SFS, FL, USA' }
+              location: { name: 'Cape Canaveral SFS, FL, USA' },
             },
             launch_service_provider: { name: 'SpaceX' },
-            mission: { name: 'Starlink Group 10-1', description: 'Deployment of Starlink V2 Mini satellites to Low Earth Orbit.' }
+            mission: {
+              name: 'Starlink Group 10-1',
+              description:
+                'Deployment of Starlink V2 Mini satellites to Low Earth Orbit.',
+            },
           },
           {
             id: 'pslv-c58-xposat',
@@ -50,12 +59,18 @@ export function createLaunchSource({
               name: 'First Launch Pad (FLP)',
               latitude: 13.7199,
               longitude: 80.2304,
-              location: { name: 'Satish Dhawan Space Centre, Sriharikota, India' }
+              location: {
+                name: 'Satish Dhawan Space Centre, Sriharikota, India',
+              },
             },
             launch_service_provider: { name: 'ISRO' },
-            mission: { name: 'X-ray Polarimeter Satellite', description: 'ISRO scientific mission to study cosmic X-ray polarization.' }
-          }
-        ]
+            mission: {
+              name: 'X-ray Polarimeter Satellite',
+              description:
+                'ISRO scientific mission to study cosmic X-ray polarization.',
+            },
+          },
+        ],
       };
     },
     async getActiveTle({ signal } = {}) {
@@ -65,7 +80,10 @@ export function createLaunchSource({
         if (response.ok) return await response.text();
       } catch {}
       try {
-        const direct = await fetchImpl('https://celestrak.org/NORAD/elements/gp.php?GROUP=active&FORMAT=tle', { signal });
+        const direct = await fetchImpl(
+          'https://celestrak.org/NORAD/elements/gp.php?GROUP=active&FORMAT=tle',
+          { signal },
+        );
         if (direct.ok) return await direct.text();
       } catch {}
       return '';

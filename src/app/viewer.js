@@ -125,8 +125,8 @@ export function createApplicationViewer({ container, creditContainer }) {
       webgl: {
         preserveDrawingBuffer: true,
         powerPreference: 'high-performance',
-        antialias: true
-      }
+        antialias: true,
+      },
     },
   });
   try {
